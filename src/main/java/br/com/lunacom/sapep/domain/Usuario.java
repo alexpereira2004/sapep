@@ -1,4 +1,7 @@
 package br.com.lunacom.sapep.domain;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
 }
