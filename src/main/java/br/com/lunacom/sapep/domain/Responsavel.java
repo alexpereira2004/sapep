@@ -1,4 +1,7 @@
 package br.com.lunacom.sapep.domain;
 
-public class Responsavel {
+import java.io.Serializable;
+
+public class Responsavel  implements Serializable {
+    private static final long serialVersionUID = 1L;
 }
