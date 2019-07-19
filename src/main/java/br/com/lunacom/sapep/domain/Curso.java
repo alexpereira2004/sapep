@@ -6,6 +6,7 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class Curso implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,12 +18,15 @@ public class Curso implements Serializable {
     private Date criacao;
     private Time hora;
 
+    // https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
     @OneToMany
-    @JoinColumn(name = "conceito_id")
+    @JoinColumn(name = "curso_id")
     private List<Conceito> conceitos;
 
-    @OneToMany
-    @JoinColumn(name = "responsavel_id")
+    @OneToMany(mappedBy = "curso")
+    private List<Autoavaliacao> autoavaliacoes;
+
+    @OneToMany(mappedBy = "curso")
     private List<Responsavel> responsaveis;
 
     public Curso() {}

@@ -4,25 +4,22 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario implements Serializable {
+public class Resposta implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
-
-    @Column(unique=true)
-    private String email;
-    private String telefone;
-    private boolean reitoria;
-    private boolean admin;
-    private String senha;
-    private String status;
+    private Integer ano;
+    private String descritiva;
+    private float valor;
     private Date criacao;
     private Time hora;
 
+    @ManyToOne
+    @JoinColumn(name="indicador_id")
+    private Indicador indicador;
 }
