@@ -18,4 +18,36 @@ public class CursoNovoDTO implements Serializable {
     private String status;
     private Date criacao;
     private Time hora;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getCriacao() {
+        return criacao;
+    }
+
+    public void setCriacao(Date criacao) {
+        this.criacao = criacao;
+    }
+
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
+    }
 }
