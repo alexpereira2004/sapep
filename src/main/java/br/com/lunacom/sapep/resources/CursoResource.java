@@ -31,9 +31,13 @@ public class CursoResource {
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public ResponseEntity<List<Curso>> findAll() {
+    public ResponseEntity<List<CursoDTO>> findAll() {
         List<Curso> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        List<CursoDTO> listDTO = list
+                .stream()
+                .map(obj -> service.toDTO(obj))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
     }
 //
 //    @RequestMapping(value="/{id}", method=RequestMethod.GET)

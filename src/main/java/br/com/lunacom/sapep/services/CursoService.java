@@ -4,6 +4,8 @@ import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.CursoNovoDTO;
 import br.com.lunacom.sapep.repositories.CursoRepository;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
@@ -30,9 +32,11 @@ public class CursoService {
         Curso curso = mapper.map(objDto, Curso.class);
         return curso;
     }
-    public Curso fromDTO(CursoDTO objDto) {
+    public CursoDTO toDTO(Curso obj) {
         ModelMapper mapper = new ModelMapper();
-        Curso curso = mapper.map(objDto, Curso.class);
-        return curso;
+//        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+//        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+        CursoDTO cursoDTO = mapper.map(obj, CursoDTO.class);
+        return cursoDTO;
     }
 }
