@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Curso;
+import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.CursoNovoDTO;
 import br.com.lunacom.sapep.services.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +29,12 @@ public class CursoResource {
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
-//
-//    @RequestMapping(method=RequestMethod.GET)
-//    public ResponseEntity<List<ClienteDTO>> findAll() {
-//        List<Cliente> list = service.findAll();
-//        List<ClienteDTO> listDto = list.stream().map(obj -> new ClienteDTO(obj)).collect(Collectors.toList());
-//        return ResponseEntity.ok().body(listDto);
-//    }
+
+    @RequestMapping(method=RequestMethod.GET)
+    public ResponseEntity<List<Curso>> findAll() {
+        List<Curso> list = service.findAll();
+        return ResponseEntity.ok().body(list);
+    }
 //
 //    @RequestMapping(value="/{id}", method=RequestMethod.GET)
 //    public ResponseEntity<Cliente> find(@PathVariable Integer id) {
