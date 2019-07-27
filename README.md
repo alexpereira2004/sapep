@@ -11,9 +11,11 @@ O desenvolvimento do software seguirá as etapas de iniciação, planejamento, e
 Os resultados esperados após a entrega do artefato aqui proposto é de que seja possível gerar e manter um histórico de informações das avaliações realizadas dos cursos de pós graduação do IFRS-POA, histórico que deverá ser de fácil consulta para então ser distribuído dentro algumas condições restritas.
 
 #### Tecnologias usadas:
-- Java com Framework Spring
+- Spring Boot
+- JPA com Hibernate
 - Mysql
 - Angular 8
+- Bootstrap 4
 
 #### Técnicas usadas:
 - [Lombok](https://dzone.com/articles/project-lombok-boilerplate-code-reducer)
