@@ -46,14 +46,14 @@ public class CursoResource {
         CursoDTO objDTO = service.toDTO(obj);
         return ResponseEntity.ok().body(objDTO);
     }
-//
-//    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-//    public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDto, @PathVariable Integer id) {
-//        Cliente obj = service.fromDTO(objDto);
-//        obj.setId(id);
-//        obj = service.update(obj);
-//        return ResponseEntity.noContent().build();
-//    }
+
+    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    public ResponseEntity<Void> update(@Valid @RequestBody CursoDTO objDto, @PathVariable Integer id) {
+        Curso obj = service.fromDTO(objDto);
+        obj.setId(id);
+        obj = service.update(obj);
+        return ResponseEntity.noContent().build();
+    }
 //
 //    @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
 //    public ResponseEntity<Void> delete(@PathVariable Integer id) {

@@ -31,11 +31,22 @@ public class CursoService {
         return obj.orElseThrow(() -> new RuntimeException("Objeto não encontrado"));
     }
 
+    public Curso update(Curso obj) {
+        return repo.save(obj);
+    }
+
     public Curso fromDTO(CursoNovoDTO objDto) {
         ModelMapper mapper = new ModelMapper();
         Curso curso = mapper.map(objDto, Curso.class);
         return curso;
     }
+
+    public Curso fromDTO(CursoDTO objDto) {
+        ModelMapper mapper = new ModelMapper();
+        Curso curso = mapper.map(objDto, Curso.class);
+        return curso;
+    }
+
     public CursoDTO toDTO(Curso obj) {
         ModelMapper mapper = new ModelMapper();
         CursoDTO cursoDTO = mapper.map(obj, CursoDTO.class);
