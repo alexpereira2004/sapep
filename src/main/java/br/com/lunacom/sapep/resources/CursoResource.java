@@ -39,12 +39,13 @@ public class CursoResource {
                 .collect(Collectors.toList());
         return ResponseEntity.ok().body(listDTO);
     }
-//
-//    @RequestMapping(value="/{id}", method=RequestMethod.GET)
-//    public ResponseEntity<Cliente> find(@PathVariable Integer id) {
-//        Curso obj = service.find(id);
-//        return ResponseEntity.ok().body(obj);
-//    }
+
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
+    public ResponseEntity<CursoDTO> find(@PathVariable Integer id) {
+        Curso obj = service.find(id);
+        CursoDTO objDTO = service.toDTO(obj);
+        return ResponseEntity.ok().body(objDTO);
+    }
 //
 //    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
 //    public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDto, @PathVariable Integer id) {
