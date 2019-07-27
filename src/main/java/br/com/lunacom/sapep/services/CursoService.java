@@ -5,6 +5,7 @@ import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.CursoNovoDTO;
 import br.com.lunacom.sapep.repositories.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
@@ -33,6 +34,11 @@ public class CursoService {
 
     public Curso update(Curso obj) {
         return repo.save(obj);
+    }
+
+    public void delete(Integer id) {
+        find(id);
+        repo.deleteById(id);
     }
 
     public Curso fromDTO(CursoNovoDTO objDto) {
