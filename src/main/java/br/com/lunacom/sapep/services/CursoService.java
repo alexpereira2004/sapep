@@ -5,10 +5,10 @@ import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.CursoNovoDTO;
 import br.com.lunacom.sapep.repositories.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +43,7 @@ public class CursoService {
 
     public Curso fromDTO(CursoNovoDTO objDto) {
         ModelMapper mapper = new ModelMapper();
+        objDto.setCriacao(new Date());
         Curso curso = mapper.map(objDto, Curso.class);
         return curso;
     }

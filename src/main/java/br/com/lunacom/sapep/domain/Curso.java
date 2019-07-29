@@ -16,7 +16,6 @@ public class Curso implements Serializable {
     private String nome;
     private String status;
     private Date criacao;
-    private Time hora;
 
     // https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
     @OneToMany
@@ -66,14 +65,6 @@ public class Curso implements Serializable {
 
     public void setCriacao(Date criacao) {
         this.criacao = criacao;
-    }
-
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
     }
 
     public List<Conceito> getConceitos() {

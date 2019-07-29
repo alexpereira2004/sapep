@@ -21,5 +21,4 @@ public class CursoDTO implements Serializable {
     private String nome;
     private String status;
     private Date criacao;
-    private Time hora;
 }
