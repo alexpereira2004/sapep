@@ -1,14 +1,17 @@
 package br.com.lunacom.sapep.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
 @Entity
+@Setter
+@Getter
 public class Conceito implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -20,49 +23,14 @@ public class Conceito implements Serializable {
     private Date criacao;
     private Time hora;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="curso_id")
+    private Curso curso;
+
     public Conceito(Integer id, Integer ano, String nota) {
         this.id = id;
         this.ano = ano;
         this.nota = nota;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getAno() {
-        return ano;
-    }
-
-    public void setAno(Integer ano) {
-        this.ano = ano;
-    }
-
-    public String getNota() {
-        return nota;
-    }
-
-    public void setNota(String nota) {
-        this.nota = nota;
-    }
-
-    public Date getCriacao() {
-        return criacao;
-    }
-
-    public void setCriacao(Date criacao) {
-        this.criacao = criacao;
-    }
-
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
     }
 }
