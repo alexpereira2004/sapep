@@ -41,10 +41,9 @@ public class CursoResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ResponseEntity<CursoDTO> find(@PathVariable Integer id) {
+    public ResponseEntity<Curso> find(@PathVariable Integer id) {
         Curso obj = service.find(id);
-        CursoDTO objDTO = service.toDTO(obj);
-        return ResponseEntity.ok().body(objDTO);
+        return ResponseEntity.ok().body(obj);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)

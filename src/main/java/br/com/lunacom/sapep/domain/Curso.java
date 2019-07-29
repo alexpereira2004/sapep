@@ -1,5 +1,8 @@
 package br.com.lunacom.sapep.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
@@ -7,6 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 public class Curso implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -35,51 +40,4 @@ public class Curso implements Serializable {
         this.status = status;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Date getCriacao() {
-        return criacao;
-    }
-
-    public void setCriacao(Date criacao) {
-        this.criacao = criacao;
-    }
-
-    public List<Conceito> getConceitos() {
-        return conceitos;
-    }
-
-    public void setConceitos(List<Conceito> conceitos) {
-        this.conceitos = conceitos;
-    }
-
-    public List<Responsavel> getResponsaveis() {
-        return responsaveis;
-    }
-
-    public void setResponsaveis(List<Responsavel> responsaveis) {
-        this.responsaveis = responsaveis;
-    }
 }
