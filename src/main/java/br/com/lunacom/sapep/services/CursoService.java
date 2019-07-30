@@ -4,6 +4,7 @@ import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.CursoNovoDTO;
 import br.com.lunacom.sapep.repositories.CursoRepository;
+import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
@@ -29,7 +30,7 @@ public class CursoService {
 
     public Curso find (Integer id) {
         Optional<Curso> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new RuntimeException("Objeto não encontrado"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
     public Curso update(Curso obj) {

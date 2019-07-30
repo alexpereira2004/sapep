@@ -21,7 +21,6 @@ public class Conceito implements Serializable {
     private Integer ano;
     private String nota;
     private Date criacao;
-    private Time hora;
 
     @JsonIgnore
     @ManyToOne
