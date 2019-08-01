@@ -27,9 +27,12 @@ public class Conceito implements Serializable {
     @JoinColumn(name="curso_id")
     private Curso curso;
 
+    public Conceito() {}
+
     public Conceito(Integer id, Integer ano, String nota) {
         this.id = id;
         this.ano = ano;
         this.nota = nota;
     }
+
 }

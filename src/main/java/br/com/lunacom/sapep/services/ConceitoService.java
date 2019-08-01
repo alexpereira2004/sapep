@@ -20,8 +20,14 @@ public class ConceitoService {
     @Autowired
     private ConceitoRepository repo;
 
-    public Conceito insert(Conceito obj) {
+    @Autowired
+    private CursoService cursoService;
+
+    public Conceito insert(ConceitoNovoDTO objDTO) {
+        Conceito obj = fromDTO(objDTO);
+        Curso c1 = cursoService.find(objDTO.getCurso_id());
         obj.setId(null);
+        obj.setCurso(c1);
         return repo.save(obj);
     }
 
@@ -43,6 +49,7 @@ public class ConceitoService {
     public Conceito fromDTO(ConceitoNovoDTO objDTO) {
         ModelMapper mapper = new ModelMapper();
         objDTO.setCriacao(new Date());
+//        objDTO.setCurso(new Curso());
         Conceito obj = mapper.map(objDTO, Conceito.class);
         return obj;
     }

@@ -6,7 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,13 +20,19 @@ public class ConceitoNovoDTO implements Serializable {
 
     private Integer id;
 
-    @NotEmpty(message="Informe o ano do conceito")
+    @NotNull
+    @Min(1900)
+    @Max(2050)
     private Integer ano;
 
     @NotEmpty(message="Informe a nota do conceito")
     private String nota;
 
     private Date criacao;
+
+    @NotNull
+    @Min(1)
+    private Integer curso_id;
 
 
 }

@@ -24,8 +24,8 @@ public class ConceitoResource {
 
     @RequestMapping(method= RequestMethod.POST)
     public ResponseEntity<Void> insert(@Valid @RequestBody ConceitoNovoDTO objDTO) {
-        Conceito obj = service.fromDTO(objDTO);
-        obj = service.insert(obj);
+
+        Conceito obj = service.insert(objDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
