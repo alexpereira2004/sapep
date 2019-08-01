@@ -1,11 +1,16 @@
 package br.com.lunacom.sapep.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "usuario")
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -23,6 +28,4 @@ public class Usuario implements Serializable {
     private String senha;
     private String status;
     private Date criacao;
-    private Time hora;
-
 }

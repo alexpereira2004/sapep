@@ -25,7 +25,7 @@ public class ConceitoService {
 
     public Conceito insert(ConceitoNovoDTO objDTO) {
         Conceito obj = fromDTO(objDTO);
-        Curso c1 = cursoService.find(objDTO.getCurso_id());
+        Curso c1 = cursoService.find(objDTO.getCod_curso());
         obj.setId(null);
         obj.setCurso(c1);
         obj.setCriacao(new Date());

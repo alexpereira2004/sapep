@@ -28,11 +28,7 @@ public class ConceitoNovoDTO implements Serializable {
     @NotEmpty(message="Informe a nota do conceito")
     private String nota;
 
-    private Date criacao;
-
     @NotNull
     @Min(1)
-    private Integer curso_id;
-
-
+    private Integer cod_curso;
 }
