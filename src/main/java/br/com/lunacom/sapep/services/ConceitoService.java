@@ -28,6 +28,7 @@ public class ConceitoService {
         Curso c1 = cursoService.find(objDTO.getCurso_id());
         obj.setId(null);
         obj.setCurso(c1);
+        obj.setCriacao(new Date());
         return repo.save(obj);
     }
 
@@ -43,13 +44,11 @@ public class ConceitoService {
 
     public Conceito find(Integer id) {
         Optional<Conceito> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id ));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Conceito não encontrado! Cod: " + id ));
     }
 
     public Conceito fromDTO(ConceitoNovoDTO objDTO) {
         ModelMapper mapper = new ModelMapper();
-        objDTO.setCriacao(new Date());
-//        objDTO.setCurso(new Curso());
         Conceito obj = mapper.map(objDTO, Conceito.class);
         return obj;
     }
