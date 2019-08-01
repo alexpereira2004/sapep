@@ -1,5 +1,7 @@
 package br.com.lunacom.sapep.domain.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
@@ -11,6 +13,8 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
+@Getter
+@Setter
 public class UsuarioNovoDTO implements Serializable, Dto {
     private static final long serialVersionUID = 1L;
 
