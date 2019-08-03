@@ -32,7 +32,7 @@ public class UsuarioService {
 
     public Usuario find (Integer id) {
         Optional<Usuario> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um usuário"));
     }
 
     public Usuario update(Usuario obj) {

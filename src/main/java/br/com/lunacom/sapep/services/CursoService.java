@@ -30,7 +30,7 @@ public class CursoService {
 
     public Curso find (Integer id) {
         Optional<Curso> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um curso"));
     }
 
     public Curso update(Curso obj) {

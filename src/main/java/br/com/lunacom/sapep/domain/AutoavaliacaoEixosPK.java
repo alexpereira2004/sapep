@@ -1,9 +1,11 @@
 package br.com.lunacom.sapep.domain;
 
+import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
+@Embeddable
 public class AutoavaliacaoEixosPK implements Serializable {
     private static final long serialVersionUID = 1L;
 
