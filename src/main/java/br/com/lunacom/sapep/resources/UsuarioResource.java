@@ -47,7 +47,7 @@ public class UsuarioResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Void> update(@Valid @RequestBody UsuarioDTO objDto, @PathVariable Integer id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody UsuarioNovoDTO objDto, @PathVariable Integer id) {
         Usuario obj = service.fromDTO(objDto);
         obj.setId(id);
         obj = service.update(obj);

@@ -23,6 +23,7 @@ public class UsuarioNovoDTO implements Serializable, Dto {
     private String nome;
 
     @Column(unique=true)
+    @NotEmpty(message="Preenchimento obrigatório")
     private String email;
     private String telefone;
     private boolean reitoria;
