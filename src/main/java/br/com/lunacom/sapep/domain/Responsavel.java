@@ -1,5 +1,6 @@
 package br.com.lunacom.sapep.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,7 @@ public class Responsavel implements Serializable {
     private Integer id;
     private Date criacao;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="curso_id")
     private Curso curso;
