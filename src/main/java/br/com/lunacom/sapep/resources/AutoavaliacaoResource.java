@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
+import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
 import br.com.lunacom.sapep.services.AutoavaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,15 +30,15 @@ public class AutoavaliacaoResource {
         return ResponseEntity.created(uri).build();
     }
 
-//    @RequestMapping(method=RequestMethod.GET)
-//    public ResponseEntity<List<AutoavaliacaoDTO>> findAll() {
-//        List<Autoavaliacao> list = service.findAll();
-//        List<AutoavaliacaoDTO> listDTO = list
-//                .stream()
-//                .map(obj -> service.toDTO(obj))
-//                .collect(Collectors.toList());
-//        return ResponseEntity.ok().body(listDTO);
-//    }
+    @RequestMapping(method=RequestMethod.GET)
+    public ResponseEntity<List<AutoavaliacaoDTO>> findAll() {
+        List<Autoavaliacao> list = service.findAll();
+        List<AutoavaliacaoDTO> listDTO = list
+                .stream()
+                .map(obj -> service.toDTO(obj))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDTO);
+    }
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public ResponseEntity<Autoavaliacao> find(@PathVariable Integer id) {

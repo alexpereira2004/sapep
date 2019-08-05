@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
+import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
@@ -30,7 +31,7 @@ public class AutoavaliacaoService {
 
     public Autoavaliacao find (Integer id) {
         Optional<Autoavaliacao> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um usuário"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada uma autoavaliação"));
     }
 
     public Autoavaliacao update(Autoavaliacao obj) {
@@ -54,9 +55,9 @@ public class AutoavaliacaoService {
         return Autoavaliacao;
     }
 
-//    public AutoavaliacaoDTO toDTO(Autoavaliacao obj) {
-//        ModelMapper mapper = new ModelMapper();
-//        AutoavaliacaoDTO AutoavaliacaoDTO = mapper.map(obj, AutoavaliacaoDTO.class);
-//        return AutoavaliacaoDTO;
-//    }
+    public AutoavaliacaoDTO toDTO(Autoavaliacao obj) {
+        ModelMapper mapper = new ModelMapper();
+        AutoavaliacaoDTO AutoavaliacaoDTO = mapper.map(obj, AutoavaliacaoDTO.class);
+        return AutoavaliacaoDTO;
+    }
 }

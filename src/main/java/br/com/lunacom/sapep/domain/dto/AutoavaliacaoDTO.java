@@ -11,22 +11,13 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class AutoavaliacaoNovoDTO implements Serializable, Dto {
+public class AutoavaliacaoDTO implements Serializable, Dto {
     private static final long serialVersionUID = 1L;
 
-    @NotEmpty(message="Informe o nome do processo de autoavaliação")
     private String nome;
-    private String objetivo;
+    private String curso;
     private String Status;
-
-    @NotNull
     private Date inicio;
-
-    @NotNull
     private Date termino;
     private Date Criacao;
-
-    @NotNull
-    @Min(1)
-    private Integer cod_curso;
 }
