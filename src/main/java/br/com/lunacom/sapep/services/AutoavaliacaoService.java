@@ -1,7 +1,10 @@
 package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
+import br.com.lunacom.sapep.domain.Curso;
+import br.com.lunacom.sapep.domain.Responsavel;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
+import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
@@ -19,9 +22,15 @@ public class AutoavaliacaoService {
     @Autowired
     private AutoavaliacaoRepository repo;
 
-    public Autoavaliacao insert(Autoavaliacao obj) {
+    @Autowired
+    private CursoService cursoService;
+
+    public Autoavaliacao insert(AutoavaliacaoNovoDTO objDTO) {
+        Autoavaliacao obj = fromDTO(objDTO);
         obj.setId(null);
         obj.setCriacao(new Date());
+        Curso c = cursoService.find(objDTO.getCod_curso());
+        obj.setCurso(c);
         return repo.save(obj);
     }
 
@@ -31,7 +40,7 @@ public class AutoavaliacaoService {
 
     public Autoavaliacao find (Integer id) {
         Optional<Autoavaliacao> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada uma autoavaliação"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada nenhuma autoavaliação"));
     }
 
     public Autoavaliacao update(Autoavaliacao obj) {
