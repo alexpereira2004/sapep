@@ -54,9 +54,9 @@ public class AutoavaliacaoService {
         return Autoavaliacao;
     }
 
-    public AutoavaliacaoDTO toDTO(Autoavaliacao obj) {
-        ModelMapper mapper = new ModelMapper();
-        AutoavaliacaoDTO AutoavaliacaoDTO = mapper.map(obj, AutoavaliacaoDTO.class);
-        return AutoavaliacaoDTO;
-    }
+//    public AutoavaliacaoDTO toDTO(Autoavaliacao obj) {
+//        ModelMapper mapper = new ModelMapper();
+//        AutoavaliacaoDTO AutoavaliacaoDTO = mapper.map(obj, AutoavaliacaoDTO.class);
+//        return AutoavaliacaoDTO;
+//    }
 }
