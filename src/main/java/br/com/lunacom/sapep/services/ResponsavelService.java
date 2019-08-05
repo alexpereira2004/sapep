@@ -35,6 +35,7 @@ public class ResponsavelService {
         obj.setId(null);
         obj.setCurso(c);
         obj.setUsuario(u);
+        obj.setCriacao(new Date());
         return repo.save(obj);
     }
 
