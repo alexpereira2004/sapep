@@ -25,7 +25,6 @@ public class Autoavaliacao implements Serializable {
     private Date termino;
     private Date Criacao;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="curso_id")
     private Curso curso;
