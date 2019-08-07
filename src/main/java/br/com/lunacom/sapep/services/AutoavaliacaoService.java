@@ -43,7 +43,7 @@ public class AutoavaliacaoService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada nenhuma autoavaliação"));
     }
 
-    public Autoavaliacao update(AutoavaliacaoNovoDTO objDto) {
+    public Autoavaliacao update(AutoavaliacaoDTO objDto) {
         Autoavaliacao obj = fromDTO(objDto);
         obj.setCurso(cursoService.find(objDto.getCod_curso()));
         return repo.save(obj);

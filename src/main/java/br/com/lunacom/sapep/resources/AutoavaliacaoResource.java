@@ -46,7 +46,7 @@ public class AutoavaliacaoResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Void> update(@Valid @RequestBody AutoavaliacaoNovoDTO objDto, @PathVariable Integer id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody AutoavaliacaoDTO objDto, @PathVariable Integer id) {
         objDto.setId(id);
         service.update(objDto);
         return ResponseEntity.noContent().build();
