@@ -30,13 +30,13 @@ public class AutoavaliacaoResource {
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public ResponseEntity<List<AutoavaliacaoDTO>> findAll() {
+    public ResponseEntity<List<Autoavaliacao>> findAll() {
         List<Autoavaliacao> list = service.findAll();
-        List<AutoavaliacaoDTO> listDTO = list
-                .stream()
-                .map(obj -> service.toDTO(obj))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok().body(listDTO);
+//        List<AutoavaliacaoDTO> listDTO = list
+//                .stream()
+//                .map(obj -> service.toDTO(obj))
+//                .collect(Collectors.toList());
+        return ResponseEntity.ok().body(list);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
