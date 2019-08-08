@@ -20,17 +20,15 @@ public class AutoavaliacaoEixos implements Serializable {
 
     private Integer ordem;
     private Date criacao;
-    private Time hora;
 
     public AutoavaliacaoEixos(Autoavaliacao autoavaliacao,
                               Eixo eixo,
                               Integer ordem,
-                              Date criacao, Time hora) {
+                              Date criacao) {
         id.setAutoavaliacao(autoavaliacao);
         id.setEixo(eixo);
         this.ordem = ordem;
         this.criacao = criacao;
-        this.hora = hora;
     }
 
     public Autoavaliacao getAutoavaliacao() {
@@ -65,13 +63,6 @@ public class AutoavaliacaoEixos implements Serializable {
         this.criacao = criacao;
     }
 
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
-    }
 
     @Override
     public int hashCode() {

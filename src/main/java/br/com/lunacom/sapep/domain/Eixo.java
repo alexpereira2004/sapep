@@ -20,7 +20,6 @@ public class Eixo implements Serializable {
     private String nome;
     private String descricao;
     private Date criacao;
-    private Time hora;
 
     @JsonIgnore
     @OneToMany(mappedBy = "id.eixo")
@@ -72,13 +71,6 @@ public class Eixo implements Serializable {
         this.criacao = criacao;
     }
 
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
-    }
 
     public Set<AutoavaliacaoEixos> getAutoavaliacaoEixos() {
         return autoavaliacaoEixos;
