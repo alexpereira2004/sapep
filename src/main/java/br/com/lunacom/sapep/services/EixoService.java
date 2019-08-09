@@ -11,13 +11,16 @@ import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
+@Transactional(propagation = Propagation.REQUIRED)
 public class EixoService {
     @Autowired
     private EixoRepository repo;
@@ -31,24 +34,25 @@ public class EixoService {
     @Autowired
     private AutoavaliacaoService autoavaliacaoService;
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED)
     public Eixo insert(EixoNovoDTO objDto) {
         Eixo obj = fromDTO(objDto);
         obj.setId(null);
         obj.setCriacao(new Date());
 
+        Eixo eixo = repo.save(obj);
+
         Autoavaliacao autoavaliacao = autoavaliacaoService.find(objDto.getCod_autoavaliacao());
 
         AutoavaliacaoEixos autoavaliacaoEixos = new AutoavaliacaoEixos(
                 autoavaliacao,
-                obj,
+                eixo,
                 objDto.getOrdem(),
                 new Date()
         );
 
         autoavaliacaoEixosRepository.save(autoavaliacaoEixos);
 
-        repo.save(obj);
         return obj;
     }
 

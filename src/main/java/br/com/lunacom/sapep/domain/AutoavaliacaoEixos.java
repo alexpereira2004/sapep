@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import java.sql.Time;
 import java.util.Date;
 
 @Entity
+@NoArgsConstructor
 @Table(name = "autoavaliacao_eixos")
 public class AutoavaliacaoEixos implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -25,6 +27,7 @@ public class AutoavaliacaoEixos implements Serializable {
                               Eixo eixo,
                               Integer ordem,
                               Date criacao) {
+        super();
         id.setAutoavaliacao(autoavaliacao);
         id.setEixo(eixo);
         this.ordem = ordem;
