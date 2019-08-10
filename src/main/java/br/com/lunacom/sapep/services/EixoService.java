@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
+import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.Eixo;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
@@ -59,6 +60,9 @@ public class EixoService {
         return Eixo;
     }
 
+    public Eixo update(Eixo obj) {
+        return repo.save(obj);
+    }
 //    public EixoDTO toDTO(Eixo obj) {
 //        ModelMapper mapper = new ModelMapper();
 //        EixoDTO EixoDTO = mapper.map(obj, EixoDTO.class);

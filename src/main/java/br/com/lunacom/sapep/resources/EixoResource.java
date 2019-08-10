@@ -1,6 +1,8 @@
 package br.com.lunacom.sapep.resources;
 
+import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.Eixo;
+import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
 import br.com.lunacom.sapep.services.EixoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,13 @@ public class EixoResource {
     public ResponseEntity<Eixo> find(@PathVariable Integer id) {
         Eixo obj = service.find(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    public ResponseEntity<Void> update(@Valid @RequestBody Eixo obj, @PathVariable Integer id) {
+        obj.setId(id);
+        obj = service.update(obj);
+        return ResponseEntity.noContent().build();
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
