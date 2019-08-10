@@ -19,7 +19,7 @@ public class AutoavaliacaoNovoDTO implements Serializable, Dto {
     @NotEmpty(message="Informe o nome do processo de autoavaliação")
     private String nome;
     private String objetivo;
-    private String Status;
+    private String status;
 
     @NotNull
     private Date inicio;

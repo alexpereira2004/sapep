@@ -49,7 +49,7 @@ public class AutoavaliacaoService {
     public AutoavaliacaoDTO findDetailed (Integer id) {
         Optional<Autoavaliacao> optionalObj = repo.findById(id);
         Optional<AutoavaliacaoDTO> optionalAutoavaliacaoDTO = Optional.ofNullable(toDTO(optionalObj.get()));
-        optionalAutoavaliacaoDTO.get().getEixos().sort(Comparator.comparing(Eixo::getId));
+        optionalAutoavaliacaoDTO.get().getEixos().sort(Comparator.comparing(Eixo::getOrdem));
         return optionalAutoavaliacaoDTO.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
     }
 

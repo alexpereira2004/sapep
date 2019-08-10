@@ -18,6 +18,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -34,7 +36,7 @@ public class TestConceitoResource {
 
     @Before
     public void setup() {
-        Curso c1 = new Curso("Sistemas", "AT");
+        Curso c1 = new Curso("Sistemas", "AT", new Date());
         cursoService.insert(c1);
     }
 

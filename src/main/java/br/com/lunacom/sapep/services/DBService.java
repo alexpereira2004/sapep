@@ -35,12 +35,12 @@ public class DBService {
     private EixoRepository eixoRepository;
 
     public void instantiateData() throws ParseException {
-        Curso c1 = new Curso("Sistemas para Internet", "AT");
-        Curso c2 = new Curso("Especialização em Direito do Trabalho e Processo do Trabalho", "AT");
-        Curso c3 = new Curso("Especialização em Cosmetologia Estética", "AT");
-        Curso c4 = new Curso("MBA em Finanças Corporativas", "AT");
-        Curso c5 = new Curso("Especialização em Governança em Tecnologia da Informação e Inovação", "AT");
-        Curso c6 = new Curso("MBA em Psicologia Organizacional", "AT");
+        Curso c1 = new Curso("Sistemas para Internet", "AT", new Date());
+        Curso c2 = new Curso("Especialização em Direito do Trabalho e Processo do Trabalho", "AT", new Date());
+        Curso c3 = new Curso("Especialização em Cosmetologia Estética", "AT", new Date());
+        Curso c4 = new Curso("MBA em Finanças Corporativas", "AT", new Date());
+        Curso c5 = new Curso("Especialização em Governança em Tecnologia da Informação e Inovação", "AT", new Date());
+        Curso c6 = new Curso("MBA em Psicologia Organizacional", "AT", new Date());
         cursoRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
 
         Conceito ca1 = new Conceito(2014, "A", new Date(), c1);

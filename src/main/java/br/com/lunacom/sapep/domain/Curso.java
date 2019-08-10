@@ -38,9 +38,10 @@ public class Curso implements Serializable {
 
     public Curso() {}
 
-    public Curso(String nome, String status) {
+    public Curso(String nome, String status, Date criacao) {
         this.nome = nome;
         this.status = status;
+        this.criacao = criacao;
     }
 
 }

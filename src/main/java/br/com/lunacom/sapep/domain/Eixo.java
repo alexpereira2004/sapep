@@ -28,6 +28,7 @@ public class Eixo implements Serializable {
     private Integer ordem;
     private Date criacao;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="autoavaliacao_id")
     private Autoavaliacao autoavaliacao;
