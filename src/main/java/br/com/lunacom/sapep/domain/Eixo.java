@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import java.util.Set;
 
 @Setter
 @Getter
+@AllArgsConstructor
 @Entity
 public class Eixo implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -23,6 +25,7 @@ public class Eixo implements Serializable {
     private Integer id;
     private String nome;
     private String descricao;
+    private Integer ordem;
     private Date criacao;
 
     @ManyToOne
@@ -53,5 +56,13 @@ public class Eixo implements Serializable {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    public Eixo(String nome, String descricao, Integer ordem, Date criacao, Autoavaliacao autoavaliacao) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.ordem = ordem;
+        this.criacao = criacao;
+        this.autoavaliacao = autoavaliacao;
     }
 }
