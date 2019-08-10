@@ -2,6 +2,7 @@ package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
+import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
 import br.com.lunacom.sapep.services.AutoavaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,14 @@ public class AutoavaliacaoResource {
         return ResponseEntity.ok().body(obj);
     }
 
+    @RequestMapping(value="/detalhado/{id}", method=RequestMethod.GET)
+    public ResponseEntity<AutoavaliacaoDTO> findDetailed(@PathVariable Integer id) {
+        AutoavaliacaoDTO objDto = service.findDetailed(id);
+        return ResponseEntity.ok().body(objDto);
+    }
+
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Void> update(@Valid @RequestBody AutoavaliacaoDTO objDto, @PathVariable Integer id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody AutoavaliacaoEdicaoDTO objDto, @PathVariable Integer id) {
         objDto.setId(id);
         service.update(objDto);
         return ResponseEntity.noContent().build();

@@ -2,8 +2,10 @@ package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
 import br.com.lunacom.sapep.domain.Curso;
+import br.com.lunacom.sapep.domain.Eixo;
 import br.com.lunacom.sapep.domain.Responsavel;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
+import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
@@ -12,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -40,10 +43,17 @@ public class AutoavaliacaoService {
 
     public Autoavaliacao find (Integer id) {
         Optional<Autoavaliacao> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada nenhuma autoavaliação"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
     }
 
-    public Autoavaliacao update(AutoavaliacaoDTO objDto) {
+    public AutoavaliacaoDTO findDetailed (Integer id) {
+        Optional<Autoavaliacao> optionalObj = repo.findById(id);
+        Optional<AutoavaliacaoDTO> optionalAutoavaliacaoDTO = Optional.ofNullable(toDTO(optionalObj.get()));
+        optionalAutoavaliacaoDTO.get().getEixos().sort(Comparator.comparing(Eixo::getId));
+        return optionalAutoavaliacaoDTO.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
+    }
+
+    public Autoavaliacao update(AutoavaliacaoEdicaoDTO objDto) {
         Autoavaliacao obj = fromDTO(objDto);
         obj.setCurso(cursoService.find(objDto.getCod_curso()));
         return repo.save(obj);

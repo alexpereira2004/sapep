@@ -1,5 +1,6 @@
 package br.com.lunacom.sapep.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class AutoavaliacaoEixosPK implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "autoavaliacao_id")
+    @JsonIgnore
     private Autoavaliacao autoavaliacao;
 
     @ManyToOne
