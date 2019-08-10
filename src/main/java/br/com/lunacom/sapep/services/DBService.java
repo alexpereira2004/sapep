@@ -14,7 +14,7 @@ public class DBService {
     @Autowired
     private CursoRepository cursoRepository;
 
-    public void instantiateTestDatabase() throws ParseException {
+    public void instantiateData() throws ParseException {
         Curso c1 = new Curso("Sistemas para Internet", "AT");
         cursoRepository.saveAll(Arrays.asList(c1));
     }

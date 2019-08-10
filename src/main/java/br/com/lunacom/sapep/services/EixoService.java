@@ -1,11 +1,9 @@
 package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
-import br.com.lunacom.sapep.domain.AutoavaliacaoEixos;
 import br.com.lunacom.sapep.domain.Eixo;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
-import br.com.lunacom.sapep.repositories.AutoavaliacaoEixosRepository;
 import br.com.lunacom.sapep.repositories.EixoRepository;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -26,12 +24,6 @@ public class EixoService {
     private EixoRepository repo;
 
     @Autowired
-    private AutoavaliacaoEixosService autoavaliacaoEixosService;
-
-    @Autowired
-    private AutoavaliacaoEixosRepository autoavaliacaoEixosRepository;
-
-    @Autowired
     private AutoavaliacaoService autoavaliacaoService;
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -43,15 +35,6 @@ public class EixoService {
         Eixo eixo = repo.save(obj);
 
         Autoavaliacao autoavaliacao = autoavaliacaoService.find(objDto.getCod_autoavaliacao());
-
-        AutoavaliacaoEixos autoavaliacaoEixos = new AutoavaliacaoEixos(
-                autoavaliacao,
-                eixo,
-                objDto.getOrdem(),
-                new Date()
-        );
-
-        autoavaliacaoEixosRepository.save(autoavaliacaoEixos);
 
         return obj;
     }

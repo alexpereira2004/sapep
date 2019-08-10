@@ -30,8 +30,8 @@ public class Autoavaliacao implements Serializable {
     private Curso curso;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id.autoavaliacao")
-    private Set<AutoavaliacaoEixos> autoavaliacaoEixos = new HashSet<>();
+    @OneToMany(mappedBy = "autoavaliacao")
+    private List<Eixo> eixos;
 
     public Autoavaliacao() {}
 
@@ -43,14 +43,14 @@ public class Autoavaliacao implements Serializable {
         this.termino = termino;
     }
 
-    @JsonIgnore
-    public List<Eixo> getEixos() {
-        List<Eixo> lista = new ArrayList<>();
-        for (AutoavaliacaoEixos x : autoavaliacaoEixos) {
-            lista.add(x.getEixo());
-        }
-        return lista;
-    }
+//    @JsonIgnore
+//    public List<Eixo> getEixos() {
+//        List<Eixo> lista = new ArrayList<>();
+//        for (AutoavaliacaoEixos x : autoavaliacaoEixos) {
+//            lista.add(x.getEixo());
+//        }
+//        return lista;
+//    }
 
     @Override
     public int hashCode() {

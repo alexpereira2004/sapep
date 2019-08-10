@@ -26,7 +26,7 @@ public class DevConfig {
             return false;
         }
 
-        dbService.instantiateTestDatabase();
+        dbService.instantiateData();
         return true;
     }
 }

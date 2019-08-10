@@ -25,9 +25,9 @@ public class Eixo implements Serializable {
     private String descricao;
     private Date criacao;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "id.eixo")
-    private Set<AutoavaliacaoEixos> autoavaliacaoEixos = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name="autoavaliacao_id")
+    private Autoavaliacao autoavaliacao;
 
     @JsonIgnore
     @OneToMany(mappedBy = "eixo")
