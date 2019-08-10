@@ -21,6 +21,7 @@ public class CursoService {
 
     public Curso insert(Curso obj) {
         obj.setId(null);
+        obj.setCriacao(new Date());
         return repo.save(obj);
     }
 

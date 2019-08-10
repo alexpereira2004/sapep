@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,7 +44,17 @@ public class Autoavaliacao implements Serializable {
         this.termino = termino;
     }
 
-//    @JsonIgnore
+    public Autoavaliacao(String nome, String objetivo, String status, Date inicio, Date termino, Date criacao, Curso curso) {
+        this.nome = nome;
+        this.objetivo = objetivo;
+        Status = status;
+        this.inicio = inicio;
+        this.termino = termino;
+        Criacao = criacao;
+        this.curso = curso;
+    }
+
+    //    @JsonIgnore
 //    public List<Eixo> getEixos() {
 //        List<Eixo> lista = new ArrayList<>();
 //        for (AutoavaliacaoEixos x : autoavaliacaoEixos) {
