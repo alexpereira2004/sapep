@@ -23,13 +23,13 @@ public class IndicadorService {
     private IndicadorRepository repo;
 
     @Autowired
-    private EixoService cursoService;
+    private EixoService eixoService;
 
     public Indicador insert(IndicadorDTO objDTO) {
         Indicador obj = fromDTO(objDTO);
         obj.setId(null);
         obj.setCriacao(new Date());
-        Eixo e = cursoService.find(objDTO.getCod_eixo());
+        Eixo e = eixoService.find(objDTO.getCod_eixo());
         obj.setEixo(e);
         return repo.save(obj);
     }
@@ -51,7 +51,7 @@ public class IndicadorService {
 
     public Indicador update(IndicadorDTO objDto) {
         Indicador obj = fromDTO(objDto);
-        obj.setEixo(cursoService.find(objDto.getCod_eixo()));
+        obj.setEixo(eixoService.find(objDto.getCod_eixo()));
         return repo.save(obj);
     }
 
