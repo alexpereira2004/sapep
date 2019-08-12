@@ -1,10 +1,6 @@
 package br.com.lunacom.sapep.resources;
 
-import br.com.lunacom.sapep.domain.Autoavaliacao;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
-import br.com.lunacom.sapep.services.AutoavaliacaoService;
+import br.com.lunacom.sapep.domain.Indicador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,44 +11,40 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/autoavaliacao")
-public class AutoavaliacaoResource {
+@RequestMapping(value="/indicador")
+public class IndicadorResource {
 
     @Autowired
-    private AutoavaliacaoService service;
+    private IndicadorService service;
 
     @RequestMapping(method= RequestMethod.POST)
-    public ResponseEntity<Void> insert(@Valid @RequestBody AutoavaliacaoNovoDTO objDto) {
-        Autoavaliacao obj = service.insert(objDto);
+    public ResponseEntity<Void> insert(@Valid @RequestBody IndicadorNovoDTO objDto) {
+        Indicador obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public ResponseEntity<List<Autoavaliacao>> findAll() {
-        List<Autoavaliacao> list = service.findAll();
-//        List<AutoavaliacaoDTO> listDTO = list
-//                .stream()
-//                .map(obj -> service.toDTO(obj))
-//                .collect(Collectors.toList());
+    public ResponseEntity<List<Indicador>> findAll() {
+        List<Indicador> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ResponseEntity<Autoavaliacao> find(@PathVariable Integer id) {
-        Autoavaliacao obj = service.find(id);
+    public ResponseEntity<Indicador> find(@PathVariable Integer id) {
+        Indicador obj = service.find(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @RequestMapping(value="/detalhado/{id}", method=RequestMethod.GET)
-    public ResponseEntity<AutoavaliacaoDTO> findDetailed(@PathVariable Integer id) {
-        AutoavaliacaoDTO objDto = service.findDetailed(id);
+    public ResponseEntity<IndicadorDTO> findDetailed(@PathVariable Integer id) {
+        IndicadorDTO objDto = service.findDetailed(id);
         return ResponseEntity.ok().body(objDto);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Void> update(@Valid @RequestBody AutoavaliacaoEdicaoDTO objDto, @PathVariable Integer id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody IndicadorEdicaoDTO objDto, @PathVariable Integer id) {
         objDto.setId(id);
         service.update(objDto);
         return ResponseEntity.noContent().build();
