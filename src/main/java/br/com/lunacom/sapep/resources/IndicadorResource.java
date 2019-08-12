@@ -1,6 +1,8 @@
 package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Indicador;
+import br.com.lunacom.sapep.domain.dto.IndicadorDTO;
+import br.com.lunacom.sapep.services.IndicadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +20,7 @@ public class IndicadorResource {
     private IndicadorService service;
 
     @RequestMapping(method= RequestMethod.POST)
-    public ResponseEntity<Void> insert(@Valid @RequestBody IndicadorNovoDTO objDto) {
+    public ResponseEntity<Void> insert(@Valid @RequestBody IndicadorDTO objDto) {
         Indicador obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -44,7 +46,7 @@ public class IndicadorResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Void> update(@Valid @RequestBody IndicadorEdicaoDTO objDto, @PathVariable Integer id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody IndicadorDTO objDto, @PathVariable Integer id) {
         objDto.setId(id);
         service.update(objDto);
         return ResponseEntity.noContent().build();
