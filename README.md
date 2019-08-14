@@ -12,7 +12,9 @@ Os resultados esperados após a entrega do artefato aqui proposto é de que seja
 
 #### Tecnologias usadas:
 - Spring Boot
+- Spring Security
 - JPA com Hibernate
+- JWT
 - Mysql
 - Angular 8
 - Bootstrap 4
