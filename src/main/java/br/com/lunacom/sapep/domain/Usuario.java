@@ -1,5 +1,6 @@
 package br.com.lunacom.sapep.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +26,8 @@ public class Usuario implements Serializable {
     private String telefone;
     private boolean reitoria;
     private boolean admin;
+
+    @JsonIgnore
     private String senha;
     private String status;
     private Date criacao;

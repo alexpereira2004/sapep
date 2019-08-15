@@ -8,6 +8,7 @@ import br.com.lunacom.sapep.repositories.UsuarioRepository;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -18,11 +19,15 @@ import java.util.Optional;
 public class UsuarioService {
 
     @Autowired
+    private BCryptPasswordEncoder pe;
+
+    @Autowired
     private UsuarioRepository repo;
 
     public Usuario insert(Usuario obj) {
         obj.setId(null);
         obj.setCriacao(new Date());
+        obj.setSenha(pe.encode(obj.getSenha()));
         return repo.save(obj);
     }
 

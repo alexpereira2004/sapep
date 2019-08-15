@@ -28,6 +28,8 @@ public class UsuarioNovoDTO implements Serializable, Dto {
     private String telefone;
     private boolean reitoria;
     private boolean admin;
+
+    @NotEmpty(message="Preenchimento da senha é obrigatório")
     private String senha;
     private String status;
 }
