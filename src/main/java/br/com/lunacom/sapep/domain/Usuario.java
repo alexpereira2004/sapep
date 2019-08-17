@@ -3,6 +3,7 @@ package br.com.lunacom.sapep.domain;
 import br.com.lunacom.sapep.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "usuario")
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -44,5 +46,12 @@ public class Usuario implements Serializable {
 
     public void addPerfil(Perfil perfil) {
         perfis.add(perfil.getCod());
+    }
+
+    public Usuario(String nome, String email, String senha, String status) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.status = status;
     }
 }
