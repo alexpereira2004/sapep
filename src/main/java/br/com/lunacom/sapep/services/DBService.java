@@ -1,14 +1,8 @@
 package br.com.lunacom.sapep.services;
 
-import br.com.lunacom.sapep.domain.Autoavaliacao;
-import br.com.lunacom.sapep.domain.Conceito;
-import br.com.lunacom.sapep.domain.Curso;
-import br.com.lunacom.sapep.domain.Eixo;
+import br.com.lunacom.sapep.domain.*;
 import br.com.lunacom.sapep.domain.dto.ConceitoNovoDTO;
-import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
-import br.com.lunacom.sapep.repositories.ConceitoRepository;
-import br.com.lunacom.sapep.repositories.CursoRepository;
-import br.com.lunacom.sapep.repositories.EixoRepository;
+import br.com.lunacom.sapep.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -34,7 +28,17 @@ public class DBService {
     @Autowired
     private EixoRepository eixoRepository;
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     public void instantiateData() throws ParseException {
+        Usuario u1 = new Usuario("Alex L", "alex@gmail.com", "123456", "AT");
+        Usuario u2 = new Usuario("Silvia B", "silvia@gmail.com", "123456", "AT");
+        Usuario u3 = new Usuario("Evandro M", "evandro@gmail.com", "123456", "AT");
+        Usuario u4 = new Usuario("Maria M", "maria@gmail.com", "123456", "AT");
+        Usuario u5 = new Usuario("Pero F", "pedro@gmail.com", "123456", "AT");
+        usuarioRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5));
+
         Curso c1 = new Curso("Sistemas para Internet", "AT", new Date());
         Curso c2 = new Curso("Especialização em Direito do Trabalho e Processo do Trabalho", "AT", new Date());
         Curso c3 = new Curso("Especialização em Cosmetologia Estética", "AT", new Date());
