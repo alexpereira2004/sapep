@@ -2,16 +2,14 @@ package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.*;
 import br.com.lunacom.sapep.domain.dto.ConceitoNovoDTO;
+import br.com.lunacom.sapep.domain.enums.Perfil;
 import br.com.lunacom.sapep.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 @Service
 public class DBService {
@@ -33,10 +31,22 @@ public class DBService {
 
     public void instantiateData() throws ParseException {
         Usuario u1 = new Usuario("Alex L", "alex@gmail.com", "123456", "AT");
+        u1.addPerfil(Perfil.ADMINISTRADOR);
+
         Usuario u2 = new Usuario("Silvia B", "silvia@gmail.com", "123456", "AT");
+        u2.addPerfil(Perfil.ADMINISTRADOR);
+        u2.addPerfil(Perfil.COORDENADOR);
+
         Usuario u3 = new Usuario("Evandro M", "evandro@gmail.com", "123456", "AT");
+        u3.addPerfil(Perfil.COORDENADOR);
+
         Usuario u4 = new Usuario("Maria M", "maria@gmail.com", "123456", "AT");
+        u4.addPerfil(Perfil.PROPPI);
+
         Usuario u5 = new Usuario("Pedro F", "pedro@gmail.com", "123456", "AT");
+        u5.addPerfil(Perfil.PROPPI);
+
+
         usuarioService.insert(u1);
         usuarioService.insert(u2);
         usuarioService.insert(u3);

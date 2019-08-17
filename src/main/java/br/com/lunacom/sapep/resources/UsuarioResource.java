@@ -6,6 +6,7 @@ import br.com.lunacom.sapep.domain.dto.UsuarioNovoDTO;
 import br.com.lunacom.sapep.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -21,6 +22,7 @@ public class UsuarioResource {
     @Autowired
     private UsuarioService service;
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(method= RequestMethod.POST)
     public ResponseEntity<Void> insert(@Valid @RequestBody UsuarioNovoDTO objDto) {
         Usuario obj = service.fromDTO(objDto);
@@ -30,6 +32,7 @@ public class UsuarioResource {
         return ResponseEntity.created(uri).build();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<List<UsuarioDTO>> findAll() {
         List<Usuario> list = service.findAll();
@@ -40,12 +43,14 @@ public class UsuarioResource {
         return ResponseEntity.ok().body(listDTO);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public ResponseEntity<Usuario> find(@PathVariable Integer id) {
         Usuario obj = service.find(id);
         return ResponseEntity.ok().body(obj);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
     public ResponseEntity<Void> update(@Valid @RequestBody UsuarioNovoDTO objDto, @PathVariable Integer id) {
         Usuario obj = service.fromDTO(objDto);
@@ -54,6 +59,7 @@ public class UsuarioResource {
         return ResponseEntity.noContent().build();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
