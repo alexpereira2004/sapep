@@ -31,5 +31,5 @@ public class UsuarioNovoDTO implements Serializable, Dto {
 
     @NotEmpty(message="Preenchimento da senha é obrigatório")
     private String senha;
-    private String status;
+    private String situacao;
 }

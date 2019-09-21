@@ -20,7 +20,7 @@ public class Curso implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private String status;
+    private String situacao;
     private Date criacao;
 
     // https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
@@ -38,9 +38,9 @@ public class Curso implements Serializable {
 
     public Curso() {}
 
-    public Curso(String nome, String status, Date criacao) {
+    public Curso(String nome, String situacao, Date criacao) {
         this.nome = nome;
-        this.status = status;
+        this.situacao = situacao;
         this.criacao = criacao;
     }
 

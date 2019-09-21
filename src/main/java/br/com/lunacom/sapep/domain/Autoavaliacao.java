@@ -21,7 +21,7 @@ public class Autoavaliacao implements Serializable {
     private Integer id;
     private String nome;
     private String objetivo;
-    private String status;
+    private String situacao;
     private Date inicio;
     private Date termino;
     private Date Criacao;
@@ -36,18 +36,18 @@ public class Autoavaliacao implements Serializable {
 
     public Autoavaliacao() {}
 
-    public Autoavaliacao(String nome, String objetivo, String status, Date inicio, Date termino) {
+    public Autoavaliacao(String nome, String objetivo, String situacao, Date inicio, Date termino) {
         this.nome = nome;
         this.objetivo = objetivo;
-        this.status = status;
+        this.situacao = situacao;
         this.inicio = inicio;
         this.termino = termino;
     }
 
-    public Autoavaliacao(String nome, String objetivo, String status, Date inicio, Date termino, Date criacao, Curso curso) {
+    public Autoavaliacao(String nome, String objetivo, String situacao, Date inicio, Date termino, Date criacao, Curso curso) {
         this.nome = nome;
         this.objetivo = objetivo;
-        this.status = status;
+        this.situacao = situacao;
         this.inicio = inicio;
         this.termino = termino;
         Criacao = criacao;

@@ -33,7 +33,7 @@ public class Usuario implements Serializable {
 
     @JsonIgnore
     private String senha;
-    private String status;
+    private String situacao;
     private Date criacao;
 
     @ElementCollection(fetch=FetchType.EAGER)
@@ -48,10 +48,10 @@ public class Usuario implements Serializable {
         perfis.add(perfil.getCod());
     }
 
-    public Usuario(String nome, String email, String senha, String status) {
+    public Usuario(String nome, String email, String senha, String situacao) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.status = status;
+        this.situacao = situacao;
     }
 }

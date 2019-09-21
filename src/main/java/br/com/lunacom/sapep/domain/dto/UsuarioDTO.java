@@ -17,6 +17,6 @@ public class UsuarioDTO implements Serializable, Dto {
     private String telefone;
     private boolean reitoria;
     private boolean admin;
-    private String status;
+    private String situacao;
     private Date criacao;
 }

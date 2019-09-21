@@ -16,7 +16,7 @@ public class AutoavaliacaoDTO implements Serializable, Dto {
     private Integer id;
     private String nome;
     private String objetivo;
-    private String status;
+    private String situacao;
     private Date inicio;
     private Date termino;
     private Integer cod_curso;
