@@ -6,10 +6,10 @@
 	},
 	"item": [
 		{
-			"name": "Curso",
+			"name": "Login",
 			"item": [
 				{
-					"name": "Inserir",
+					"name": "Login",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -22,7 +22,47 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\" : \"Curso Genérico\",\n\t\"status\" : \"IN\"\n}"
+							"raw": "{\n\t\"email\" : \"silvia@gmail.com\",\n\t\"senha\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Curso",
+			"item": [
+				{
+					"name": "Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5MTc0MTc2fQ.e121PP5be9BuOhvh1VvySPKVgb3pjDbMCIohczuFn5AYqAotAqcLhwHjsWwPpwwh2zWoYvOjBuZzp7gb6LhTVQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Curso Genérico\",\n\t\"situacao\" : \"IN\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/curso",
@@ -42,15 +82,22 @@
 					"name": "Listar Todos",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5MTc0MTc2fQ.e121PP5be9BuOhvh1VvySPKVgb3pjDbMCIohczuFn5AYqAotAqcLhwHjsWwPpwwh2zWoYvOjBuZzp7gb6LhTVQ",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/curso",
+							"raw": "localhost:8080/curso/",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"curso"
+								"curso",
+								""
 							]
 						}
 					},
@@ -89,7 +136,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\n\t\"nome\" : \"Especialização em Direito do Trabalho e Processo do Trabalho\",\n\t\"status\" : \"AT\"\n}"
+							"raw": "{\n\t\"nome\" : \"Especialização em Direito do Trabalho e Processo do Trabalho\",\n\t\"status\" : \"AT\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/curso/2",
@@ -404,7 +451,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"nome\" : \"Sistemas para Internet\",\r\n\t\"objetivo\" : \"Realizar planejamento do curto no período de 2015/2018\",\r\n\t\"status\" : \"AT\",\r\n\t\"inicio\" : \"2015-01-01\",\r\n\t\"termino\" : \"2019-12-31\",\r\n\t\"cod_curso\": 2\r\n}"
+							"raw": "{\r\n\t\"nome\" : \"Autoavaliação e Planejamento período 2015/2018\",\r\n\t\"objetivo\" : \"Realizar planejamento do curso no período de 2015/2018\",\r\n\t\"status\" : \"AT\",\r\n\t\"inicio\" : \"2015-01-01\",\r\n\t\"termino\" : \"2019-12-31\",\r\n\t\"cod_curso\": 3\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/autoavaliacao",
@@ -433,6 +480,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY2MjY3NzExfQ.t0x8yL8fda8TjeWtG-XR-hU0W7NQDnUzxtbzer-6SFyvs14CGAPOmDVVUG3PF-6PFcdpP8g_zCIRsV6HTnSDJw",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -466,6 +518,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY2MzUwMzIzfQ.WSrNvUOGLqVuyD1qYBgck_SpF6gXNbl8VyU-blHejDGf8PVQf_rr43ivpn54HSid9eYx4F4dD4DzlRiI-1KegQ",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -473,7 +530,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/autoavaliacao/2",
+							"raw": "http://localhost:8080/autoavaliacao/44",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -481,6 +538,598 @@
 							"port": "8080",
 							"path": [
 								"autoavaliacao",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar (Detalhado)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/autoavaliacao/detalhado/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autoavaliacao",
+								"detalhado",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Ok\",\n\t\"objetivo\" : \"Realizar planejamento do curto no período de 2015/2018\",\n\t\"status\" : \"AT\",\n\t\"inicio\" : \"2015-01-01\",\n\t\"termino\" : \"2019-12-31\",\n\t\"cod_curso\": 3\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/autoavaliacao/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autoavaliacao",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/autoavaliacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autoavaliacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2f772f5d-cc0f-4416-b1d5-00ece68e70bf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6701b9de-c7d2-4a65-b059-b0208c49245a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Eixo",
+			"item": [
+				{
+					"name": "Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nome\" : \"Eixo 4\",\r\n\t\"descricao\" : \"Trabalhos externos\",\r\n\t\"ordem\" : 4,\r\n\t\"cod_autoavaliacao\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/eixo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eixo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/eixo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eixo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar (Id)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/eixo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eixo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Sistemas para Internet\",\n\t\"descricao\" : \"Vazio\",\n\t\"ordem\" : 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/eixo/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eixo",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/eixo/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eixo",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2f772f5d-cc0f-4416-b1d5-00ece68e70bf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6701b9de-c7d2-4a65-b059-b0208c49245a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Indicador",
+			"item": [
+				{
+					"name": "Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"titulo\" : \"Pergunta a ser feita para o usuário\",\r\n\t\"detalhe\" : \"Trabalhos externos\",\r\n\t\"agrupamento\": 2,\r\n\t\"ordem\" : 1,\r\n\t\"temporalidade\": \"AN\",\r\n\t\"tipo\": \"TX\",\r\n\t\"cod_eixo\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/indicador",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indicador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/indicador",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indicador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar (Id)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/indicador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indicador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"titulo\" : \"Pergunta a ser feita para o usuário\",\r\n\t\"detalhe\" : \"Trabalhos externos\",\r\n\t\"agrupamento\": 2,\r\n\t\"ordem\" : 17,\r\n\t\"temporalidade\": \"AN\",\r\n\t\"tipo\": \"TX\",\r\n\t\"cod_eixo\": 5\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/indicador/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indicador",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/indicador/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indicador",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2f772f5d-cc0f-4416-b1d5-00ece68e70bf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6701b9de-c7d2-4a65-b059-b0208c49245a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Resposta",
+			"item": [
+				{
+					"name": "Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ano\" : 2018,\r\n\t\"descritiva\" : \"Valor qualquer neste campo\",\r\n\t\"valor\" : \"5\",\r\n\t\"cod_indicador\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/resposta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resposta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/resposta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resposta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar (Id)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/resposta/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resposta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar (Detalhado)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/resposta/detalhado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resposta",
+								"detalhado",
 								"2"
 							]
 						}
@@ -501,18 +1150,18 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\" : \"Sistemas para Internet\",\n\t\"objetivo\" : \"Realizar planejamento do curto no período de 2015/2018\",\n\t\"status\" : \"AT\",\n\t\"inicio\" : \"2015-01-01\",\n\t\"termino\" : \"2019-12-31\",\n\t\"cod_curso\": 8\n}"
+							"raw": "{\r\n\t\"ano\" : 2018,\r\n\t\"descritiva\" : \"Só 5 coisas\",\r\n\t\"valor\" : \"5\",\r\n\t\"cod_indicador\": 3\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/autoavaliacao/2",
+							"raw": "http://localhost:8080/resposta/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"autoavaliacao",
-								"2"
+								"resposta",
+								"4"
 							]
 						}
 					},
@@ -524,14 +1173,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/autoavaliacao/7",
+							"raw": "localhost:8080/resposta/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"autoavaliacao",
-								"7"
+								"resposta",
+								"1"
 							]
 						}
 					},
