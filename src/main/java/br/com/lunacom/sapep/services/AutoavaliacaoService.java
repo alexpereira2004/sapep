@@ -10,6 +10,7 @@ import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
+import br.com.lunacom.sapep.util.DataUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,9 @@ public class AutoavaliacaoService {
     public Autoavaliacao insert(AutoavaliacaoNovoDTO objDTO) {
         Autoavaliacao obj = fromDTO(objDTO);
         obj.setId(null);
+        if (obj.getSituacao().isEmpty()) {
+            obj.setSituacao(automaticStatus(obj));
+        }
         obj.setCriacao(new Date());
         Curso c = cursoService.find(objDTO.getCod_curso());
         obj.setCurso(c);
@@ -80,5 +84,17 @@ public class AutoavaliacaoService {
         ModelMapper mapper = new ModelMapper();
         AutoavaliacaoDTO AutoavaliacaoDTO = mapper.map(obj, AutoavaliacaoDTO.class);
         return AutoavaliacaoDTO;
+    }
+
+
+    private String automaticStatus(Autoavaliacao obj) {
+        String ret = "IN";
+        if (DataUtil.isWithinRange(
+                DataUtil.getCurrentDate(),
+                obj.getInicio(),
+                obj.getTermino())) {
+            ret = "AT";
+        }
+        return ret;
     }
 }
