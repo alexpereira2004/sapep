@@ -181,23 +181,21 @@ public class DBService {
         Resposta resp4 = new Resposta(null, "Falta de peças para reposição, demora na compra de novos itens", 0.00f, idc4);
 
         Resposta resp5 = new Resposta(null, "Nova rede wireless", 0.00f, idc5);
-        Resposta resp6 = new Resposta(null, "Aquisição de sotware", 0.00f, idc5);
-        Resposta resp7 = new Resposta(null, "Aumento do espaço físico", 0.00f, idc5);
-
         Resposta resp8 = new Resposta(null, "Grande possibilidade", 0.00f, idc6);
-        Resposta resp9 = new Resposta(null, "Melhor pensar em Open source", 0.00f, idc6);
-        Resposta resp10 = new Resposta(null, "Possível, temos áreas livres para uso", 0.00f, idc6);
-
         Resposta resp11 = new Resposta(null, "N/a", 0.00f, idc7);
-        Resposta resp12 = new Resposta(null, "Falta cultura para aquisição de software proprietário", 0.00f, idc7);
-        Resposta resp13 = new Resposta(null, "Salas pequenas", 0.00f, idc7);
-
         Resposta resp14 = new Resposta(null, "N/a", 0.00f, idc8);
-        Resposta resp15 = new Resposta(null, "Preço do dólar", 0.00f, idc8);
-        Resposta resp16 = new Resposta(null, "N/a", 0.00f, idc8);
-
         Resposta resp17 = new Resposta(null, "5", 0.00f, idc9);
+
+        Resposta resp6 = new Resposta(null, "Aquisição de sotware", 0.00f, idc5);
+        Resposta resp9 = new Resposta(null, "Melhor pensar em Open source", 0.00f, idc6);
+        Resposta resp12 = new Resposta(null, "Falta cultura para aquisição de software proprietário", 0.00f, idc7);
+        Resposta resp15 = new Resposta(null, "Preço do dólar", 0.00f, idc8);
         Resposta resp18 = new Resposta(null, "3", 0.00f, idc9);
+
+        Resposta resp7 = new Resposta(null, "Aumento do espaço físico", 0.00f, idc5);
+        Resposta resp10 = new Resposta(null, "Possível, temos áreas livres para uso", 0.00f, idc6);
+        Resposta resp13 = new Resposta(null, "Salas pequenas", 0.00f, idc7);
+        Resposta resp16 = new Resposta(null, "N/a", 0.00f, idc8);
         Resposta resp19 = new Resposta(null, "2", 0.00f, idc9);
 
         respostaRepository.saveAll(Arrays.asList(
