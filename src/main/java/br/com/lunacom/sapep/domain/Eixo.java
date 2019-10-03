@@ -1,6 +1,9 @@
 package br.com.lunacom.sapep.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +13,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Setter
+@Getter
+@AllArgsConstructor
 @Entity
 public class Eixo implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -19,13 +25,15 @@ public class Eixo implements Serializable {
     private Integer id;
     private String nome;
     private String descricao;
+    private Integer ordem;
     private Date criacao;
-    private Time hora;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id.eixo")
-    private Set<AutoavaliacaoEixos> autoavaliacaoEixos = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name="autoavaliacao_id")
+    private Autoavaliacao autoavaliacao;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "eixo")
     private List<Indicador> indicadores;
 
@@ -34,66 +42,6 @@ public class Eixo implements Serializable {
     public Eixo(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Date getCriacao() {
-        return criacao;
-    }
-
-    public void setCriacao(Date criacao) {
-        this.criacao = criacao;
-    }
-
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
-    }
-
-    public Set<AutoavaliacaoEixos> getAutoavaliacaoEixos() {
-        return autoavaliacaoEixos;
-    }
-
-    public void setAutoavaliacaoEixos(Set<AutoavaliacaoEixos> autoavaliacaoEixos) {
-        this.autoavaliacaoEixos = autoavaliacaoEixos;
-    }
-
-    public List<Indicador> getIndicadores() {
-        return indicadores;
-    }
-
-    public void setIndicadores(List<Indicador> indicadores) {
-        this.indicadores = indicadores;
     }
 
     @Override
@@ -109,5 +57,13 @@ public class Eixo implements Serializable {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    public Eixo(String nome, String descricao, Integer ordem, Date criacao, Autoavaliacao autoavaliacao) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.ordem = ordem;
+        this.criacao = criacao;
+        this.autoavaliacao = autoavaliacao;
     }
 }

@@ -21,6 +21,7 @@ public class CursoService {
 
     public Curso insert(Curso obj) {
         obj.setId(null);
+        obj.setCriacao(new Date());
         return repo.save(obj);
     }
 
@@ -30,7 +31,7 @@ public class CursoService {
 
     public Curso find (Integer id) {
         Optional<Curso> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um curso"));
     }
 
     public Curso update(Curso obj) {

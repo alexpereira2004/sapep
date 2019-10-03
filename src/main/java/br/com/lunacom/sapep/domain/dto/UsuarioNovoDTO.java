@@ -1,0 +1,35 @@
+package br.com.lunacom.sapep.domain.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+import java.sql.Time;
+import java.util.Date;
+
+@Getter
+@Setter
+public class UsuarioNovoDTO implements Serializable, Dto {
+    private static final long serialVersionUID = 1L;
+
+    @NotEmpty(message="Preenchimento obrigatório")
+    @Length(min=5, max=80, message="O tamanho deve ser entre 5 e 80 caracteres")
+    private String nome;
+
+    @Column(unique=true)
+    @NotEmpty(message="Preenchimento obrigatório")
+    private String email;
+    private String telefone;
+    private boolean reitoria;
+    private boolean admin;
+
+    @NotEmpty(message="Preenchimento da senha é obrigatório")
+    private String senha;
+    private String situacao;
+}

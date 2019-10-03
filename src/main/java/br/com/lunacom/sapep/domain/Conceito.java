@@ -35,4 +35,10 @@ public class Conceito implements Serializable {
         this.nota = nota;
     }
 
+    public Conceito(Integer ano, String nota, Date criacao, Curso curso) {
+        this.ano = ano;
+        this.nota = nota;
+        this.criacao = criacao;
+        this.curso = curso;
+    }
 }

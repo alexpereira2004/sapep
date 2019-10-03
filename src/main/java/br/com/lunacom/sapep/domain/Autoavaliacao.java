@@ -1,12 +1,17 @@
 package br.com.lunacom.sapep.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.*;
 
+@Getter
+@Setter
 @Entity
 public class Autoavaliacao implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -16,123 +21,47 @@ public class Autoavaliacao implements Serializable {
     private Integer id;
     private String nome;
     private String objetivo;
-    private String Status;
+    private String situacao;
     private Date inicio;
     private Date termino;
     private Date Criacao;
-    private Time Hora;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="curso_id")
     private Curso curso;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id.autoavaliacao")
-    private Set<AutoavaliacaoEixos> autoavaliacaoEixos = new HashSet<>();
+    @OneToMany(mappedBy = "autoavaliacao")
+    private List<Eixo> eixos;
 
     public Autoavaliacao() {}
 
-    public Autoavaliacao(String nome, String objetivo, String status, Date inicio, Date termino) {
+    public Autoavaliacao(String nome, String objetivo, String situacao, Date inicio, Date termino) {
         this.nome = nome;
         this.objetivo = objetivo;
-        Status = status;
+        this.situacao = situacao;
         this.inicio = inicio;
         this.termino = termino;
     }
 
-    @JsonIgnore
-    public List<Eixo> getEixos() {
-        List<Eixo> lista = new ArrayList<>();
-        for (AutoavaliacaoEixos x : autoavaliacaoEixos) {
-            lista.add(x.getEixo());
-        }
-        return lista;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public Autoavaliacao(String nome, String objetivo, String situacao, Date inicio, Date termino, Date criacao, Curso curso) {
         this.nome = nome;
-    }
-
-    public String getObjetivo() {
-        return objetivo;
-    }
-
-    public void setObjetivo(String objetivo) {
         this.objetivo = objetivo;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
-    }
-
-    public Date getInicio() {
-        return inicio;
-    }
-
-    public void setInicio(Date inicio) {
+        this.situacao = situacao;
         this.inicio = inicio;
-    }
-
-    public Date getTermino() {
-        return termino;
-    }
-
-    public void setTermino(Date termino) {
         this.termino = termino;
-    }
-
-    public Date getCriacao() {
-        return Criacao;
-    }
-
-    public void setCriacao(Date criacao) {
         Criacao = criacao;
-    }
-
-    public Time getHora() {
-        return Hora;
-    }
-
-    public void setHora(Time hora) {
-        Hora = hora;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
         this.curso = curso;
     }
 
-    public Set<AutoavaliacaoEixos> getAutoavaliacaoEixos() {
-        return autoavaliacaoEixos;
-    }
-
-    public void setAutoavaliacaoEixos(Set<AutoavaliacaoEixos> autoavaliacaoEixos) {
-        this.autoavaliacaoEixos = autoavaliacaoEixos;
-    }
+    //    @JsonIgnore
+//    public List<Eixo> getEixos() {
+//        List<Eixo> lista = new ArrayList<>();
+//        for (AutoavaliacaoEixos x : autoavaliacaoEixos) {
+//            lista.add(x.getEixo());
+//        }
+//        return lista;
+//    }
 
     @Override
     public int hashCode() {
