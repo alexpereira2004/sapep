@@ -59,6 +59,9 @@ public class AutoavaliacaoService {
 
     public Autoavaliacao update(AutoavaliacaoEdicaoDTO objDto) {
         Autoavaliacao obj = fromDTO(objDto);
+        if (obj.getSituacao().isEmpty()) {
+            obj.setSituacao(automaticStatus(obj));
+        }
         obj.setCurso(cursoService.find(objDto.getCod_curso()));
         return repo.save(obj);
     }

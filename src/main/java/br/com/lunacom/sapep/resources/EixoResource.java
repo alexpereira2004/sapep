@@ -46,9 +46,8 @@ public class EixoResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-    public ResponseEntity<Void> update(@Valid @RequestBody Eixo obj, @PathVariable Integer id) {
-        obj.setId(id);
-        obj = service.update(obj);
+    public ResponseEntity<Void> update(@Valid @RequestBody EixoNovoDTO obj, @PathVariable Integer id) {
+        service.update(id, obj);
         return ResponseEntity.noContent().build();
     }
 
