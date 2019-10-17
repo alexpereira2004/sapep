@@ -154,27 +154,106 @@ public class DBService {
         Eixo ec6 = new Eixo("Eixo 6", "Destino dos Mestres Egressos", 6, new Date(), ac1);
         eixoRepository.saveAll(Arrays.asList(ec5,ec7,ec6,ec4,ec1,ec2,ec8,ec3));
 
+        // Perguntas do Curso 1 - Eixo 8
         Indicador idc1 = new Indicador("Relato breve das condições disponíveis",
-                null, 1, "QD", "TX", ea11);
+                1, 1, "QD", "TX", ea11);
         Indicador idc2 = new Indicador("Houve alterações relevantes de infraestrutura nos últimos 2 anos?",
-                null, 2, "QD", "CH", ea11);
+                2, 1, "QD", "CH", ea11);
         Indicador idc3 = new Indicador("Pontos fortes",
-                null, 3, "QD","TX", ea11);
+                3, 1, "QD","TX", ea11);
         Indicador idc4 = new Indicador("Pontos fracos",
-                null, 3, "QD","TX", ea11);
+                4, 1, "QD","TX", ea11);
         Indicador idc5 = new Indicador("Meta",
-                1, 1, "ML","TX", ea11);
+                5, 1, "ML","TX", ea11);
         Indicador idc6 = new Indicador("Viabilidade",
-                1, 2, "ML","TX", ea11);
+                5, 2, "ML","TX", ea11);
         Indicador idc7 = new Indicador("Ameaças Internas",
-                1, 3, "ML","TX", ea11);
+                5, 3, "ML","TX", ea11);
         Indicador idc8 = new Indicador("Ameaças Externas",
-                1, 4, "ML","TX", ea11);
+                5, 4, "ML","TX", ea11);
         Indicador idc9 = new Indicador("Prioridade",
-                1, 4, "ML","TX", ea11);
-
+                5, 4, "ML","TX", ea11);
         indicadorRepository.saveAll(Arrays.asList(idc1, idc2, idc3, idc4, idc5, idc6, idc7, idc8, idc9));
 
+        // Perguntas do Curso 1 - Eixo 1
+        Indicador idc10 = new Indicador("Objetivos do Programa",1, 1, "QD","TA", ea4);
+        Indicador idc11 = new Indicador("Meta",2, 1, "ML","TA", ea4);
+        Indicador idc12 = new Indicador("Viabilidade",2, 2, "ML","TA", ea4);
+        Indicador idc13 = new Indicador("Ameaças Internas",2, 3, "ML","TA", ea4);
+        Indicador idc14 = new Indicador("Ameaças Externas",2, 4, "ML","TA", ea4);
+        Indicador idc15 = new Indicador("Prioridade (de 1 a 5)",2, 5, "ML","NU", ea4);
+        indicadorRepository.saveAll(Arrays.asList(idc10, idc11, idc12, idc13, idc14, idc15));
+
+        // Perguntas do Curso 1 - Eixo 2
+        Indicador idc16 = new Indicador("Número de Professores Permanentes",1, 1, "AN","NU", ea5);
+        Indicador idc17 = new Indicador("Número de Professores Colaboradores ",2, 1, "AN","NU", ea5);
+        Indicador idc18 = new Indicador("Número de Professores com Bolsa de Produtividade em Pesquisa do CNPq",3, 1, "AN","NU", ea5);
+        Indicador idc19 = new Indicador("Pontos fortes",4, 1, "AN","TA", ea5);
+        Indicador idc20 = new Indicador("Pontos fracos",5, 1, "AN","TA", ea5);
+        Indicador idc21 = new Indicador("Meta",6, 1, "ML","TA", ea5);
+        Indicador idc22 = new Indicador("Viabilidade",6, 2, "ML","TA", ea5);
+        Indicador idc23 = new Indicador("Ameaças Internas",6, 3, "ML","TA", ea5);
+        Indicador idc24 = new Indicador("Ameaças Externas",6, 4, "ML","TA", ea5);
+        Indicador idc25 = new Indicador("Prioridade (de 1 a 5)",6, 5, "ML","NU", ea5);
+        indicadorRepository.saveAll(Arrays.asList(idc16,idc17,idc18,idc19,idc20,idc21,idc22,idc23,idc24,idc25));
+
+        // Perguntas do Curso 1 - Eixo 3
+        Indicador idc26 = new Indicador("Número de Linhas de pesquisa do programa",1, 1, "AN","NU", ea6);
+        Indicador idc27 = new Indicador("Número de Projetos de Pesquisa",2, 1, "AN","NU", ea6);
+        Indicador idc28 = new Indicador("Pontos fortes",3, 1, "AN","TA", ea6);
+        Indicador idc29 = new Indicador("Pontos fracos",4, 1, "AN","TA", ea6);
+        Indicador idc30 = new Indicador("Meta",5, 1, "ML","TA", ea6);
+        Indicador idc31 = new Indicador("Viabilidade",5, 2, "ML","TA", ea6);
+        Indicador idc32 = new Indicador("Ameaças Internas",5, 3, "ML","TA", ea6);
+        Indicador idc33 = new Indicador("Ameaças Externas",5, 4, "ML","TA", ea6);
+        Indicador idc34 = new Indicador("Prioridade (de 1 a 5)",5, 5, "ML","NU", ea6);
+        indicadorRepository.saveAll(Arrays.asList(idc26,idc27,idc28,idc29,idc30,idc31,idc32,idc33,idc34));
+
+        // Perguntas do Curso 1 - Eixo 4
+        Indicador idc35 = new Indicador("Trabalhos completos em periódicos",1, 1, "AN","NU", ea7);
+        Indicador idc36 = new Indicador("Trabalhos completos em periódicos com autores discentes",1, 2, "AN","NU", ea7);
+        Indicador idc37 = new Indicador("Anais Completos",1, 3, "AN","NU", ea7);
+        Indicador idc38 = new Indicador("Produção Artística",1, 4, "AN","NU", ea7);
+        Indicador idc39 = new Indicador("Produção Técnica",1, 5, "AN","NU", ea7);
+        Indicador idc40 = new Indicador("Livro",1, 6, "AN","NU", ea7);
+        Indicador idc41 = new Indicador("Capítulo de Livro",1, 7, "AN","NU", ea7);
+        Indicador idc42 = new Indicador("Solicitação de Depósito de Patente",1, 8, "AN","NU", ea7);
+        Indicador idc43 = new Indicador("Produto Educacional",1, 9, "AN","NU", ea7);
+        Indicador idc44 = new Indicador("Relação percentual existente entre o número de dissertações e trabalhos publicados em periódicos com a participação de discentes",2, 1, "AN","TA", ea7);
+        Indicador idc45 = new Indicador("Pontos fortes",3, 1, "AN","TA", ea7);
+        Indicador idc46 = new Indicador("Pontos fracos",4, 1, "AN","TA", ea7);
+        Indicador idc47 = new Indicador("Meta",5, 1, "ML","TA", ea7);
+        Indicador idc48 = new Indicador("Viabilidade",5, 2, "ML","TA", ea7);
+        Indicador idc49 = new Indicador("Ameaças Internas",5, 3, "ML","TA", ea7);
+        Indicador idc50 = new Indicador("Ameaças Externas",5, 4, "ML","TA", ea7);
+        Indicador idc51 = new Indicador("Prioridade (de 1 a 5)",5, 5, "ML","NU", ea7);
+        indicadorRepository.saveAll(Arrays.asList(idc35,idc36,idc37,idc38,idc39,idc40,idc41,idc42,idc43,idc44,idc45,idc46,idc47,idc48,idc49,idc50,idc51));
+
+        // Perguntas do Curso 1 - Eixo 5
+        Indicador idc52 = new Indicador("Número de candidatos inscritos para seleção",1, 1, "AN","NU", ea8);
+        Indicador idc53 = new Indicador("Número de discentes com matrícula regular (total)",1, 2, "AN","NU", ea8);
+        Indicador idc54 = new Indicador("Número de discentes com matrícula especial (total)",1, 3, "AN","NU", ea8);
+        Indicador idc55 = new Indicador("Número de discentes titulados",1, 4, "AN","NU", ea8);
+        Indicador idc56 = new Indicador("Pontos fortes",2, 1, "AN","TA", ea8);
+        Indicador idc57 = new Indicador("Pontos fracos",3, 1, "AN","TA", ea8);
+        Indicador idc58 = new Indicador("Meta",4, 1, "ML","TA", ea8);
+        Indicador idc59 = new Indicador("Viabilidade",4, 2, "ML","TA", ea8);
+        Indicador idc60 = new Indicador("Ameaças Internas",4, 3, "ML","TA", ea8);
+        Indicador idc61 = new Indicador("Ameaças Externas",4, 4, "ML","TA", ea8);
+        Indicador idc62 = new Indicador("Prioridade (de 1 a 5)",4, 5, "ML","NU", ea8);
+        indicadorRepository.saveAll(Arrays.asList(idc52,idc53,idc54,idc55,idc56,idc57,idc58,idc59,idc60,idc61,idc62));
+
+        // Perguntas do Curso 1 - Eixo 6
+        Indicador idc63 = new Indicador("Total de egressos",1, 1, "AN","TX", ea9);
+        Indicador idc64 = new Indicador("Informar demais destinos relevantes dos egressos",2, 1, "AN","TA", ea9);
+        indicadorRepository.saveAll(Arrays.asList(idc63, idc64));
+
+        // Perguntas do Curso 1 - Eixo 7
+        Indicador idc65 = new Indicador("Pontos fortes",1, 1, "AN","TA", ea10);
+        Indicador idc66 = new Indicador("Pontos fracos",2, 1, "AN","TA", ea10);
+        indicadorRepository.saveAll(Arrays.asList(idc65, idc66));
+
+        // Respostas
         Resposta resp1 = new Resposta(null, "As condições eram ruins, goteiras nas salas de aula, máquinas com limite de memória, dentre outras dificuldades", 0.00f, idc1);
         Resposta resp2 = new Resposta(null, "Não e os investimentos cairam cerca de 90%", 0.00f, idc2);
         Resposta resp3 = new Resposta(null, "Existe uma equipe de manutenção que consegue realizar diversas manutenções", 0.00f, idc3);
