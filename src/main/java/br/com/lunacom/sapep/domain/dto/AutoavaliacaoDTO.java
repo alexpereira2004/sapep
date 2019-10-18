@@ -20,6 +20,8 @@ public class AutoavaliacaoDTO implements Serializable, Dto {
     private Date inicio;
     private Date termino;
     private Integer cod_curso;
-//    private Set<AutoavaliacaoEixos> autoavaliacaoEixos = new HashSet<>();
-    private List<Eixo> eixos;
+    private Integer totalEixos;
+    private Integer totalIndicadores;
+    private CursoDTO curso;
+    private List<EixoDTO> eixos;
 }

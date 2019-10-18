@@ -19,6 +19,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AutoavaliacaoService {
@@ -52,9 +53,23 @@ public class AutoavaliacaoService {
 
     public AutoavaliacaoDTO findDetailed (Integer id) {
         Optional<Autoavaliacao> optionalObj = repo.findById(id);
-        Optional<AutoavaliacaoDTO> optionalAutoavaliacaoDTO = Optional.ofNullable(toDTO(optionalObj.get()));
-        optionalAutoavaliacaoDTO.get().getEixos().sort(Comparator.comparing(Eixo::getOrdem));
-        return optionalAutoavaliacaoDTO.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
+
+        Autoavaliacao autoavaliacao = optionalObj.orElseThrow(
+                () -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
+
+        AutoavaliacaoDTO autoavaliacaoDTO = toDTO(autoavaliacao);
+
+        final List<Eixo> eixoList = autoavaliacao.getEixos();
+        autoavaliacaoDTO.setTotalEixos(eixoList.size());
+
+        int totalIndicadores = eixoList
+                .stream()
+                .mapToInt(e -> e.getIndicadores().size())
+                .sum();
+
+        autoavaliacaoDTO.setTotalIndicadores(totalIndicadores);
+
+        return autoavaliacaoDTO;
     }
 
     public Autoavaliacao update(AutoavaliacaoEdicaoDTO objDto) {
