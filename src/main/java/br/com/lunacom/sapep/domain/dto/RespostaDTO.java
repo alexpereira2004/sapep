@@ -14,7 +14,7 @@ public class RespostaDTO implements Serializable, Dto {
     private Integer id;
     private Integer ano;
 
-    @Length(min=5, max=500, message="O tamanho deve ser entre 5 e 500 caracteres")
+//    @Length(min=5, max=500, message="O tamanho deve ser entre 5 e 500 caracteres")
     private String descritiva;
     private float valor;
     private Date criacao;
