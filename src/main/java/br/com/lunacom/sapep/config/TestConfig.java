@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Profile;
 import java.text.ParseException;
 
 @Configuration
-@Profile("dev")
-public class DevConfig {
+@Profile("test")
+public class TestConfig {
 
     @Autowired
     private DBService dbService;
@@ -21,11 +21,6 @@ public class DevConfig {
 
     @Bean
     public boolean instantiateDatabase() throws ParseException {
-
-        if (!"create".equals(strategy)) {
-            return false;
-        }
-
         dbService.instantiateData();
         return true;
     }
