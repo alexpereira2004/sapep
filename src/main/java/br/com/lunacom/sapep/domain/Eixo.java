@@ -36,6 +36,10 @@ public class Eixo implements Serializable {
     @OneToMany(mappedBy = "eixo")
     private List<Indicador> indicadores;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "eixo")
+    private List<Meta> metas;
+
     public Eixo() {}
 
     public Eixo(String nome, String descricao) {
