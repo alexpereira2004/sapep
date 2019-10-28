@@ -1,5 +1,6 @@
 package br.com.lunacom.sapep.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Resposta implements Serializable {
     private float valor;
     private Date criacao;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="indicador_id")
     private Indicador indicador;
