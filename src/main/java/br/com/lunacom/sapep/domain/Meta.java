@@ -29,6 +29,7 @@ public class Meta {
     private String viabilidade;
     private String prioridade;
     private double alcancado;
+    private Date criacao;
 
     @JsonIgnore
     @ManyToOne
