@@ -1,8 +1,6 @@
 package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Meta;
-import br.com.lunacom.sapep.domain.dto.EixoDTO;
-import br.com.lunacom.sapep.domain.dto.IndicadorDTO;
 import br.com.lunacom.sapep.domain.dto.MetaDTO;
 import br.com.lunacom.sapep.services.MetaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +20,11 @@ public class MetaResource {
     private MetaService service;
 
     @RequestMapping(method= RequestMethod.POST)
-    public ResponseEntity<Void> insert(@Valid @RequestBody MetaDTO objDto) {
+    public ResponseEntity<Meta> insert(@Valid @RequestBody MetaDTO objDto) {
         Meta obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(obj);
     }
 
     @RequestMapping(method=RequestMethod.GET)

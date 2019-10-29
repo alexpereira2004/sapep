@@ -1,6 +1,7 @@
 package br.com.lunacom.sapep.domain.dto;
 
 import br.com.lunacom.sapep.domain.Indicador;
+import br.com.lunacom.sapep.domain.Meta;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,4 +16,5 @@ public class EixoDTO {
     private String descricao;
     private Integer ordem;
     private List<Indicador> indicadores;
+    private List<Meta> metas;
 }
