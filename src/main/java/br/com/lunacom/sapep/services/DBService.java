@@ -156,13 +156,13 @@ public class DBService {
 
         // Perguntas do Curso 1 - Eixo 8
         Indicador idc1 = new Indicador("Relato breve das condições disponíveis",
-                1, 1, "QD", "TX", ea11);
+                1, 1, "RE", "TX", ea11);
         Indicador idc2 = new Indicador("Houve alterações relevantes de infraestrutura nos últimos 2 anos?",
-                2, 1, "QD", "CH", ea11);
+                2, 1, "RE", "CH", ea11);
         Indicador idc3 = new Indicador("Pontos fortes",
-                3, 1, "QD","TX", ea11);
+                3, 1, "RE","TX", ea11);
         Indicador idc4 = new Indicador("Pontos fracos",
-                4, 1, "QD","TX", ea11);
+                4, 1, "RE","TX", ea11);
         Indicador idc5 = new Indicador("Meta",
                 5, 1, "ML","TX", ea11);
         Indicador idc6 = new Indicador("Viabilidade",
@@ -176,7 +176,7 @@ public class DBService {
         indicadorRepository.saveAll(Arrays.asList(idc1, idc2, idc3, idc4, idc5, idc6, idc7, idc8, idc9));
 
         // Perguntas do Curso 1 - Eixo 1
-        Indicador idc10 = new Indicador("Objetivos do Programa",1, 1, "QD","TA", ea4);
+        Indicador idc10 = new Indicador("Objetivos do Programa",1, 1, "RE","TA", ea4);
         Indicador idc11 = new Indicador("Meta",2, 1, "ML","TA", ea4);
         Indicador idc12 = new Indicador("Viabilidade",2, 2, "ML","TA", ea4);
         Indicador idc13 = new Indicador("Ameaças Internas",2, 3, "ML","TA", ea4);
