@@ -176,18 +176,19 @@ public class DBService {
         indicadorRepository.saveAll(Arrays.asList(idc1, idc2, idc3, idc4, idc5, idc6, idc7, idc8, idc9));
 
         // Perguntas do Curso 1 - Eixo 1
-        Indicador idc10 = new Indicador("Objetivos do Programa",1, 1, "RE","TA", ea4);
-        Indicador idc11 = new Indicador("Meta",2, 1, "ML","TA", ea4);
-        Indicador idc12 = new Indicador("Viabilidade",2, 2, "ML","TA", ea4);
-        Indicador idc13 = new Indicador("Ameaças Internas",2, 3, "ML","TA", ea4);
-        Indicador idc14 = new Indicador("Ameaças Externas",2, 4, "ML","TA", ea4);
-        Indicador idc15 = new Indicador("Prioridade (de 1 a 5)",2, 5, "ML","NU", ea4);
-        indicadorRepository.saveAll(Arrays.asList(idc10, idc11, idc12, idc13, idc14, idc15));
+        Indicador idc10 = new Indicador("Objetivos do Programa",1, 1, "AN","TA", ea4);
+//        Indicador idc11 = new Indicador("Meta",2, 1, "ML","TA", ea4);
+//        Indicador idc12 = new Indicador("Viabilidade",2, 2, "ML","TA", ea4);
+//        Indicador idc13 = new Indicador("Ameaças Internas",2, 3, "ML","TA", ea4);
+//        Indicador idc14 = new Indicador("Ameaças Externas",2, 4, "ML","TA", ea4);
+//        Indicador idc15 = new Indicador("Prioridade (de 1 a 5)",2, 5, "ML","NU", ea4);
+//        indicadorRepository.saveAll(Arrays.asList(idc10, idc11, idc12, idc13, idc14, idc15));
+        indicadorRepository.saveAll(Arrays.asList(idc10));
 
         // Perguntas do Curso 1 - Eixo 2
-        Indicador idc16 = new Indicador("Número de Professores Permanentes",1, 1, "AN","NU", ea5);
-        Indicador idc17 = new Indicador("Número de Professores Colaboradores ",2, 1, "AN","NU", ea5);
-        Indicador idc18 = new Indicador("Número de Professores com Bolsa de Produtividade em Pesquisa do CNPq",3, 1, "AN","NU", ea5);
+        Indicador idc16 = new Indicador("Número de Professores Permanentes",1, 1, "RE","NU", ea5);
+        Indicador idc17 = new Indicador("Número de Professores Colaboradores ",1, 2, "RE","NU", ea5);
+        Indicador idc18 = new Indicador("Número de Professores com Bolsa de Produtividade em Pesquisa do CNPq",1, 3, "RE","NU", ea5);
         Indicador idc19 = new Indicador("Pontos fortes",4, 1, "AN","TA", ea5);
         Indicador idc20 = new Indicador("Pontos fracos",5, 1, "AN","TA", ea5);
         Indicador idc21 = new Indicador("Meta",6, 1, "ML","TA", ea5);
@@ -198,8 +199,8 @@ public class DBService {
         indicadorRepository.saveAll(Arrays.asList(idc16,idc17,idc18,idc19,idc20,idc21,idc22,idc23,idc24,idc25));
 
         // Perguntas do Curso 1 - Eixo 3
-        Indicador idc26 = new Indicador("Número de Linhas de pesquisa do programa",1, 1, "AN","NU", ea6);
-        Indicador idc27 = new Indicador("Número de Projetos de Pesquisa",2, 1, "AN","NU", ea6);
+        Indicador idc26 = new Indicador("Número de Linhas de pesquisa do programa",1, 1, "RE","NU", ea6);
+        Indicador idc27 = new Indicador("Número de Projetos de Pesquisa",1, 2, "RE","NU", ea6);
         Indicador idc28 = new Indicador("Pontos fortes",3, 1, "AN","TA", ea6);
         Indicador idc29 = new Indicador("Pontos fracos",4, 1, "AN","TA", ea6);
         Indicador idc30 = new Indicador("Meta",5, 1, "ML","TA", ea6);
@@ -210,15 +211,15 @@ public class DBService {
         indicadorRepository.saveAll(Arrays.asList(idc26,idc27,idc28,idc29,idc30,idc31,idc32,idc33,idc34));
 
         // Perguntas do Curso 1 - Eixo 4
-        Indicador idc35 = new Indicador("Trabalhos completos em periódicos",1, 1, "AN","NU", ea7);
-        Indicador idc36 = new Indicador("Trabalhos completos em periódicos com autores discentes",1, 2, "AN","NU", ea7);
-        Indicador idc37 = new Indicador("Anais Completos",1, 3, "AN","NU", ea7);
-        Indicador idc38 = new Indicador("Produção Artística",1, 4, "AN","NU", ea7);
-        Indicador idc39 = new Indicador("Produção Técnica",1, 5, "AN","NU", ea7);
-        Indicador idc40 = new Indicador("Livro",1, 6, "AN","NU", ea7);
-        Indicador idc41 = new Indicador("Capítulo de Livro",1, 7, "AN","NU", ea7);
-        Indicador idc42 = new Indicador("Solicitação de Depósito de Patente",1, 8, "AN","NU", ea7);
-        Indicador idc43 = new Indicador("Produto Educacional",1, 9, "AN","NU", ea7);
+        Indicador idc35 = new Indicador("Trabalhos completos em periódicos",1, 1, "RE","NU", ea7);
+        Indicador idc36 = new Indicador("Trabalhos completos em periódicos com autores discentes",1, 2, "RE","NU", ea7);
+        Indicador idc37 = new Indicador("Anais Completos",1, 3, "RE","NU", ea7);
+        Indicador idc38 = new Indicador("Produção Artística",1, 4, "RE","NU", ea7);
+        Indicador idc39 = new Indicador("Produção Técnica",1, 5, "RE","NU", ea7);
+        Indicador idc40 = new Indicador("Livro",1, 6, "RE","NU", ea7);
+        Indicador idc41 = new Indicador("Capítulo de Livro",1, 7, "RE","NU", ea7);
+        Indicador idc42 = new Indicador("Solicitação de Depósito de Patente",1, 8, "RE","NU", ea7);
+        Indicador idc43 = new Indicador("Produto Educacional",1, 9, "RE","NU", ea7);
         Indicador idc44 = new Indicador("Relação percentual existente entre o número de dissertações e trabalhos publicados em periódicos com a participação de discentes",2, 1, "AN","TA", ea7);
         Indicador idc45 = new Indicador("Pontos fortes",3, 1, "AN","TA", ea7);
         Indicador idc46 = new Indicador("Pontos fracos",4, 1, "AN","TA", ea7);
@@ -230,10 +231,10 @@ public class DBService {
         indicadorRepository.saveAll(Arrays.asList(idc35,idc36,idc37,idc38,idc39,idc40,idc41,idc42,idc43,idc44,idc45,idc46,idc47,idc48,idc49,idc50,idc51));
 
         // Perguntas do Curso 1 - Eixo 5
-        Indicador idc52 = new Indicador("Número de candidatos inscritos para seleção",1, 1, "AN","NU", ea8);
-        Indicador idc53 = new Indicador("Número de discentes com matrícula regular (total)",1, 2, "AN","NU", ea8);
-        Indicador idc54 = new Indicador("Número de discentes com matrícula especial (total)",1, 3, "AN","NU", ea8);
-        Indicador idc55 = new Indicador("Número de discentes titulados",1, 4, "AN","NU", ea8);
+        Indicador idc52 = new Indicador("Número de candidatos inscritos para seleção",1, 1, "RE","NU", ea8);
+        Indicador idc53 = new Indicador("Número de discentes com matrícula regular (total)",1, 2, "RE","NU", ea8);
+        Indicador idc54 = new Indicador("Número de discentes com matrícula especial (total)",1, 3, "RE","NU", ea8);
+        Indicador idc55 = new Indicador("Número de discentes titulados",1, 4, "RE","NU", ea8);
         Indicador idc56 = new Indicador("Pontos fortes",2, 1, "AN","TA", ea8);
         Indicador idc57 = new Indicador("Pontos fracos",3, 1, "AN","TA", ea8);
         Indicador idc58 = new Indicador("Meta",4, 1, "ML","TA", ea8);

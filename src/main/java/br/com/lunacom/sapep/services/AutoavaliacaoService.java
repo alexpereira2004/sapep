@@ -1,9 +1,6 @@
 package br.com.lunacom.sapep.services;
 
-import br.com.lunacom.sapep.domain.Autoavaliacao;
-import br.com.lunacom.sapep.domain.Curso;
-import br.com.lunacom.sapep.domain.Eixo;
-import br.com.lunacom.sapep.domain.Responsavel;
+import br.com.lunacom.sapep.domain.*;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
@@ -15,10 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -66,6 +60,14 @@ public class AutoavaliacaoService {
                 .stream()
                 .mapToInt(e -> e.getIndicadores().size())
                 .sum();
+
+        autoavaliacaoDTO.getEixos().stream().forEach(eixoDTO -> {
+            Map<Integer, List<Indicador>> group;
+            group = eixoDTO.getIndicadores().stream().collect(
+                    Collectors.groupingBy(Indicador::getAgrupamento)
+            );
+            eixoDTO.setIndicadoresAgrupados(group);
+        });
 
         autoavaliacaoDTO.setTotalIndicadores(totalIndicadores);
 
