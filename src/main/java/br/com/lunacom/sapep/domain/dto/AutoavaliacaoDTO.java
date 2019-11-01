@@ -22,6 +22,7 @@ public class AutoavaliacaoDTO implements Serializable, Dto {
     private Integer cod_curso;
     private Integer totalEixos;
     private Integer totalIndicadores;
+    private List<Integer> anos;
     private CursoDTO curso;
     private List<EixoDTO> eixos;
 }

@@ -12,6 +12,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -60,6 +63,11 @@ public class AutoavaliacaoService {
                 .stream()
                 .mapToInt(e -> e.getIndicadores().size())
                 .sum();
+
+        autoavaliacaoDTO.setAnos(getListaAnosDaAutoavaliacao(
+                autoavaliacaoDTO.getInicio(),
+                autoavaliacaoDTO.getTermino()
+        ));
 
         autoavaliacaoDTO.getEixos().stream().forEach(eixoDTO -> {
             Map<Integer, List<Indicador>> group;
@@ -116,5 +124,16 @@ public class AutoavaliacaoService {
             ret = "AT";
         }
         return ret;
+    }
+
+    private List<Integer> getListaAnosDaAutoavaliacao(Date inicio, Date termino) {
+        final LocalDate localDateInicio = DataUtil.convertDateToLocalDate(inicio);
+        final LocalDate localDateTermino = DataUtil.convertDateToLocalDate(termino);
+        List<Integer> anos = new ArrayList<>();
+
+        for (int i = localDateInicio.getYear(); i <= localDateTermino.getYear(); i++) {
+            anos.add(i);
+        }
+        return anos;
     }
 }
