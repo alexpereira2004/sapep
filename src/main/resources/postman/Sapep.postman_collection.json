@@ -56,7 +56,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5MTc0MTc2fQ.e121PP5be9BuOhvh1VvySPKVgb3pjDbMCIohczuFn5AYqAotAqcLhwHjsWwPpwwh2zWoYvOjBuZzp7gb6LhTVQ",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNzU3OTc4fQ.KTtt1ikjYO_lI1I8A7RJkid_V-K-mqr7SaeOkEAORQMGjtXpj0yimoCdhAi5yM0LmVuLNQB9oU9k3ronr5adow",
 								"type": "text"
 							}
 						],
@@ -85,7 +85,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5MTc0MTc2fQ.e121PP5be9BuOhvh1VvySPKVgb3pjDbMCIohczuFn5AYqAotAqcLhwHjsWwPpwwh2zWoYvOjBuZzp7gb6LhTVQ",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwMTUyMzcxfQ.PKj1Cs0xx1K0cdl3kMCP3f2RAv01Id1jaKG-NeQcODRfPH7yz0KyuJ6i2K3SbqcowQCpS-DzSqxuDIiCDwrXkw",
 								"type": "text"
 							}
 						],
@@ -107,16 +107,22 @@
 					"name": "Listar (Id)",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5Mzc0OTgxfQ.FMISSy9utyTlrcU-YuEay-owfhdorOf1fD4_zMQYxwx-YZpUJcenJ3WnU5fSLsvexYR5rrhWPfGrh1VGV41Ljg",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/curso/1",
+							"raw": "localhost:8080/curso/14",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"curso",
-								"1"
+								"14"
 							]
 						}
 					},
@@ -447,11 +453,16 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5OTcxNzcxfQ.i-qIQWcGC-H7HokHugWyCki2fkeVncmaAsJWUJA7fu5PcWhgv1b-brOLan_cwhJ8XYDr5plqgUUZL_dUMPlVAg",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"nome\" : \"Autoavaliação e Planejamento período 2015/2018\",\r\n\t\"objetivo\" : \"Realizar planejamento do curso no período de 2015/2018\",\r\n\t\"status\" : \"AT\",\r\n\t\"inicio\" : \"2015-01-01\",\r\n\t\"termino\" : \"2019-12-31\",\r\n\t\"cod_curso\": 3\r\n}"
+							"raw": "{\r\n\t\"nome\" : \"TESTE\",\r\n\t\"objetivo\" : \"Realizar planejamento do curso no período de 2015/2018\",\r\n\t\"situacao\" : \"\",\r\n\t\"inicio\" : \"2015-01-01\",\r\n\t\"termino\" : \"2017-12-31\",\r\n\t\"cod_curso\": 3\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/autoavaliacao",
@@ -483,7 +494,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY2MjY3NzExfQ.t0x8yL8fda8TjeWtG-XR-hU0W7NQDnUzxtbzer-6SFyvs14CGAPOmDVVUG3PF-6PFcdpP8g_zCIRsV6HTnSDJw",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwMjQwMTE0fQ.dS5ZZZJzZPcc-mQVHg8VqIgJGOSPpDL-Ih8BDiVGLRuQyOYVavtExSfiSYci82lBrUKX9sybFXPRt8MO3M3VkA",
 								"type": "text"
 							}
 						],
@@ -521,7 +532,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY2MzUwMzIzfQ.WSrNvUOGLqVuyD1qYBgck_SpF6gXNbl8VyU-blHejDGf8PVQf_rr43ivpn54HSid9eYx4F4dD4DzlRiI-1KegQ",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwOTcwMzM2fQ.rCfuxOm84rnUN7_BRQj_pr8k_kSzNXlpO-v5nOFBkjnPoOa4WRki2Ds1RnswkdEx1qdmb5btfy_ubYo2k5GdWA",
 								"type": "text"
 							}
 						],
@@ -530,7 +541,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/autoavaliacao/44",
+							"raw": "http://localhost:8080/autoavaliacao/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -538,7 +549,7 @@
 							"port": "8080",
 							"path": [
 								"autoavaliacao",
-								"44"
+								"1"
 							]
 						}
 					},
@@ -557,6 +568,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcxMzczOTIxfQ.r_4_UTdZ3PdJe5E2SKLLrSa5xHPdUuNMiwQUjdkRrfWHu0YqN9L4-JP8SjEMFzMU0IAM4l7ylLgivjWTjWEZrw",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -699,6 +715,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNDk0NjQ3fQ.57_xgEq8YWUbfBnRWTG3-5H0vpkgzlVU9l6lnGZeaO0BYKiCYFVFcLsPekaX8vRvwDdi5B0-cMUYHQf92fUIYg",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -714,6 +735,13 @@
 							"port": "8080",
 							"path": [
 								"eixo"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -732,6 +760,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwOTcwMzM2fQ.rCfuxOm84rnUN7_BRQj_pr8k_kSzNXlpO-v5nOFBkjnPoOa4WRki2Ds1RnswkdEx1qdmb5btfy_ubYo2k5GdWA",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -739,7 +772,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/eixo/1",
+							"raw": "http://localhost:8080/eixo/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -747,7 +780,7 @@
 							"port": "8080",
 							"path": [
 								"eixo",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -763,11 +796,16 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNDk0NjQ3fQ.57_xgEq8YWUbfBnRWTG3-5H0vpkgzlVU9l6lnGZeaO0BYKiCYFVFcLsPekaX8vRvwDdi5B0-cMUYHQf92fUIYg",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\" : \"Sistemas para Internet\",\n\t\"descricao\" : \"Vazio\",\n\t\"ordem\" : 1\n}"
+							"raw": "{\n\t\"nome\" : \"Eixo novo\",\n\t\"descricao\" : \"Vazio\",\n\t\"ordem\" : 1,\n\t\"cod_autoavaliacao\": 3\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/eixo/4",
@@ -873,6 +911,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNTgzOTIwfQ.ylQItKYhL-NUOzDEXaXvOlfricLKuS_3DbqVzvqncWSE7KOtZHkxFCCTcgt-EVJtXDxtUvDImZVjEArcBSOUpA",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1002,7 +1045,7 @@
 			]
 		},
 		{
-			"name": "Resposta",
+			"name": "Meta",
 			"item": [
 				{
 					"name": "Inserir",
@@ -1018,7 +1061,192 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"ano\" : 2018,\r\n\t\"descritiva\" : \"Valor qualquer neste campo\",\r\n\t\"valor\" : \"5\",\r\n\t\"cod_indicador\": 2\r\n}"
+							"raw": "{\r\n\t\"titulo\" : \"Pergunta a ser feita para o usuário\",\r\n\t\"detalhe\" : \"Trabalhos externos\",\r\n\t\"agrupamento\": 2,\r\n\t\"ordem\" : 1,\r\n\t\"temporalidade\": \"AN\",\r\n\t\"tipo\": \"TX\",\r\n\t\"cod_eixo\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/meta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNTgzOTIwfQ.ylQItKYhL-NUOzDEXaXvOlfricLKuS_3DbqVzvqncWSE7KOtZHkxFCCTcgt-EVJtXDxtUvDImZVjEArcBSOUpA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/meta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar (Id)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/meta/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"titulo\" : \"Pergunta a ser feita para o usuário\",\r\n\t\"detalhe\" : \"Trabalhos externos\",\r\n\t\"agrupamento\": 2,\r\n\t\"ordem\" : 17,\r\n\t\"temporalidade\": \"AN\",\r\n\t\"tipo\": \"TX\",\r\n\t\"cod_eixo\": 5\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/meta/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/meta/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2f772f5d-cc0f-4416-b1d5-00ece68e70bf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6701b9de-c7d2-4a65-b059-b0208c49245a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Resposta",
+			"item": [
+				{
+					"name": "Inserir",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5NTQ1MTcxfQ.dcQO3J6GAjha8e2FnsngOaG6mRTrluDIK4omrXAd1Uh44O3XccxAPEeFtd2DfZa9yGuCbKH29JjfEVeY8dWKiA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ano\" : null,\r\n\t\"descritiva\" : \"As condições eram ruins, goteiras nas salas de aula, máquinas com limite de memória, dentre outras dificuldades\",\r\n\t\"valor\" : \"0\",\r\n\t\"cod_indicador\": 1\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/resposta",
@@ -1047,6 +1275,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5NTQ1MTcxfQ.dcQO3J6GAjha8e2FnsngOaG6mRTrluDIK4omrXAd1Uh44O3XccxAPEeFtd2DfZa9yGuCbKH29JjfEVeY8dWKiA",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1114,6 +1347,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5NTQ1MTcxfQ.dcQO3J6GAjha8e2FnsngOaG6mRTrluDIK4omrXAd1Uh44O3XccxAPEeFtd2DfZa9yGuCbKH29JjfEVeY8dWKiA",
+								"type": "text"
 							}
 						],
 						"body": {

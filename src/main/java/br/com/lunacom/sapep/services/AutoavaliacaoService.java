@@ -1,9 +1,6 @@
 package br.com.lunacom.sapep.services;
 
-import br.com.lunacom.sapep.domain.Autoavaliacao;
-import br.com.lunacom.sapep.domain.Curso;
-import br.com.lunacom.sapep.domain.Eixo;
-import br.com.lunacom.sapep.domain.Responsavel;
+import br.com.lunacom.sapep.domain.*;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
@@ -15,10 +12,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class AutoavaliacaoService {
@@ -52,13 +50,43 @@ public class AutoavaliacaoService {
 
     public AutoavaliacaoDTO findDetailed (Integer id) {
         Optional<Autoavaliacao> optionalObj = repo.findById(id);
-        Optional<AutoavaliacaoDTO> optionalAutoavaliacaoDTO = Optional.ofNullable(toDTO(optionalObj.get()));
-        optionalAutoavaliacaoDTO.get().getEixos().sort(Comparator.comparing(Eixo::getOrdem));
-        return optionalAutoavaliacaoDTO.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
+
+        Autoavaliacao autoavaliacao = optionalObj.orElseThrow(
+                () -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
+
+        AutoavaliacaoDTO autoavaliacaoDTO = toDTO(autoavaliacao);
+
+        final List<Eixo> eixoList = autoavaliacao.getEixos();
+        autoavaliacaoDTO.setTotalEixos(eixoList.size());
+
+        int totalIndicadores = eixoList
+                .stream()
+                .mapToInt(e -> e.getIndicadores().size())
+                .sum();
+
+        autoavaliacaoDTO.setAnos(getListaAnosDaAutoavaliacao(
+                autoavaliacaoDTO.getInicio(),
+                autoavaliacaoDTO.getTermino()
+        ));
+
+        autoavaliacaoDTO.getEixos().stream().forEach(eixoDTO -> {
+            Map<Integer, List<Indicador>> group;
+            group = eixoDTO.getIndicadores().stream().collect(
+                    Collectors.groupingBy(Indicador::getAgrupamento)
+            );
+            eixoDTO.setIndicadoresAgrupados(group);
+        });
+
+        autoavaliacaoDTO.setTotalIndicadores(totalIndicadores);
+
+        return autoavaliacaoDTO;
     }
 
     public Autoavaliacao update(AutoavaliacaoEdicaoDTO objDto) {
         Autoavaliacao obj = fromDTO(objDto);
+        if (obj.getSituacao().isEmpty()) {
+            obj.setSituacao(automaticStatus(obj));
+        }
         obj.setCurso(cursoService.find(objDto.getCod_curso()));
         return repo.save(obj);
     }
@@ -96,5 +124,16 @@ public class AutoavaliacaoService {
             ret = "AT";
         }
         return ret;
+    }
+
+    private List<Integer> getListaAnosDaAutoavaliacao(Date inicio, Date termino) {
+        final LocalDate localDateInicio = DataUtil.convertDateToLocalDate(inicio);
+        final LocalDate localDateTermino = DataUtil.convertDateToLocalDate(termino);
+        List<Integer> anos = new ArrayList<>();
+
+        for (int i = localDateInicio.getYear(); i <= localDateTermino.getYear(); i++) {
+            anos.add(i);
+        }
+        return anos;
     }
 }

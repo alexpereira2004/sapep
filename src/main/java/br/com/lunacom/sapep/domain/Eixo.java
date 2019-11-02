@@ -28,7 +28,6 @@ public class Eixo implements Serializable {
     private Integer ordem;
     private Date criacao;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="autoavaliacao_id")
     private Autoavaliacao autoavaliacao;
@@ -36,6 +35,10 @@ public class Eixo implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "eixo")
     private List<Indicador> indicadores;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "eixo")
+    private List<Meta> metas;
 
     public Eixo() {}
 

@@ -29,6 +29,19 @@ public class Indicador implements Serializable {
     private Integer ordem;
     private String temporalidade;
 
+    private String tipo;
+
+    private Date criacao;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="eixo_id")
+    private Eixo eixo;
+
+
+    @OneToMany(mappedBy = "indicador")
+    List<Resposta> respostas;
+
     public Indicador(String titulo, Integer agrupamento, Integer ordem, String temporalidade, String tipo, Eixo eixo) {
         this.titulo = titulo;
         this.agrupamento = agrupamento;
@@ -37,17 +50,5 @@ public class Indicador implements Serializable {
         this.tipo = tipo;
         this.eixo = eixo;
     }
-
-    private String tipo;
-    private Date criacao;
-
-    @ManyToOne
-    @JoinColumn(name="eixo_id")
-    private Eixo eixo;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "indicador")
-    List<Resposta> respostas;
-
 
 }

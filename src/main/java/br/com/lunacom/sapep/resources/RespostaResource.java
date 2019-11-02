@@ -52,6 +52,12 @@ public class RespostaResource {
         return ResponseEntity.noContent().build();
     }
 
+    @RequestMapping(method=RequestMethod.PUT)
+    public ResponseEntity<Void> update(@Valid @RequestBody List<RespostaDTO> objDtoList) {
+        service.update(objDtoList);
+        return ResponseEntity.noContent().build();
+    }
+
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);

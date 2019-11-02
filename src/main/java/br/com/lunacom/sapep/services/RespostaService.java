@@ -7,6 +7,7 @@ import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.domain.dto.RespostaDTO;
 import br.com.lunacom.sapep.repositories.RespostaRepository;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
+import org.apache.commons.logging.Log;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,12 @@ public class RespostaService {
         Optional<Resposta> optionalObj = repo.findById(id);
         Optional<RespostaDTO> optionalRespostaDTO = Optional.ofNullable(toDTO(optionalObj.get()));
         return optionalRespostaDTO.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
+    }
+
+    public void update(List<RespostaDTO> objDtoList) {
+        for (int i = 0; i < objDtoList.size(); i++) {
+            this.update(objDtoList.get(i));
+        }
     }
 
     public Resposta update(RespostaDTO objDto) {

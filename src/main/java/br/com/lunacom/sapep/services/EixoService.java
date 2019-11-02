@@ -33,11 +33,10 @@ public class EixoService {
         obj.setId(null);
         obj.setCriacao(new Date());
 
-        Eixo eixo = repo.save(obj);
-
         Autoavaliacao autoavaliacao = autoavaliacaoService.find(objDto.getCod_autoavaliacao());
+        obj.setAutoavaliacao(autoavaliacao);
 
-        return obj;
+        return repo.save(obj);
     }
 
     public List<Eixo> findAll() {
@@ -60,12 +59,11 @@ public class EixoService {
         return Eixo;
     }
 
-    public Eixo update(Eixo obj) {
+    public Eixo update(int id, EixoNovoDTO objDto) {
+        Eixo obj = fromDTO(objDto);
+        Autoavaliacao autoavaliacao = autoavaliacaoService.find(objDto.getCod_autoavaliacao());
+        obj.setId(id);
+        obj.setAutoavaliacao(autoavaliacao);
         return repo.save(obj);
     }
-//    public EixoDTO toDTO(Eixo obj) {
-//        ModelMapper mapper = new ModelMapper();
-//        EixoDTO EixoDTO = mapper.map(obj, EixoDTO.class);
-//        return EixoDTO;
-//    }
 }

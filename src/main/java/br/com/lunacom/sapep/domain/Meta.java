@@ -7,36 +7,33 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-public class Resposta implements Serializable {
+@NoArgsConstructor
+public class Meta {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private Integer ano;
-    private String descritiva;
-    private float valor;
+    private String meta;
+    private String pontoFraco;
+    private String pontoForte;
+    private String ameacaInterna;
+    private String ameacaExterna;
+    private String viabilidade;
+    private String prioridade;
+    private double alcancado;
     private Date criacao;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="indicador_id")
-    private Indicador indicador;
+    @JoinColumn(name="eixo_id")
+    private Eixo eixo;
 
-    public Resposta(Integer ano, String descritiva, float valor, Indicador indicador) {
-        this.ano = ano;
-        this.descritiva = descritiva;
-        this.valor = valor;
-        this.indicador = indicador;
-    }
 }
