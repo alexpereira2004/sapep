@@ -7,6 +7,7 @@ import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
 import br.com.lunacom.sapep.services.EixoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -22,6 +23,7 @@ public class EixoResource {
     private EixoService service;
 
     @RequestMapping(method= RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> insert(@Valid @RequestBody EixoNovoDTO objDto) {
         Eixo obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -46,12 +48,14 @@ public class EixoResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> update(@Valid @RequestBody EixoNovoDTO obj, @PathVariable Integer id) {
         service.update(id, obj);
         return ResponseEntity.noContent().build();
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();

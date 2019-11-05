@@ -5,6 +5,7 @@ import br.com.lunacom.sapep.domain.dto.IndicadorDTO;
 import br.com.lunacom.sapep.services.IndicadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -20,6 +21,7 @@ public class IndicadorResource {
     private IndicadorService service;
 
     @RequestMapping(method= RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> insert(@Valid @RequestBody IndicadorDTO objDto) {
         Indicador obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -46,6 +48,7 @@ public class IndicadorResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> update(@Valid @RequestBody IndicadorDTO objDto, @PathVariable Integer id) {
         objDto.setId(id);
         service.update(objDto);
@@ -53,6 +56,7 @@ public class IndicadorResource {
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();

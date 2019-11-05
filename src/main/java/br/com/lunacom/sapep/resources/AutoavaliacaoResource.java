@@ -7,6 +7,7 @@ import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
 import br.com.lunacom.sapep.services.AutoavaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -22,6 +23,7 @@ public class AutoavaliacaoResource {
     private AutoavaliacaoService service;
 
     @RequestMapping(method= RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> insert(@Valid @RequestBody AutoavaliacaoNovoDTO objDto) {
         Autoavaliacao obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -46,12 +48,14 @@ public class AutoavaliacaoResource {
     }
 
     @RequestMapping(value="/detalhado/{id}", method=RequestMethod.GET)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<AutoavaliacaoDTO> findDetailed(@PathVariable Integer id) {
         AutoavaliacaoDTO objDto = service.findDetailed(id);
         return ResponseEntity.ok().body(objDto);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> update(@Valid @RequestBody AutoavaliacaoEdicaoDTO objDto, @PathVariable Integer id) {
         objDto.setId(id);
         service.update(objDto);
@@ -59,6 +63,7 @@ public class AutoavaliacaoResource {
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
