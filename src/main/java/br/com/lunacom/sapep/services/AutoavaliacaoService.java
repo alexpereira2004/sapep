@@ -6,6 +6,7 @@ import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
+import br.com.lunacom.sapep.security.UserSS;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import br.com.lunacom.sapep.util.DataUtil;
 import org.modelmapper.ModelMapper;
@@ -50,6 +51,8 @@ public class AutoavaliacaoService {
 
     public AutoavaliacaoDTO findDetailed (Integer id) {
         Optional<Autoavaliacao> optionalObj = repo.findById(id);
+
+        UserSS user = UserService.authenticated();
 
         Autoavaliacao autoavaliacao = optionalObj.orElseThrow(
                 () -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));

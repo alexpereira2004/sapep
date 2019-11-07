@@ -35,6 +35,9 @@ public class DBService {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private ResponsavelRepository responsavelRepository;
+
     public void instantiateData() throws ParseException {
         Usuario u1 = new Usuario("Alex L", "alex@gmail.com", "123456", "AT");
         u1.addPerfil(Perfil.ADMINISTRADOR);
@@ -52,21 +55,37 @@ public class DBService {
         Usuario u5 = new Usuario("Pedro F", "pedro@gmail.com", "123456", "AT");
         u5.addPerfil(Perfil.PROPPI);
 
+        Usuario u6 = new Usuario("Clarice Monteiro Escott", "clarice@gmail.com", "123456", "AT");
+        u3.addPerfil(Perfil.COORDENADOR);
+
+        Usuario u7 = new Usuario("Cristina M. Quintella", "cristina@gmail.com", "123456", "AT");
+        u3.addPerfil(Perfil.COORDENADOR);
+
 
         usuarioService.insert(u1);
         usuarioService.insert(u2);
         usuarioService.insert(u3);
         usuarioService.insert(u4);
         usuarioService.insert(u5);
+        usuarioService.insert(u6);
+        usuarioService.insert(u7);
+
 
         Curso c1 = new Curso("Mestrado Profissional em Educação Profissional e Tecnológica (ProfEPT)", "AT", new Date());
         Curso c2 = new Curso("Mestrado Profissional em Informática na Educação (MPIE)", "AT", new Date());
         Curso c3 = new Curso("Mestrado Profissional em Propriedade Intelectual e Transferência de Tecnologia para a Inovação (ProfNit)", "AT", new Date());
-//        Curso c4 = new Curso("MBA em Finanças Corporativas", "AT", new Date());
-//        Curso c5 = new Curso("Especialização em Governança em Tecnologia da Informação e Inovação", "AT", new Date());
-//        Curso c6 = new Curso("MBA em Psicologia Organizacional", "AT", new Date());
         cursoRepository.saveAll(Arrays.asList(c1, c2, c3));
-//        cursoRepository.saveAll(Arrays.asList(c4, c5, c6));
+
+        Responsavel r1 = new Responsavel(c1, u6);
+        Responsavel r2 = new Responsavel(c2, u2);
+        Responsavel r3 = new Responsavel(c2, u3);
+        Responsavel r4 = new Responsavel(c3, u7);
+        responsavelRepository.saveAll(Arrays.asList(r1, r2, r3, r4));
+
+        c1.setResponsaveis(Arrays.asList(r1));
+        c2.setResponsaveis(Arrays.asList(r2, r3));
+        c3.setResponsaveis(Arrays.asList(r4));
+        cursoRepository.saveAll(Arrays.asList(c1, c2, c3));
 
         Conceito ca1 = new Conceito(2014, "5", new Date(), c1);
         Conceito ca2 = new Conceito(2015, "4", new Date(), c1);

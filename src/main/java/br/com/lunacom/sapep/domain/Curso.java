@@ -2,6 +2,8 @@ package br.com.lunacom.sapep.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +12,7 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Entity
 @Getter
 @Setter
@@ -19,8 +22,8 @@ public class Curso implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
-    private String situacao;
+    @NonNull private String nome;
+    @NonNull private String situacao;
     private Date criacao;
 
     // https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
@@ -34,7 +37,7 @@ public class Curso implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "curso")
-    private List<Responsavel> responsaveis;
+    @NonNull private List<Responsavel> responsaveis;
 
     public Curso() {}
 
