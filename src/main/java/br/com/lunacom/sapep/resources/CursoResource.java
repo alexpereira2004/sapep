@@ -2,6 +2,7 @@ package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.dto.CursoDTO;
+import br.com.lunacom.sapep.domain.dto.CursoDetalheDTO;
 import br.com.lunacom.sapep.domain.dto.CursoNovoDTO;
 import br.com.lunacom.sapep.services.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,8 @@ public class CursoResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ResponseEntity<Curso> find(@PathVariable Integer id) {
-        Curso obj = service.find(id);
+    public ResponseEntity<CursoDetalheDTO> find(@PathVariable Integer id) {
+        CursoDetalheDTO obj = service.findDetailed(id);
         return ResponseEntity.ok().body(obj);
     }
 
