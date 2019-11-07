@@ -2,6 +2,7 @@ package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.*;
 import br.com.lunacom.sapep.domain.dto.*;
+import br.com.lunacom.sapep.domain.enums.Perfil;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
 import br.com.lunacom.sapep.security.UserSS;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
@@ -42,7 +43,14 @@ public class AutoavaliacaoService {
 
     public List<AutoavaliacaoResumoDTO> findAll() {
         UserSS user = UserService.authenticated();
-        final List<Autoavaliacao> autoavaliacoes = repo.findAllByCurso_Responsaveis_Usuario_Id(user.getId());
+        List<Autoavaliacao> autoavaliacoes = new ArrayList<>();
+
+        if (user.hasRole(Perfil.PROPPI)) {
+            autoavaliacoes = repo.findAll();
+        } else {
+            autoavaliacoes = repo.findAllByCurso_Responsaveis_Usuario_Id(user.getId());
+        }
+
         List<AutoavaliacaoResumoDTO> autoavaliacaoResumoDTO = autoavaliacoes.stream()
                 .map(autoavaliacao -> mapper.map(autoavaliacao, AutoavaliacaoResumoDTO.class))
                 .collect(Collectors.toList());
@@ -58,8 +66,12 @@ public class AutoavaliacaoService {
     public AutoavaliacaoDTO findDetailed (Integer id) {
         UserSS user = UserService.authenticated();
 
-//        Optional<Autoavaliacao> optionalObj = repo.findById(id);
-        Optional<Autoavaliacao> optionalObj = repo.findByIdAndCurso_Responsaveis_Usuario_Id(id, user.getId());
+        Optional<Autoavaliacao> optionalObj;
+        if (user.hasRole(Perfil.PROPPI)) {
+            optionalObj = repo.findById(id);
+        } else {
+            optionalObj = repo.findByIdAndCurso_Responsaveis_Usuario_Id(id, user.getId());
+        }
 
         Autoavaliacao autoavaliacao = optionalObj.orElseThrow(
                 () -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
