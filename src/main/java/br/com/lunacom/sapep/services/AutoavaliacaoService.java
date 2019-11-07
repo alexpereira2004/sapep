@@ -50,9 +50,10 @@ public class AutoavaliacaoService {
     }
 
     public AutoavaliacaoDTO findDetailed (Integer id) {
-        Optional<Autoavaliacao> optionalObj = repo.findById(id);
-
         UserSS user = UserService.authenticated();
+
+//        Optional<Autoavaliacao> optionalObj = repo.findById(id);
+        Optional<Autoavaliacao> optionalObj = repo.findByIdAndCurso_Responsaveis_Usuario_Id(id, user.getId());
 
         Autoavaliacao autoavaliacao = optionalObj.orElseThrow(
                 () -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));

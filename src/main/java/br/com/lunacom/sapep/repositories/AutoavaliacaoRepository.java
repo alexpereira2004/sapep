@@ -4,5 +4,9 @@ import br.com.lunacom.sapep.domain.Autoavaliacao;
 import br.com.lunacom.sapep.domain.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AutoavaliacaoRepository extends JpaRepository<Autoavaliacao, Integer> { }
+import java.util.Optional;
+
+public interface AutoavaliacaoRepository extends JpaRepository<Autoavaliacao, Integer> {
+    public Optional<Autoavaliacao> findByIdAndCurso_Responsaveis_Usuario_Id(int idCurso, int idUsuario);
+}
 
