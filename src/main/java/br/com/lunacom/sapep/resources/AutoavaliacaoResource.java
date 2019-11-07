@@ -4,6 +4,7 @@ import br.com.lunacom.sapep.domain.Autoavaliacao;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
 import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
+import br.com.lunacom.sapep.domain.dto.AutoavaliacaoResumoDTO;
 import br.com.lunacom.sapep.services.AutoavaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +33,8 @@ public class AutoavaliacaoResource {
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public ResponseEntity<List<Autoavaliacao>> findAll() {
-        List<Autoavaliacao> list = service.findAll();
+    public ResponseEntity<List<AutoavaliacaoResumoDTO>> findAll() {
+        List<AutoavaliacaoResumoDTO> list = service.findAll();
 //        List<AutoavaliacaoDTO> listDTO = list
 //                .stream()
 //                .map(obj -> service.toDTO(obj))

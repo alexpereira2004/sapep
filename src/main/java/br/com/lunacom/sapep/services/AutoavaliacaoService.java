@@ -1,14 +1,12 @@
 package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.*;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
-import br.com.lunacom.sapep.domain.dto.Dto;
+import br.com.lunacom.sapep.domain.dto.*;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
 import br.com.lunacom.sapep.security.UserSS;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import br.com.lunacom.sapep.util.DataUtil;
+import org.apache.catalina.mapper.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +26,8 @@ public class AutoavaliacaoService {
     @Autowired
     private CursoService cursoService;
 
+    private ModelMapper mapper = new ModelMapper();
+
     public Autoavaliacao insert(AutoavaliacaoNovoDTO objDTO) {
         Autoavaliacao obj = fromDTO(objDTO);
         obj.setId(null);
@@ -40,8 +40,14 @@ public class AutoavaliacaoService {
         return repo.save(obj);
     }
 
-    public List<Autoavaliacao> findAll() {
-        return repo.findAll();
+    public List<AutoavaliacaoResumoDTO> findAll() {
+        UserSS user = UserService.authenticated();
+        final List<Autoavaliacao> autoavaliacoes = repo.findAllByCurso_Responsaveis_Usuario_Id(user.getId());
+        List<AutoavaliacaoResumoDTO> autoavaliacaoResumoDTO = autoavaliacoes.stream()
+                .map(autoavaliacao -> mapper.map(autoavaliacao, AutoavaliacaoResumoDTO.class))
+                .collect(Collectors.toList());
+
+        return autoavaliacaoResumoDTO;
     }
 
     public Autoavaliacao find (Integer id) {
@@ -107,13 +113,11 @@ public class AutoavaliacaoService {
 //    }
 
     public Autoavaliacao fromDTO(Dto objDto) {
-        ModelMapper mapper = new ModelMapper();
         Autoavaliacao Autoavaliacao = mapper.map(objDto, Autoavaliacao.class);
         return Autoavaliacao;
     }
 
     public AutoavaliacaoDTO toDTO(Autoavaliacao obj) {
-        ModelMapper mapper = new ModelMapper();
         AutoavaliacaoDTO AutoavaliacaoDTO = mapper.map(obj, AutoavaliacaoDTO.class);
         return AutoavaliacaoDTO;
     }
