@@ -26,6 +26,7 @@ public class Responsavel implements Serializable {
     @JoinColumn(name="curso_id")
     @NonNull private Curso curso;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="usuario_id")
     @NonNull private Usuario usuario;

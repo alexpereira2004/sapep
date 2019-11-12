@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class DBService {
@@ -71,16 +72,111 @@ public class DBService {
         usuarioService.insert(u7);
 
 
-        Curso c1 = new Curso("Mestrado Profissional em Educação Profissional e Tecnológica (ProfEPT)", "AT", new Date());
-        Curso c2 = new Curso("Mestrado Profissional em Informática na Educação (MPIE)", "AT", new Date());
-        Curso c3 = new Curso("Mestrado Profissional em Propriedade Intelectual e Transferência de Tecnologia para a Inovação (ProfNit)", "AT", new Date());
-        cursoRepository.saveAll(Arrays.asList(c1, c2, c3));
+        List<Curso> cursos = new ArrayList<>();
+        cursos.add(new Curso("Mestrado Profissional em Educação Profissional e Tecnológica (ProfEPT)", "AT", new Date()));
+        cursos.add(new Curso("Mestrado Profissional em Informática na Educação (MPIE)", "AT", new Date()));
+        cursos.add(new Curso("Mestrado Profissional em Propriedade Intelectual e Transferência de Tecnologia para a Inovação (ProfNit)", "AT", new Date()));
+        cursos.add(new Curso("Alimentação, Nutrição e Saúde", "AT", new Date()));
+        cursos.add(new Curso("Antropologia Social", "AT", new Date()));
+        cursos.add(new Curso("Arquitetura", "AT", new Date()));
+        cursos.add(new Curso("Artes Cênicas", "AT", new Date()));
+        cursos.add(new Curso("Artes Visuais", "AT", new Date()));
+        cursos.add(new Curso("Assistência Farmacêutica", "AT", new Date()));
+        cursos.add(new Curso("Biologia Animal", "AT", new Date()));
+        cursos.add(new Curso("Biologia Celular e Molecular", "AT", new Date()));
+        cursos.add(new Curso("Bioquímica", "AT", new Date()));
+        cursos.add(new Curso("Botânica", "AT", new Date()));
+        cursos.add(new Curso("Cardiologia e Ciências Cardiovasculares", "AT", new Date()));
+        cursos.add(new Curso("Cirurgia", "AT", new Date()));
+        cursos.add(new Curso("Ciência Política", "AT", new Date()));
+        cursos.add(new Curso("Ciência da Informação", "AT", new Date()));
+        cursos.add(new Curso("Ciência do Solo", "AT", new Date()));
+        cursos.add(new Curso("Ciência dos Materiais", "AT", new Date()));
+        cursos.add(new Curso("Ciência e Tecnologia de Alimentos", "AT", new Date()));
+        cursos.add(new Curso("Ciências Biológicas: Farmacologia e Terapêutica", "AT", new Date()));
+        cursos.add(new Curso("Ciências Farmacêuticas", "AT", new Date()));
+        cursos.add(new Curso("Ciências Médicas", "AT", new Date()));
+        cursos.add(new Curso("Ciências Veterinárias", "AT", new Date()));
+        cursos.add(new Curso("Ciências da Saúde: Ginecologia e Obstetrícia", "AT", new Date()));
+        cursos.add(new Curso("Ciências do Movimento Humano", "AT", new Date()));
+        cursos.add(new Curso("Ciências do Movimento Humano Interinstitucional", "AT", new Date()));
+        cursos.add(new Curso("Ciências em Gastroenterologia", "AT", new Date()));
+        cursos.add(new Curso("Computação", "AT", new Date()));
+        cursos.add(new Curso("Comunicação", "AT", new Date()));
+        cursos.add(new Curso("Comunicação e Informação", "AT", new Date()));
+        cursos.add(new Curso("Controladoria e Contabilidade", "AT", new Date()));
+        cursos.add(new Curso("Desenvolvimento Rural", "AT", new Date()));
+        cursos.add(new Curso("Design", "AT", new Date()));
+        cursos.add(new Curso("Dinâmicas Regionais e Desenvolvimento", "AT", new Date()));
+        cursos.add(new Curso("Direito", "AT", new Date()));
+        cursos.add(new Curso("Ecologia", "AT", new Date()));
+        cursos.add(new Curso("Economia", "AT", new Date()));
+        cursos.add(new Curso("Educação", "AT", new Date()));
+        cursos.add(new Curso("Endocrinologia", "AT", new Date()));
+        cursos.add(new Curso("Enfermagem", "AT", new Date()));
+        cursos.add(new Curso("Engenharia Civil", "AT", new Date()));
+        cursos.add(new Curso("Engenharia Civil Interinstitucional", "AT", new Date()));
+        cursos.add(new Curso("Engenharia Civil: Construção e Infraestrutura", "AT", new Date()));
+        cursos.add(new Curso("Engenharia Elétrica", "AT", new Date()));
+        cursos.add(new Curso("Engenharia Mecânica", "AT", new Date()));
+        cursos.add(new Curso("Engenharia Química", "AT", new Date()));
+        cursos.add(new Curso("Engenharia de Minas, Metalúrgica e de Materiais", "AT", new Date()));
+        cursos.add(new Curso("Engenharia de Produção", "AT", new Date()));
+        cursos.add(new Curso("Ensino de Física", "AT", new Date()));
+        cursos.add(new Curso("Ensino de Matemática", "AT", new Date()));
+        cursos.add(new Curso("Epidemiologia", "AT", new Date()));
+        cursos.add(new Curso("Estatística", "AT", new Date()));
+        cursos.add(new Curso("Estudos Estratégicos Internacionais", "AT", new Date()));
+        cursos.add(new Curso("Filosofia", "AT", new Date()));
+        cursos.add(new Curso("Fisiologia", "AT", new Date()));
+        cursos.add(new Curso("Fitotecnia", "AT", new Date()));
+        cursos.add(new Curso("Física", "AT", new Date()));
+        cursos.add(new Curso("Genética e Biologia Molecular", "AT", new Date()));
+        cursos.add(new Curso("Geociências", "AT", new Date()));
+        cursos.add(new Curso("Geografia", "AT", new Date()));
+        cursos.add(new Curso("História", "AT", new Date()));
+        cursos.add(new Curso("Letras", "AT", new Date()));
+        cursos.add(new Curso("Letras Interinstitucional", "AT", new Date()));
+        cursos.add(new Curso("Matemática", "AT", new Date()));
+        cursos.add(new Curso("Matemática Aplicada", "AT", new Date()));
+        cursos.add(new Curso("Medicina Animal: Equinos", "AT", new Date()));
+        cursos.add(new Curso("Microbiologia Agrícola e do Ambiente", "AT", new Date()));
+        cursos.add(new Curso("Microeletronica", "AT", new Date()));
+        cursos.add(new Curso("Museologia e Patrimônio", "AT", new Date()));
+        cursos.add(new Curso("Música", "AT", new Date()));
+        cursos.add(new Curso("Neurociências", "AT", new Date()));
+        cursos.add(new Curso("Odontologia", "AT", new Date()));
+        cursos.add(new Curso("Planejamento Urbano e Regional", "AT", new Date()));
+        cursos.add(new Curso("Planejamento Urbano e Regional Interinstitucional", "AT", new Date()));
+        cursos.add(new Curso("Pneumologia", "AT", new Date()));
+        cursos.add(new Curso("Política Social e Serviço Social", "AT", new Date()));
+        cursos.add(new Curso("Políticas Públicas", "AT", new Date()));
+        cursos.add(new Curso("Psicanálise: Clínica e Cultura", "AT", new Date()));
+        cursos.add(new Curso("Psicologia", "AT", new Date()));
+        cursos.add(new Curso("Psicologia Social e Institucional", "AT", new Date()));
+        cursos.add(new Curso("Psiquiatria", "AT", new Date()));
+        cursos.add(new Curso("Química", "AT", new Date()));
+        cursos.add(new Curso("Química da Vida e Saúde - Associação de Ies", "AT", new Date()));
+        cursos.add(new Curso("Recursos Hídricos e Saneamento Ambiental", "AT", new Date()));
+        cursos.add(new Curso("Recursos Hídricos e Saneamento Ambiental Interinstitucional", "AT", new Date()));
+        cursos.add(new Curso("Saúde Coletiva", "AT", new Date()));
+        cursos.add(new Curso("Saúde da Criança e do Adolescente", "AT", new Date()));
+        cursos.add(new Curso("Sensoriamento Remoto", "AT", new Date()));
+        cursos.add(new Curso("Sociologia", "AT", new Date()));
 
+
+        cursoRepository.saveAll(cursos);
+
+        Curso c1 = cursos.get(1);
+        Curso c2 = cursos.get(2);
+        Curso c3 = cursos.get(3);
+        Curso c4 = cursos.get(50);
         Responsavel r1 = new Responsavel(c1, u6);
         Responsavel r2 = new Responsavel(c2, u2);
+        Responsavel r2a = new Responsavel(c4, u2);
         Responsavel r3 = new Responsavel(c2, u3);
         Responsavel r4 = new Responsavel(c3, u7);
-        responsavelRepository.saveAll(Arrays.asList(r1, r2, r3, r4));
+        responsavelRepository.saveAll(Arrays.asList(r1, r2, r2a, r3, r4));
 
         c1.setResponsaveis(Arrays.asList(r1));
         c2.setResponsaveis(Arrays.asList(r2, r3));
@@ -174,134 +270,108 @@ public class DBService {
         eixoRepository.saveAll(Arrays.asList(ec5,ec7,ec6,ec4,ec1,ec2,ec8,ec3));
 
         // Perguntas do Curso 1 - Eixo 8
-        Indicador idc1 = new Indicador("Relato breve das condições disponíveis",
-                1, 1, "RE", "TX", ea11);
-        Indicador idc2 = new Indicador("Houve alterações relevantes de infraestrutura nos últimos 2 anos?",
-                2, 1, "RE", "CH", ea11);
-        Indicador idc3 = new Indicador("Pontos fortes",
-                3, 1, "RE","TX", ea11);
-        Indicador idc4 = new Indicador("Pontos fracos",
-                4, 1, "RE","TX", ea11);
-        Indicador idc5 = new Indicador("Meta",
-                5, 1, "ML","TX", ea11);
-        Indicador idc6 = new Indicador("Viabilidade",
-                5, 2, "ML","TX", ea11);
-        Indicador idc7 = new Indicador("Ameaças Internas",
-                5, 3, "ML","TX", ea11);
-        Indicador idc8 = new Indicador("Ameaças Externas",
-                5, 4, "ML","TX", ea11);
-        Indicador idc9 = new Indicador("Prioridade",
-                5, 4, "ML","TX", ea11);
-        indicadorRepository.saveAll(Arrays.asList(idc1, idc2, idc3, idc4, idc5, idc6, idc7, idc8, idc9));
+        List<Indicador> indicadores = new ArrayList<>();
+        indicadores.add(new Indicador("Relato breve das condições disponíveis", 1, 1, "RE", "TX", ea11));
+        indicadores.add(new Indicador("Houve alterações relevantes de infraestrutura nos últimos 2 anos?", 2, 1, "RE", "CH", ea11));
+        indicadores.add(new Indicador("Pontos fortes", 3, 1, "RE","TX", ea11));
+        indicadores.add(new Indicador("Pontos fracos", 4, 1, "RE","TX", ea11));
+        indicadores.add(new Indicador("Meta", 5, 1, "ML","TX", ea11));
+        indicadores.add(new Indicador("Viabilidade", 5, 2, "ML","TX", ea11));
+        indicadores.add(new Indicador("Ameaças Internas", 5, 3, "ML","TX", ea11));
+        indicadores.add(new Indicador("Ameaças Externas", 5, 4, "ML","TX", ea11));
+        indicadores.add(new Indicador("Prioridade", 5, 4, "ML","TX", ea11));
+        indicadores.add(new Indicador("Prioridade", 5, 4, "ML","TX", ea11));
+
 
         // Perguntas do Curso 1 - Eixo 1
-        Indicador idc10 = new Indicador("Objetivos do Programa",1, 1, "AN","TA", ea4);
-//        Indicador idc11 = new Indicador("Meta",2, 1, "ML","TA", ea4);
-//        Indicador idc12 = new Indicador("Viabilidade",2, 2, "ML","TA", ea4);
-//        Indicador idc13 = new Indicador("Ameaças Internas",2, 3, "ML","TA", ea4);
-//        Indicador idc14 = new Indicador("Ameaças Externas",2, 4, "ML","TA", ea4);
-//        Indicador idc15 = new Indicador("Prioridade (de 1 a 5)",2, 5, "ML","NU", ea4);
-//        indicadorRepository.saveAll(Arrays.asList(idc10, idc11, idc12, idc13, idc14, idc15));
-        indicadorRepository.saveAll(Arrays.asList(idc10));
+        indicadores.add(new Indicador("Objetivos do Programa",1, 1, "AN","TA", ea4));
+
 
         // Perguntas do Curso 1 - Eixo 2
-        Indicador idc16 = new Indicador("Número de Professores Permanentes",1, 1, "RE","NU", ea5);
-        Indicador idc17 = new Indicador("Número de Professores Colaboradores ",1, 2, "RE","NU", ea5);
-        Indicador idc18 = new Indicador("Número de Professores com Bolsa de Produtividade em Pesquisa do CNPq",1, 3, "RE","NU", ea5);
-        Indicador idc19 = new Indicador("Pontos fortes",4, 1, "AN","TA", ea5);
-        Indicador idc20 = new Indicador("Pontos fracos",5, 1, "AN","TA", ea5);
-        Indicador idc21 = new Indicador("Meta",6, 1, "ML","TA", ea5);
-        Indicador idc22 = new Indicador("Viabilidade",6, 2, "ML","TA", ea5);
-        Indicador idc23 = new Indicador("Ameaças Internas",6, 3, "ML","TA", ea5);
-        Indicador idc24 = new Indicador("Ameaças Externas",6, 4, "ML","TA", ea5);
-        Indicador idc25 = new Indicador("Prioridade (de 1 a 5)",6, 5, "ML","NU", ea5);
-        indicadorRepository.saveAll(Arrays.asList(idc16,idc17,idc18,idc19,idc20,idc21,idc22,idc23,idc24,idc25));
+        indicadores.add(new Indicador("Número de Professores Permanentes",1, 1, "RE","NU", ea5));
+        indicadores.add(new Indicador("Número de Professores Colaboradores ",1, 2, "RE","NU", ea5));
+        indicadores.add(new Indicador("Número de Professores com Bolsa de Produtividade em Pesquisa do CNPq",1, 3, "RE","NU", ea5));
+        indicadores.add(new Indicador("Pontos fortes",4, 1, "AN","TA", ea5));
+        indicadores.add(new Indicador("Pontos fracos",5, 1, "AN","TA", ea5));
+        indicadores.add(new Indicador("Meta",6, 1, "ML","TA", ea5));
+        indicadores.add(new Indicador("Viabilidade",6, 2, "ML","TA", ea5));
+        indicadores.add(new Indicador("Ameaças Internas",6, 3, "ML","TA", ea5));
+        indicadores.add(new Indicador("Ameaças Externas",6, 4, "ML","TA", ea5));
+        indicadores.add(new Indicador("Prioridade (de 1 a 5)",6, 5, "ML","NU", ea5));
+
 
         // Perguntas do Curso 1 - Eixo 3
-        Indicador idc26 = new Indicador("Número de Linhas de pesquisa do programa",1, 1, "RE","NU", ea6);
-        Indicador idc27 = new Indicador("Número de Projetos de Pesquisa",1, 2, "RE","NU", ea6);
-        Indicador idc28 = new Indicador("Pontos fortes",3, 1, "AN","TA", ea6);
-        Indicador idc29 = new Indicador("Pontos fracos",4, 1, "AN","TA", ea6);
-        Indicador idc30 = new Indicador("Meta",5, 1, "ML","TA", ea6);
-        Indicador idc31 = new Indicador("Viabilidade",5, 2, "ML","TA", ea6);
-        Indicador idc32 = new Indicador("Ameaças Internas",5, 3, "ML","TA", ea6);
-        Indicador idc33 = new Indicador("Ameaças Externas",5, 4, "ML","TA", ea6);
-        Indicador idc34 = new Indicador("Prioridade (de 1 a 5)",5, 5, "ML","NU", ea6);
-        indicadorRepository.saveAll(Arrays.asList(idc26,idc27,idc28,idc29,idc30,idc31,idc32,idc33,idc34));
+        indicadores.add(new Indicador("Número de Linhas de pesquisa do programa",1, 1, "RE","NU", ea6));
+        indicadores.add(new Indicador("Número de Projetos de Pesquisa",1, 2, "RE","NU", ea6));
+        indicadores.add(new Indicador("Pontos fortes",3, 1, "AN","TA", ea6));
+        indicadores.add(new Indicador("Pontos fracos",4, 1, "AN","TA", ea6));
+        indicadores.add(new Indicador("Meta",5, 1, "ML","TA", ea6));
+        indicadores.add(new Indicador("Viabilidade",5, 2, "ML","TA", ea6));
+        indicadores.add(new Indicador("Ameaças Internas",5, 3, "ML","TA", ea6));
+        indicadores.add(new Indicador("Ameaças Externas",5, 4, "ML","TA", ea6));
+        indicadores.add(new Indicador("Prioridade (de 1 a 5)",5, 5, "ML","NU", ea6));
+
 
         // Perguntas do Curso 1 - Eixo 4
-        Indicador idc35 = new Indicador("Trabalhos completos em periódicos",1, 1, "RE","NU", ea7);
-        Indicador idc36 = new Indicador("Trabalhos completos em periódicos com autores discentes",1, 2, "RE","NU", ea7);
-        Indicador idc37 = new Indicador("Anais Completos",1, 3, "RE","NU", ea7);
-        Indicador idc38 = new Indicador("Produção Artística",1, 4, "RE","NU", ea7);
-        Indicador idc39 = new Indicador("Produção Técnica",1, 5, "RE","NU", ea7);
-        Indicador idc40 = new Indicador("Livro",1, 6, "RE","NU", ea7);
-        Indicador idc41 = new Indicador("Capítulo de Livro",1, 7, "RE","NU", ea7);
-        Indicador idc42 = new Indicador("Solicitação de Depósito de Patente",1, 8, "RE","NU", ea7);
-        Indicador idc43 = new Indicador("Produto Educacional",1, 9, "RE","NU", ea7);
-        Indicador idc44 = new Indicador("Relação percentual existente entre o número de dissertações e trabalhos publicados em periódicos com a participação de discentes",2, 1, "AN","TA", ea7);
-        Indicador idc45 = new Indicador("Pontos fortes",3, 1, "AN","TA", ea7);
-        Indicador idc46 = new Indicador("Pontos fracos",4, 1, "AN","TA", ea7);
-        Indicador idc47 = new Indicador("Meta",5, 1, "ML","TA", ea7);
-        Indicador idc48 = new Indicador("Viabilidade",5, 2, "ML","TA", ea7);
-        Indicador idc49 = new Indicador("Ameaças Internas",5, 3, "ML","TA", ea7);
-        Indicador idc50 = new Indicador("Ameaças Externas",5, 4, "ML","TA", ea7);
-        Indicador idc51 = new Indicador("Prioridade (de 1 a 5)",5, 5, "ML","NU", ea7);
-        indicadorRepository.saveAll(Arrays.asList(idc35,idc36,idc37,idc38,idc39,idc40,idc41,idc42,idc43,idc44,idc45,idc46,idc47,idc48,idc49,idc50,idc51));
+        indicadores.add(new Indicador("Trabalhos completos em periódicos",1, 1, "RE","NU", ea7));
+        indicadores.add(new Indicador("Trabalhos completos em periódicos com autores discentes",1, 2, "RE","NU", ea7));
+        indicadores.add(new Indicador("Anais Completos",1, 3, "RE","NU", ea7));
+        indicadores.add(new Indicador("Produção Artística",1, 4, "RE","NU", ea7));
+        indicadores.add(new Indicador("Produção Técnica",1, 5, "RE","NU", ea7));
+        indicadores.add(new Indicador("Livro",1, 6, "RE","NU", ea7));
+        indicadores.add(new Indicador("Capítulo de Livro",1, 7, "RE","NU", ea7));
+        indicadores.add(new Indicador("Solicitação de Depósito de Patente",1, 8, "RE","NU", ea7));
+        indicadores.add(new Indicador("Produto Educacional",1, 9, "RE","NU", ea7));
+        indicadores.add(new Indicador("Relação percentual existente entre o número de dissertações e trabalhos publicados em periódicos com a participação de discentes",2, 1, "AN","TA", ea7));
+        indicadores.add(new Indicador("Pontos fortes",3, 1, "AN","TA", ea7));
+        indicadores.add(new Indicador("Pontos fracos",4, 1, "AN","TA", ea7));
+        indicadores.add(new Indicador("Meta",5, 1, "ML","TA", ea7));
+        indicadores.add(new Indicador("Viabilidade",5, 2, "ML","TA", ea7));
+        indicadores.add(new Indicador("Ameaças Internas",5, 3, "ML","TA", ea7));
+        indicadores.add(new Indicador("Ameaças Externas",5, 4, "ML","TA", ea7));
+        indicadores.add(new Indicador("Prioridade (de 1 a 5)",5, 5, "ML","NU", ea7));
+
 
         // Perguntas do Curso 1 - Eixo 5
-        Indicador idc52 = new Indicador("Número de candidatos inscritos para seleção",1, 1, "RE","NU", ea8);
-        Indicador idc53 = new Indicador("Número de discentes com matrícula regular (total)",1, 2, "RE","NU", ea8);
-        Indicador idc54 = new Indicador("Número de discentes com matrícula especial (total)",1, 3, "RE","NU", ea8);
-        Indicador idc55 = new Indicador("Número de discentes titulados",1, 4, "RE","NU", ea8);
-        Indicador idc56 = new Indicador("Pontos fortes",2, 1, "AN","TA", ea8);
-        Indicador idc57 = new Indicador("Pontos fracos",3, 1, "AN","TA", ea8);
-        Indicador idc58 = new Indicador("Meta",4, 1, "ML","TA", ea8);
-        Indicador idc59 = new Indicador("Viabilidade",4, 2, "ML","TA", ea8);
-        Indicador idc60 = new Indicador("Ameaças Internas",4, 3, "ML","TA", ea8);
-        Indicador idc61 = new Indicador("Ameaças Externas",4, 4, "ML","TA", ea8);
-        Indicador idc62 = new Indicador("Prioridade (de 1 a 5)",4, 5, "ML","NU", ea8);
-        indicadorRepository.saveAll(Arrays.asList(idc52,idc53,idc54,idc55,idc56,idc57,idc58,idc59,idc60,idc61,idc62));
+        indicadores.add(new Indicador("Número de candidatos inscritos para seleção",1, 1, "RE","NU", ea8));
+        indicadores.add(new Indicador("Número de discentes com matrícula regular (total)",1, 2, "RE","NU", ea8));
+        indicadores.add(new Indicador("Número de discentes com matrícula especial (total)",1, 3, "RE","NU", ea8));
+        indicadores.add(new Indicador("Número de discentes titulados",1, 4, "RE","NU", ea8));
+        indicadores.add(new Indicador("Pontos fortes",2, 1, "AN","TA", ea8));
+        indicadores.add(new Indicador("Pontos fracos",3, 1, "AN","TA", ea8));
+        indicadores.add(new Indicador("Meta",4, 1, "ML","TA", ea8));
+        indicadores.add(new Indicador("Viabilidade",4, 2, "ML","TA", ea8));
+        indicadores.add(new Indicador("Ameaças Internas",4, 3, "ML","TA", ea8));
+        indicadores.add(new Indicador("Ameaças Externas",4, 4, "ML","TA", ea8));
+        indicadores.add(new Indicador("Prioridade (de 1 a 5)",4, 5, "ML","NU", ea8));
+
 
         // Perguntas do Curso 1 - Eixo 6
-        Indicador idc63 = new Indicador("Total de egressos",1, 1, "AN","TX", ea9);
-        Indicador idc64 = new Indicador("Informar demais destinos relevantes dos egressos",2, 1, "AN","TA", ea9);
-        indicadorRepository.saveAll(Arrays.asList(idc63, idc64));
+        indicadores.add(new Indicador("Total de egressos",1, 1, "AN","TX", ea9));
+        indicadores.add(new Indicador("Informar demais destinos relevantes dos egressos",2, 1, "AN","TA", ea9));
+
 
         // Perguntas do Curso 1 - Eixo 7
-        Indicador idc65 = new Indicador("Pontos fortes",1, 1, "AN","TA", ea10);
-        Indicador idc66 = new Indicador("Pontos fracos",2, 1, "AN","TA", ea10);
-        indicadorRepository.saveAll(Arrays.asList(idc65, idc66));
+        indicadores.add(new Indicador("Pontos fortes",1, 1, "AN","TA", ea10));
+        indicadores.add(new Indicador("Pontos fracos",2, 1, "AN","TA", ea10));
+        indicadorRepository.saveAll(indicadores);
 
         // Respostas
-        Resposta resp1 = new Resposta(null, "As condições eram ruins, goteiras nas salas de aula, máquinas com limite de memória, dentre outras dificuldades", 0.00f, idc1);
-        Resposta resp2 = new Resposta(null, "Não e os investimentos cairam cerca de 90%", 0.00f, idc2);
-        Resposta resp3 = new Resposta(null, "Existe uma equipe de manutenção que consegue realizar diversas manutenções", 0.00f, idc3);
-        Resposta resp4 = new Resposta(null, "Falta de peças para reposição, demora na compra de novos itens", 0.00f, idc4);
+//        Resposta resp1 = new Resposta(null, "As condições eram ruins, goteiras nas salas de aula, máquinas com limite de memória, dentre outras dificuldades", 0.00f, idc1);
 
-        Resposta resp5 = new Resposta(null, "Nova rede wireless", 0.00f, idc5);
-        Resposta resp8 = new Resposta(null, "Grande possibilidade", 0.00f, idc6);
-        Resposta resp11 = new Resposta(null, "N/a", 0.00f, idc7);
-        Resposta resp14 = new Resposta(null, "N/a", 0.00f, idc8);
-        Resposta resp17 = new Resposta(null, "5", 0.00f, idc9);
 
-        Resposta resp6 = new Resposta(null, "Aquisição de sotware", 0.00f, idc5);
-        Resposta resp9 = new Resposta(null, "Melhor pensar em Open source", 0.00f, idc6);
-        Resposta resp12 = new Resposta(null, "Falta cultura para aquisição de software proprietário", 0.00f, idc7);
-        Resposta resp15 = new Resposta(null, "Preço do dólar", 0.00f, idc8);
-        Resposta resp18 = new Resposta(null, "3", 0.00f, idc9);
+//        List<Resposta> respostas = new ArrayList<>();
 
-        Resposta resp7 = new Resposta(null, "Aumento do espaço físico", 0.00f, idc5);
-        Resposta resp10 = new Resposta(null, "Possível, temos áreas livres para uso", 0.00f, idc6);
-        Resposta resp13 = new Resposta(null, "Salas pequenas", 0.00f, idc7);
-        Resposta resp16 = new Resposta(null, "N/a", 0.00f, idc8);
-        Resposta resp19 = new Resposta(null, "2", 0.00f, idc9);
-
-        respostaRepository.saveAll(Arrays.asList(
-                resp1, resp2, resp3, resp4,
-                resp5, resp8, resp11, resp14, resp17,
-                resp6, resp9, resp12, resp15, resp18,
-                resp7, resp10, resp13, resp16, resp19
-        ));
+//        List<Resposta> respostas = indicadores.stream().map(indicador -> {
+//            Resposta r = new Resposta();
+//            return r;
+//        }).collect(Collectors.toList());
+////        indicadores
+////                .stream()
+////                .map(indicador -> {
+////                    respostas.add(new Resposta(null, null, 0.00f, indicador));
+////                }).collect(Collectors.toList());
+//
+//        respostaRepository.saveAll(Arrays.asList());
     }
 }

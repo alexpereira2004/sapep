@@ -59,6 +59,9 @@ public class AutoavaliacaoService {
     }
 
     public Autoavaliacao find (Integer id) {
+
+        //@TODO - Só permitir que usuário com permissão ao curso da autoavaliação acesse os dados
+
         Optional<Autoavaliacao> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
     }
