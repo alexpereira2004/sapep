@@ -57,10 +57,10 @@ public class DBService {
         u5.addPerfil(Perfil.PROPPI);
 
         Usuario u6 = new Usuario("Clarice Monteiro Escott", "clarice@gmail.com", "123456", "AT");
-        u3.addPerfil(Perfil.COORDENADOR);
+        u6.addPerfil(Perfil.COORDENADOR);
 
         Usuario u7 = new Usuario("Cristina M. Quintella", "cristina@gmail.com", "123456", "AT");
-        u3.addPerfil(Perfil.COORDENADOR);
+        u7.addPerfil(Perfil.COORDENADOR);
 
 
         usuarioService.insert(u1);
@@ -173,9 +173,9 @@ public class DBService {
         Curso c4 = cursos.get(50);
         Responsavel r1 = new Responsavel(c1, u6);
         Responsavel r2 = new Responsavel(c2, u2);
-        Responsavel r2a = new Responsavel(c4, u2);
         Responsavel r3 = new Responsavel(c2, u3);
         Responsavel r4 = new Responsavel(c3, u7);
+        Responsavel r2a = new Responsavel(c4, u2);
         responsavelRepository.saveAll(Arrays.asList(r1, r2, r2a, r3, r4));
 
         c1.setResponsaveis(Arrays.asList(r1));
@@ -205,19 +205,19 @@ public class DBService {
         Date dtFim = new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime();
 
         Autoavaliacao aa1 = new Autoavaliacao(
-                "Planejamento período 2015/2018",
+                "Planejamento período 2015/2018 (ProfEPT)",
                 "Realizar planejamento do curso no período de 2015/2018",
                 "IN", dtIniPassado, dtFimPassado, new Date(), c1);
         Autoavaliacao aa2 = new Autoavaliacao(
-                "Autoavaliação do curso Quadriênio 2019/2022",
+                "Autoavaliação do curso Quadriênio 2019/2022 (ProfEPT)",
                 "Realizar planejamento do curso no período de 2019/2022",
                 "AT", dtIni, dtFim, new Date(), c1);
         Autoavaliacao ab1 = new Autoavaliacao(
-                "Autoavaliação e Planejamento período 2019/2022",
+                "Autoavaliação e Planejamento período 2019/2022 (MPIE)",
                 "Realizar planejamento do curso no período de 2019/2022",
                 "AT", dtIni, dtFim, new Date(), c2);
         Autoavaliacao ac1 = new Autoavaliacao(
-                "Autoavaliação e Planejamento período 2019/2022",
+                "Autoavaliação [4] (ProfNit) 2019/2022",
                 "Realizar planejamento do curso no período de 2019/2022",
                 "AT", dtIni, dtFim, new Date(), c3);
 //        Autoavaliacao ad1 = new Autoavaliacao(
@@ -236,6 +236,7 @@ public class DBService {
         autoavaliacaoRepository.saveAll(Arrays.asList(aa1,aa2, ab1, ac1));
 //        autoavaliacaoRepository.saveAll(Arrays.asList(ad1, ae1, af1));
 
+        // Curso 1
         Eixo ea1 = new Eixo("Eixo 1", "Trabalhos Externos", 3, new Date(), aa1);
         Eixo ea2 = new Eixo("Eixo 2", "Envolvimento Professores", 1, new Date(), aa1);
         Eixo ea3 = new Eixo("Eixo 3", "Envolvimento Alunos", 2, new Date(), aa1);
@@ -249,6 +250,7 @@ public class DBService {
         Eixo ea11 = new Eixo("Eixo 8", "Infraestrutura", 8, new Date(), aa2);
         eixoRepository.saveAll(Arrays.asList(ea1,ea2,ea3,ea4,ea5,ea6,ea7,ea8,ea9,ea10,ea11));
 
+        // Curso 2
         Eixo eb1 = new Eixo("Eixo 1", "Proposta do Programa", 1, new Date(), ab1);
         Eixo eb2 = new Eixo("Eixo 2", "Corpo Docente", 2, new Date(), ab1);
         Eixo eb3 = new Eixo("Eixo 3", "Atividades de Pesquisa", 3, new Date(), ab1);
@@ -259,6 +261,7 @@ public class DBService {
         Eixo eb8 = new Eixo("Eixo 8", "Infraestrutura", 8, new Date(), ab1);
         eixoRepository.saveAll(Arrays.asList(eb1,eb2,eb3,eb4,eb5,eb6,eb7,eb8));
 
+        //Curso 3
         Eixo ec1 = new Eixo("Eixo 1", "Proposta do Programa", 1, new Date(), ac1);
         Eixo ec7 = new Eixo("Eixo 7", "Análise do Ambiente Interno", 7, new Date(), ac1);
         Eixo ec4 = new Eixo("Eixo 4", "Produção Intelectual", 4, new Date(), ac1);
