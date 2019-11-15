@@ -11,6 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -54,6 +55,27 @@ public class MetaResource {
         List<Meta> metas = service.findByEixo(id);
         return ResponseEntity.ok().body(metas);
     }
+
+    @RequestMapping(value="/por-autoavaliacao/{id}", method=RequestMethod.GET)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
+    public ResponseEntity<List<Meta>> findByAutoavaliacao(@PathVariable Integer id) {
+        List<Meta> metas = service.findByAutoavaliacao(id);
+        return ResponseEntity.ok().body(metas);
+    }
+
+    @RequestMapping(value="/por-status-global/{id}", method=RequestMethod.GET)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
+    public ResponseEntity<HashMap<String, Integer>> findGlobalStatus(@PathVariable Integer id) {
+        HashMap<String, Integer> metas = service.findGlobalStatus(id);
+        return ResponseEntity.ok().body(metas);
+    }
+
+//    @RequestMapping(value="/por-status-individual/{id}", method=RequestMethod.GET)
+//    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
+//    public ResponseEntity<List<Meta>> findIndividualStatus(@PathVariable Integer id) {
+//        List<Meta> metas = service.findIndividualStatus(id);
+//        return ResponseEntity.ok().body(metas);
+//    }
 
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)

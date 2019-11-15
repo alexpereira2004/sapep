@@ -11,10 +11,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class MetaService {
@@ -41,6 +39,11 @@ public class MetaService {
     public Meta find (Integer id) {
         Optional<Meta> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a Meta com o código informado"));
+    }
+
+    public List<Meta> findByAutoavaliacao (Integer idAutoavaliacao) {
+        List<Meta> metas = repo.findByEixo_Autoavaliacao_Id(idAutoavaliacao);
+        return metas;
     }
 
     public List<Meta> findByEixo (Integer id) {
@@ -71,4 +74,35 @@ public class MetaService {
         MetaDTO MetaDTO = mapper.map(obj, MetaDTO.class);
         return MetaDTO;
     }
+
+    public HashMap<String, Integer> findGlobalStatus(Integer idAutoavaliacao) {
+        List<Meta> metas = repo.findByEixo_Autoavaliacao_Id(idAutoavaliacao);
+        HashMap<String, Integer> totais = new HashMap<String, Integer>();
+
+        totais.put("concluidos", (int) metas.stream().filter(meta -> meta.getAlcancado() >= 100).count());
+        totais.put("andamentos", (int) metas.stream()
+                .filter(meta -> meta.getAlcancado() < 100)
+                .filter(meta -> meta.getAlcancado() > 0)
+                .count());
+        totais.put("nao_iniciados", (int) metas.stream().filter(meta -> meta.getAlcancado() <= 0).count());;
+        return totais;
+    }
+
+//    public List<Meta> findIndividualStatus(Integer idAutoavaliacao) {
+////        ModelMapper mapper = new ModelMapper();
+//        List<Meta> metas = repo.findByEixo_Autoavaliacao_Id(idAutoavaliacao);
+////        List<MetaStatusDTO> status = mapper.map(metas, MetaStatusDTO.class);
+////        HashMap<String, Integer> totais = new HashMap<String, Integer>();
+////        metas.stream().map(meta -> {
+////            if (meta.getAlcancado() > 0) {
+////
+////            }
+////        }).collect(Collectors.toList());
+//
+//
+//
+//        return repo.findByEixo_Autoavaliacao_Id(idAutoavaliacao);
+//    }
+
+
 }
