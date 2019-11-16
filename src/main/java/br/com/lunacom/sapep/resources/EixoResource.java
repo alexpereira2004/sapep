@@ -2,8 +2,10 @@ package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.Eixo;
+import br.com.lunacom.sapep.domain.Indicador;
 import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
+import br.com.lunacom.sapep.domain.dto.IndicadorDTO;
 import br.com.lunacom.sapep.services.EixoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value="/eixo")
@@ -45,6 +48,12 @@ public class EixoResource {
     public ResponseEntity<Eixo> find(@PathVariable Integer id) {
         Eixo obj = service.find(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @RequestMapping(value="/indicadores-apresentavies-dashboard/{id}", method=RequestMethod.GET)
+    public ResponseEntity<Map<String, Map<Integer, List<Indicador>>>> findPresentablesToDashboard(@PathVariable Integer id) {
+        Map<String, Map<Integer, List<Indicador>>> eixoList = service.findPresentablesToDashboard(id);
+        return ResponseEntity.ok().body(eixoList);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)

@@ -3,6 +3,7 @@ package br.com.lunacom.sapep.services;
 import br.com.lunacom.sapep.domain.Autoavaliacao;
 import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.Eixo;
+import br.com.lunacom.sapep.domain.Indicador;
 import br.com.lunacom.sapep.domain.dto.Dto;
 import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
 import br.com.lunacom.sapep.repositories.EixoRepository;
@@ -13,9 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -46,6 +46,25 @@ public class EixoService {
     public Eixo find (Integer id) {
         Optional<Eixo> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada nenhuma autoavaliação"));
+    }
+
+    public Map<String, Map<Integer, List<Indicador>>> findPresentablesToDashboard (Integer id) {
+
+        List<Eixo> eixos = repo.findByAutoavaliacao_Id(id);
+
+        Map<String, Map<Integer, List<Indicador>>> grupo = new HashMap<>();
+
+        eixos.stream().forEach(e -> {
+            Map<Integer, List<Indicador>> grupoIndicadores;
+            grupoIndicadores = e.getIndicadores()
+                    .stream()
+                    .filter(i -> i.isDashboard())
+                    .collect(Collectors.groupingBy(Indicador::getAgrupamento));
+            if (grupoIndicadores.size() > 0) {
+                grupo.put(e.getNome(), grupoIndicadores);
+            }
+        });
+        return grupo;
     }
 
     public void delete(Integer id) {

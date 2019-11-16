@@ -28,6 +28,7 @@ public class Indicador implements Serializable {
     private Integer agrupamento;
     private Integer ordem;
     private String temporalidade;
+    private boolean dashboard;
 
     private String tipo;
 
@@ -49,6 +50,16 @@ public class Indicador implements Serializable {
         this.temporalidade = temporalidade;
         this.tipo = tipo;
         this.eixo = eixo;
+    }
+
+    public Indicador(String titulo, Integer agrupamento, Integer ordem, String temporalidade, String tipo, Eixo eixo, boolean dashboard) {
+        this.titulo = titulo;
+        this.agrupamento = agrupamento;
+        this.ordem = ordem;
+        this.temporalidade = temporalidade;
+        this.tipo = tipo;
+        this.eixo = eixo;
+        this.dashboard = dashboard;
     }
 
 }

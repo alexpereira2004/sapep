@@ -274,8 +274,8 @@ public class DBService {
 
         // Perguntas do Curso 1 - Eixo 8
         List<Indicador> indicadores = new ArrayList<>();
-        indicadores.add(new Indicador("Relato breve das condições disponíveis", 1, 1, "RE", "TX", ea11));
-        indicadores.add(new Indicador("Houve alterações relevantes de infraestrutura nos últimos 2 anos?", 2, 1, "RE", "CH", ea11));
+        indicadores.add(new Indicador("Relato breve das condições disponíveis", 1, 1, "RE", "TX", ea11, true));
+        indicadores.add(new Indicador("Houve alterações relevantes de infraestrutura nos últimos 2 anos?", 2, 1, "RE", "CH", ea11, true));
         indicadores.add(new Indicador("Pontos fortes", 3, 1, "RE","TX", ea11));
         indicadores.add(new Indicador("Pontos fracos", 4, 1, "RE","TX", ea11));
         indicadores.add(new Indicador("Meta", 5, 1, "ML","TX", ea11));
@@ -316,15 +316,15 @@ public class DBService {
 
 
         // Perguntas do Curso 1 - Eixo 4
-        indicadores.add(new Indicador("Trabalhos completos em periódicos",1, 1, "RE","NU", ea7));
-        indicadores.add(new Indicador("Trabalhos completos em periódicos com autores discentes",1, 2, "RE","NU", ea7));
-        indicadores.add(new Indicador("Anais Completos",1, 3, "RE","NU", ea7));
-        indicadores.add(new Indicador("Produção Artística",1, 4, "RE","NU", ea7));
-        indicadores.add(new Indicador("Produção Técnica",1, 5, "RE","NU", ea7));
-        indicadores.add(new Indicador("Livro",1, 6, "RE","NU", ea7));
-        indicadores.add(new Indicador("Capítulo de Livro",1, 7, "RE","NU", ea7));
-        indicadores.add(new Indicador("Solicitação de Depósito de Patente",1, 8, "RE","NU", ea7));
-        indicadores.add(new Indicador("Produto Educacional",1, 9, "RE","NU", ea7));
+        indicadores.add(new Indicador("Trabalhos completos em periódicos",1, 1, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Trabalhos completos em periódicos com autores discentes",1, 2, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Anais Completos",1, 3, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Produção Artística",1, 4, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Produção Técnica",1, 5, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Livro",1, 6, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Capítulo de Livro",1, 7, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Solicitação de Depósito de Patente",1, 8, "RE","NU", ea7, true));
+        indicadores.add(new Indicador("Produto Educacional",1, 9, "RE","NU", ea7, true));
         indicadores.add(new Indicador("Relação percentual existente entre o número de dissertações e trabalhos publicados em periódicos com a participação de discentes",2, 1, "AN","TA", ea7));
         indicadores.add(new Indicador("Pontos fortes",3, 1, "AN","TA", ea7));
         indicadores.add(new Indicador("Pontos fracos",4, 1, "AN","TA", ea7));
