@@ -25,6 +25,9 @@ public class DBService {
     private AutoavaliacaoRepository autoavaliacaoRepository;
 
     @Autowired
+    private AutoavaliacaoService autoavaliacaoService;
+
+    @Autowired
     private EixoRepository eixoRepository;
 
     @Autowired
@@ -115,8 +118,8 @@ public class DBService {
 
         Date dtIniPassado = new GregorianCalendar(2011, Calendar.JANUARY, 01).getTime();
         Date dtFimPassado = new GregorianCalendar(2014, Calendar.DECEMBER, 31).getTime();
-        Date dtIni = new GregorianCalendar(2017, Calendar.JANUARY, 01).getTime();
-        Date dtFim = new GregorianCalendar(2021, Calendar.DECEMBER, 31).getTime();
+        Date dtIni = new GregorianCalendar(2015, Calendar.JANUARY, 01).getTime();
+        Date dtFim = new GregorianCalendar(2020, Calendar.DECEMBER, 31).getTime();
         Date dtIniPeriodoReal = new GregorianCalendar(2017, Calendar.JANUARY, 01).getTime();
         Date dtFimPeriodoReal = new GregorianCalendar(2021, Calendar.DECEMBER, 31).getTime();
 
@@ -380,18 +383,37 @@ public class DBService {
 //        Resposta resp1 = new Resposta(null, "As condições eram ruins, goteiras nas salas de aula, máquinas com limite de memória, dentre outras dificuldades", 0.00f, idc1);
 
 
-//        List<Resposta> respostas = new ArrayList<>();
+        List<Resposta> respostas = new ArrayList<>();
 
-//        List<Resposta> respostas = indicadores.stream().map(indicador -> {
-//            Resposta r = new Resposta();
-//            return r;
-//        }).collect(Collectors.toList());
-////        indicadores
-////                .stream()
-////                .map(indicador -> {
-////                    respostas.add(new Resposta(null, null, 0.00f, indicador));
-////                }).collect(Collectors.toList());
-//
-//        respostaRepository.saveAll(Arrays.asList());
+        List<Resposta> respostasAnuais =
+                indicadores
+                        .stream()
+                        .filter(indicador -> indicador.getTemporalidade().equals("AN"))
+                        .map(indicador -> {
+                            Resposta r = new Resposta(indicador);
+                            return r;
+                        }).collect(Collectors.toList());
+
+        HashMap<Indicador, List<Integer>> indicadorAnos = new HashMap<Indicador, List<Integer>>();
+
+        indicadores
+                .stream()
+                .filter(indicador -> indicador.getTemporalidade().equals("RE"))
+                .forEach(indicador -> {
+                    final List<Integer> anos = autoavaliacaoService.getListaAnosDaAutoavaliacao(indicador.getEixo().getAutoavaliacao());
+                    indicadorAnos.put(indicador, anos);
+                });
+
+        List<Resposta> respostasRecorrentes = new ArrayList<>();
+
+        indicadorAnos.forEach((k, v) -> {
+            v.stream().forEach(ano -> {
+                Resposta r = new Resposta(ano, k);
+                respostasRecorrentes.add(r);
+            });
+        });
+
+        respostaRepository.saveAll(respostasAnuais);
+        respostaRepository.saveAll(respostasRecorrentes);
     }
 }

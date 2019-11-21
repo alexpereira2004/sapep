@@ -149,6 +149,10 @@ public class AutoavaliacaoService {
         return ret;
     }
 
+    public List<Integer> getListaAnosDaAutoavaliacao(Autoavaliacao a) {
+        return getListaAnosDaAutoavaliacao(a.getInicio(), a.getTermino());
+    }
+
     private List<Integer> getListaAnosDaAutoavaliacao(Date inicio, Date termino) {
         final LocalDate localDateInicio = DataUtil.convertDateToLocalDate(inicio);
         final LocalDate localDateTermino = DataUtil.convertDateToLocalDate(termino);
