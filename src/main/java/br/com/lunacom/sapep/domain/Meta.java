@@ -21,6 +21,8 @@ public class Meta {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(length=400)
     private String meta;
     private String pontoFraco;
     private String pontoForte;
@@ -36,4 +38,9 @@ public class Meta {
     @JoinColumn(name="eixo_id")
     private Eixo eixo;
 
+    public Meta(String meta, double alcancado, Eixo eixo) {
+        this.meta = meta;
+        this.alcancado = alcancado;
+        this.eixo = eixo;
+    }
 }
