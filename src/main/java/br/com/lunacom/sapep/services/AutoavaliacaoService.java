@@ -149,6 +149,10 @@ public class AutoavaliacaoService {
         return ret;
     }
 
+    public List<Integer> getListaAnosDaAutoavaliacaoPorId(int id) {
+        return getListaAnosDaAutoavaliacao(this.find(id));
+    }
+
     public List<Integer> getListaAnosDaAutoavaliacao(Autoavaliacao a) {
         return getListaAnosDaAutoavaliacao(a.getInicio(), a.getTermino());
     }

@@ -69,4 +69,9 @@ public class AutoavaliacaoResource {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @RequestMapping(value="/periodo/{id}", method=RequestMethod.GET)
+    public ResponseEntity<List<Integer>> getPeriodo(@PathVariable Integer id) {
+        return ResponseEntity.ok().body(service.getListaAnosDaAutoavaliacaoPorId(id));
+    }
 }
