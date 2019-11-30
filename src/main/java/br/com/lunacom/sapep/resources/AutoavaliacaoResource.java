@@ -74,4 +74,5 @@ public class AutoavaliacaoResource {
     public ResponseEntity<List<Integer>> getPeriodo(@PathVariable Integer id) {
         return ResponseEntity.ok().body(service.getListaAnosDaAutoavaliacaoPorId(id));
     }
+    
 }
