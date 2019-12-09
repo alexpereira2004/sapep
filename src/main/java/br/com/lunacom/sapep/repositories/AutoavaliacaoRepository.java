@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AutoavaliacaoRepository extends JpaRepository<Autoavaliacao, Integer> {
+
     public Optional<Autoavaliacao> findByIdAndCurso_Responsaveis_Usuario_Id(int idCurso, int idUsuario);
 
     public List<Autoavaliacao> findAllByCurso_Responsaveis_Usuario_Id(int IdUsuario);
