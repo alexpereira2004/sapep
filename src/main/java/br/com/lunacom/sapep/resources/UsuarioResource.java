@@ -52,21 +52,21 @@ public class UsuarioResource {
         return ResponseEntity.ok().body(obj);
     }
 //
-    @RequestMapping(value = "/detalhes", method = RequestMethod.GET)
-    @PreAuthorize("hasAnyRole('ADMINISTRADOR', 'PROPPI', 'COORDENADOR')")
-    @ResponseBody
-    public Integer currentUserName(Authentication authentication) {
-        UserSS i = (UserSS) authentication.getPrincipal();
-        return i.getId();
-    }
-
-
+//    @RequestMapping(value = "/detalhes", method = RequestMethod.GET)
 //    @PreAuthorize("hasAnyRole('ADMINISTRADOR', 'PROPPI', 'COORDENADOR')")
-//    @RequestMapping(value="/mail/{mail}", method=RequestMethod.GET)
-//    public ResponseEntity<Usuario> findByEmail(@PathVariable String email) {
-//        Usuario obj = service.findByEmail(email);
-//        return ResponseEntity.ok().body(obj);
+//    @ResponseBody
+//    public Integer currentUserName(Authentication authentication) {
+//        UserSS i = (UserSS) authentication.getPrincipal();
+//        return i.getId();
 //    }
+
+
+    @PreAuthorize("hasAnyRole('ADMINISTRADOR', 'PROPPI', 'COORDENADOR')")
+    @RequestMapping(value="/detalhes", method=RequestMethod.GET)
+    public ResponseEntity<Usuario> findByEmail(@RequestParam("email") String email) {
+        Usuario obj = service.findByEmail(email);
+        return ResponseEntity.ok().body(obj);
+    }
 
     @PreAuthorize("hasAnyRole('ADMINISTRADOR')")
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
