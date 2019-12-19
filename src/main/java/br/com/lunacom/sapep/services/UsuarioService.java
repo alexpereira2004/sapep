@@ -45,13 +45,15 @@ public class UsuarioService {
         return repo.findByEmail(email);
     }
 
-    public Usuario update(Usuario obj) {
-        if (Objects.isNull(obj.getSenha())) {
-            obj.setSenha(this.find(obj.getId()).getSenha());
-        } else {
-            obj.setSenha(pe.encode(obj.getSenha()));
+    public Usuario update(Usuario atualizacao) {
+        Usuario usuario = this.find(atualizacao.getId());
+        usuario.setNome(atualizacao.getNome());
+        usuario.setEmail(atualizacao.getEmail());
+
+        if (!atualizacao.getSenha().isEmpty()) {
+            usuario.setSenha(pe.encode(atualizacao.getSenha()));
         }
-        return repo.save(obj);
+        return repo.save(usuario);
     }
 
     public void delete(Integer id) {
