@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -40,8 +41,19 @@ public class UsuarioService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrado um usuário"));
     }
 
-    public Usuario update(Usuario obj) {
-        return repo.save(obj);
+    public Usuario findByEmail (String email) {
+        return repo.findByEmail(email);
+    }
+
+    public Usuario update(Usuario atualizacao) {
+        Usuario usuario = this.find(atualizacao.getId());
+        usuario.setNome(atualizacao.getNome());
+        usuario.setEmail(atualizacao.getEmail());
+
+        if (!atualizacao.getSenha().isEmpty()) {
+            usuario.setSenha(pe.encode(atualizacao.getSenha()));
+        }
+        return repo.save(usuario);
     }
 
     public void delete(Integer id) {

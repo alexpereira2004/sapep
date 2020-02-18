@@ -2,17 +2,21 @@ package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.Eixo;
+import br.com.lunacom.sapep.domain.Indicador;
 import br.com.lunacom.sapep.domain.dto.CursoDTO;
 import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
+import br.com.lunacom.sapep.domain.dto.IndicadorDTO;
 import br.com.lunacom.sapep.services.EixoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value="/eixo")
@@ -22,6 +26,7 @@ public class EixoResource {
     private EixoService service;
 
     @RequestMapping(method= RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> insert(@Valid @RequestBody EixoNovoDTO objDto) {
         Eixo obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -45,13 +50,21 @@ public class EixoResource {
         return ResponseEntity.ok().body(obj);
     }
 
+    @RequestMapping(value="/indicadores-apresentavies-dashboard/{id}", method=RequestMethod.GET)
+    public ResponseEntity<Map<String, Map<Integer, List<Indicador>>>> findPresentablesToDashboard(@PathVariable Integer id) {
+        Map<String, Map<Integer, List<Indicador>>> eixoList = service.findPresentablesToDashboard(id);
+        return ResponseEntity.ok().body(eixoList);
+    }
+
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> update(@Valid @RequestBody EixoNovoDTO obj, @PathVariable Integer id) {
         service.update(id, obj);
         return ResponseEntity.noContent().build();
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();

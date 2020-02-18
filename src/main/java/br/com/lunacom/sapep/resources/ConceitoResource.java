@@ -6,6 +6,7 @@ import br.com.lunacom.sapep.services.ConceitoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -20,6 +21,7 @@ public class ConceitoResource {
     ConceitoService service;
 
     @RequestMapping(method= RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> insert(@Valid @RequestBody ConceitoNovoDTO objDTO) {
 
         Conceito obj = service.insert(objDTO);
@@ -29,6 +31,7 @@ public class ConceitoResource {
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();

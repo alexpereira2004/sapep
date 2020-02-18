@@ -31,7 +31,7 @@ public class Autoavaliacao implements Serializable {
     private Curso curso;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "autoavaliacao")
+    @OneToMany(mappedBy = "autoavaliacao", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Eixo> eixos;
 
     public Autoavaliacao() {}

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface MetaRepository extends JpaRepository<Meta, Integer> {
     List<Meta> findByEixo(Eixo eixo);
+
+    List<Meta> findByEixo_Autoavaliacao_Id(int idAutoavaliacao);
 }

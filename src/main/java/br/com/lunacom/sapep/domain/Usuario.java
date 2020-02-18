@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -43,6 +44,9 @@ public class Usuario implements Serializable {
     public Set<Perfil> getPerfis() {
         return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
     }
+
+    @OneToMany(mappedBy = "usuario")
+    public List<Responsavel> responsabilidades;
 
     public void addPerfil(Perfil perfil) {
         perfis.add(perfil.getCod());

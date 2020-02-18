@@ -39,4 +39,13 @@ public class Resposta implements Serializable {
         this.valor = valor;
         this.indicador = indicador;
     }
+
+    public Resposta(Indicador indicador) {
+        this.indicador = indicador;
+    }
+
+    public Resposta(Integer ano, Indicador indicador) {
+        this.ano = ano;
+        this.indicador = indicador;
+    }
 }

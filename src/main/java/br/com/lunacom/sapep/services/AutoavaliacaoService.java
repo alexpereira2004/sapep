@@ -1,13 +1,13 @@
 package br.com.lunacom.sapep.services;
 
 import br.com.lunacom.sapep.domain.*;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
-import br.com.lunacom.sapep.domain.dto.Dto;
+import br.com.lunacom.sapep.domain.dto.*;
+import br.com.lunacom.sapep.domain.enums.Perfil;
 import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
+import br.com.lunacom.sapep.security.UserSS;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import br.com.lunacom.sapep.util.DataUtil;
+import org.apache.catalina.mapper.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,8 @@ public class AutoavaliacaoService {
     @Autowired
     private CursoService cursoService;
 
+    private ModelMapper mapper = new ModelMapper();
+
     public Autoavaliacao insert(AutoavaliacaoNovoDTO objDTO) {
         Autoavaliacao obj = fromDTO(objDTO);
         obj.setId(null);
@@ -39,17 +41,40 @@ public class AutoavaliacaoService {
         return repo.save(obj);
     }
 
-    public List<Autoavaliacao> findAll() {
-        return repo.findAll();
+    public List<AutoavaliacaoResumoDTO> findAll() {
+        UserSS user = UserService.authenticated();
+        List<Autoavaliacao> autoavaliacoes = new ArrayList<>();
+
+        if (user.hasRole(Perfil.PROPPI)) {
+            autoavaliacoes = repo.findAll();
+        } else {
+            autoavaliacoes = repo.findAllByCurso_Responsaveis_Usuario_Id(user.getId());
+        }
+
+        List<AutoavaliacaoResumoDTO> autoavaliacaoResumoDTO = autoavaliacoes.stream()
+                .map(autoavaliacao -> mapper.map(autoavaliacao, AutoavaliacaoResumoDTO.class))
+                .collect(Collectors.toList());
+
+        return autoavaliacaoResumoDTO;
     }
 
     public Autoavaliacao find (Integer id) {
+
+        //@TODO - Só permitir que usuário com permissão ao curso da autoavaliação acesse os dados
+
         Optional<Autoavaliacao> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
     }
 
     public AutoavaliacaoDTO findDetailed (Integer id) {
-        Optional<Autoavaliacao> optionalObj = repo.findById(id);
+        UserSS user = UserService.authenticated();
+
+        Optional<Autoavaliacao> optionalObj;
+        if (user.hasRole(Perfil.PROPPI)) {
+            optionalObj = repo.findById(id);
+        } else {
+            optionalObj = repo.findByIdAndCurso_Responsaveis_Usuario_Id(id, user.getId());
+        }
 
         Autoavaliacao autoavaliacao = optionalObj.orElseThrow(
                 () -> new ObjectNotFoundException("Não foi encontrada a autoavaliação com o código informado"));
@@ -103,13 +128,11 @@ public class AutoavaliacaoService {
 //    }
 
     public Autoavaliacao fromDTO(Dto objDto) {
-        ModelMapper mapper = new ModelMapper();
         Autoavaliacao Autoavaliacao = mapper.map(objDto, Autoavaliacao.class);
         return Autoavaliacao;
     }
 
     public AutoavaliacaoDTO toDTO(Autoavaliacao obj) {
-        ModelMapper mapper = new ModelMapper();
         AutoavaliacaoDTO AutoavaliacaoDTO = mapper.map(obj, AutoavaliacaoDTO.class);
         return AutoavaliacaoDTO;
     }
@@ -124,6 +147,14 @@ public class AutoavaliacaoService {
             ret = "AT";
         }
         return ret;
+    }
+
+    public List<Integer> getListaAnosDaAutoavaliacaoPorId(int id) {
+        return getListaAnosDaAutoavaliacao(this.find(id));
+    }
+
+    public List<Integer> getListaAnosDaAutoavaliacao(Autoavaliacao a) {
+        return getListaAnosDaAutoavaliacao(a.getInicio(), a.getTermino());
     }
 
     private List<Integer> getListaAnosDaAutoavaliacao(Date inicio, Date termino) {

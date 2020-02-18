@@ -2,10 +2,12 @@ package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Curso;
 import br.com.lunacom.sapep.domain.dto.CursoDTO;
+import br.com.lunacom.sapep.domain.dto.CursoDetalheDTO;
 import br.com.lunacom.sapep.domain.dto.CursoNovoDTO;
 import br.com.lunacom.sapep.services.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -22,6 +24,7 @@ public class CursoResource {
     private CursoService service;
 
     @RequestMapping(method=RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> insert(@Valid @RequestBody CursoNovoDTO objDto) {
         Curso obj = service.fromDTO(objDto);
         obj = service.insert(obj);
@@ -41,12 +44,13 @@ public class CursoResource {
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ResponseEntity<Curso> find(@PathVariable Integer id) {
-        Curso obj = service.find(id);
+    public ResponseEntity<CursoDetalheDTO> find(@PathVariable Integer id) {
+        CursoDetalheDTO obj = service.findDetailed(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> update(@Valid @RequestBody CursoDTO objDto, @PathVariable Integer id) {
         Curso obj = service.fromDTO(objDto);
         obj.setId(id);
@@ -55,6 +59,7 @@ public class CursoResource {
     }
 
     @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
