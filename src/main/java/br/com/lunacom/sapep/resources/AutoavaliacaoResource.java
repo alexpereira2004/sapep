@@ -1,10 +1,7 @@
 package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Autoavaliacao;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoEdicaoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoNovoDTO;
-import br.com.lunacom.sapep.domain.dto.AutoavaliacaoResumoDTO;
+import br.com.lunacom.sapep.domain.dto.*;
 import br.com.lunacom.sapep.services.AutoavaliacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +26,17 @@ public class AutoavaliacaoResource {
         Autoavaliacao obj = service.insert(objDto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
+
+    @RequestMapping(value="/clonar", method= RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
+    public ResponseEntity<Void> clone(@Valid @RequestBody AutoavaliacaoCloneDTO objDto) {
+
+        Autoavaliacao obj = service.clone(objDto);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(1).toUri();
         return ResponseEntity.created(uri).build();
     }
 

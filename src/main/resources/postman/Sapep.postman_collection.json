@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\" : \"silvia@gmail.com\",\n\t\"senha\" : \"123456\"\n}"
+							"raw": "{\n\t\"email\" : \"silvia.bertagnolli@poa.ifrs.edu.br\",\n\t\"senha\" : \"123456\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/login",
@@ -38,7 +38,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Curso",
@@ -56,13 +57,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNzU3OTc4fQ.KTtt1ikjYO_lI1I8A7RJkid_V-K-mqr7SaeOkEAORQMGjtXpj0yimoCdhAi5yM0LmVuLNQB9oU9k3ronr5adow",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTczNjE1NzA0LCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTklTVFJBRE9SIn0seyJhdXRob3JpdHkiOiJST0xFX0NPT1JERU5BRE9SIn1dfQ.NfmTk_sRQU84P2mQiL1As4h1locIcZnMdYKcVEztEXr14MgxW1EIc3hIYl0_hDfdQedhDQdDgXknSb-xWHIWPQ",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\" : \"Curso Genérico\",\n\t\"situacao\" : \"IN\"\n}"
+							"raw": "{\n\t\"nome\" : \"Curso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso GenéricoCurso Genérico\",\n\t\"situacao\" : \"IN\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/curso",
@@ -85,7 +86,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwMTUyMzcxfQ.PKj1Cs0xx1K0cdl3kMCP3f2RAv01Id1jaKG-NeQcODRfPH7yz0KyuJ6i2K3SbqcowQCpS-DzSqxuDIiCDwrXkw",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTczMTY5MTY0fQ.nH09hngP47xmkw6qFt6dJcGy39gPvBQ-hmczHqXkwJ75NGN8afDooJnE6XHjEt2WORjkmLQomZ27ygkbuf6xGw",
 								"type": "text"
 							}
 						],
@@ -110,19 +111,19 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5Mzc0OTgxfQ.FMISSy9utyTlrcU-YuEay-owfhdorOf1fD4_zMQYxwx-YZpUJcenJ3WnU5fSLsvexYR5rrhWPfGrh1VGV41Ljg",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTczMTY5MTY0fQ.nH09hngP47xmkw6qFt6dJcGy39gPvBQ-hmczHqXkwJ75NGN8afDooJnE6XHjEt2WORjkmLQomZ27ygkbuf6xGw",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8080/curso/14",
+							"raw": "localhost:8080/curso/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"curso",
-								"14"
+								"2"
 							]
 						}
 					},
@@ -178,7 +179,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Conceito",
@@ -232,7 +234,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Responsavel",
@@ -286,7 +289,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Usuario",
@@ -334,6 +338,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTczNTIyODc3LCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTklTVFJBRE9SIn0seyJhdXRob3JpdHkiOiJST0xFX0NPT1JERU5BRE9SIn1dfQ.aIZ7LBmjR5q1MaLSOEs1Td8ALAJ80C05xsfNs2hn9MP-V6wQYxLblBo2Yr2sxH9mDrBQxjDWXwPOmyWmxVN0mA",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -367,6 +376,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTczNTIyODc3LCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTklTVFJBRE9SIn0seyJhdXRob3JpdHkiOiJST0xFX0NPT1JERU5BRE9SIn1dfQ.aIZ7LBmjR5q1MaLSOEs1Td8ALAJ80C05xsfNs2hn9MP-V6wQYxLblBo2Yr2sxH9mDrBQxjDWXwPOmyWmxVN0mA",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -383,6 +397,52 @@
 							"path": [
 								"usuario",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar (Email)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWEuYmVydGFnbm9sbGlAcG9hLmlmcnMuZWR1LmJyIiwiZXhwIjoxNTc2NjM3NDg5LCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTklTVFJBRE9SIn0seyJhdXRob3JpdHkiOiJST0xFX0NPT1JERU5BRE9SIn1dfQ.ApWLWy3U3mJXb6j7WKCqwC1xRBlibkybJTmeP2UdleaV-b__ayz2DWvBB0EGzPvMXyYDhX9TBfkaEqA2qLQTYQ"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/detalhes/?email=alex@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"detalhes",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "alex@gmail.com"
+								}
 							]
 						}
 					},
@@ -438,7 +498,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Autoavaliacao",
@@ -479,6 +540,42 @@
 					"response": []
 				},
 				{
+					"name": "Clonar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWEuYmVydGFnbm9sbGlAcG9hLmlmcnMuZWR1LmJyIiwiZXhwIjoxNTgyMDc0ODAzLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9DT09SREVOQURPUiJ9LHsiYXV0aG9yaXR5IjoiUk9MRV9BRE1JTklTVFJBRE9SIn1dfQ.yKDeYopUq3azoxRZlPalu49_GeQ9TNrTS3RCmRJ4j5J3HzYGzXYt2VrV7Llj6b_aULRDbUFjNMp5UV5hgXbqIQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nome\" : \"Clone feito agora\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/autoavaliacao/clonar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autoavaliacao",
+								"clonar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Listar Todos",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -494,7 +591,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwMjQwMTE0fQ.dS5ZZZJzZPcc-mQVHg8VqIgJGOSPpDL-Ih8BDiVGLRuQyOYVavtExSfiSYci82lBrUKX9sybFXPRt8MO3M3VkA",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3NDk5Mzk1MCwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.ZZU-68wf3S897yatMhcz6BdOZ-SC6LWEdUSMLCTmmsiGV6tqsBiXD0ZIvZkKpTj_FFL7budyP7E8X6QZx3FMYA",
 								"type": "text"
 							}
 						],
@@ -532,7 +629,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwOTcwMzM2fQ.rCfuxOm84rnUN7_BRQj_pr8k_kSzNXlpO-v5nOFBkjnPoOa4WRki2Ds1RnswkdEx1qdmb5btfy_ubYo2k5GdWA",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3MzkzODY4MCwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.UrRAuHryS_Flns6hYWGDIeepnmnh2TBHjz-aE9zmT8zybjo9lTBKB_vww5bcN9cXu5mbjfBYwmGKjszfv1pFlw",
 								"type": "text"
 							}
 						],
@@ -571,7 +668,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcxMzczOTIxfQ.r_4_UTdZ3PdJe5E2SKLLrSa5xHPdUuNMiwQUjdkRrfWHu0YqN9L4-JP8SjEMFzMU0IAM4l7ylLgivjWTjWEZrw",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZWRyb0BnbWFpbC5jb20iLCJleHAiOjE1NzUyMTc1ODgsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1BST1BQSSJ9XX0.8D6YC56M-vguVO_0SpFn-FsJ4asYd6JcRK6Ppham7jrHrnuf4E32ZeR06LIprww4o4C-TtLUu4d8p1gtEmYZ0g",
 								"type": "text"
 							}
 						],
@@ -580,7 +677,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/autoavaliacao/detalhado/4",
+							"raw": "http://localhost:8080/autoavaliacao/detalhado/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -589,6 +686,46 @@
 							"path": [
 								"autoavaliacao",
 								"detalhado",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Periodo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3NTIwODA2MiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.PPdPrPiGq5pyHq8dzut9zoMgZ6Yb5uiHAzNir_zgid2wZPjCHsPIf8RjDaQRDgFXjY5cMI-p_ReYEfUnfHYVDA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/autoavaliacao/periodo/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autoavaliacao",
+								"periodo",
 								"4"
 							]
 						}
@@ -667,7 +804,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Eixo",
@@ -718,7 +856,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNDk0NjQ3fQ.57_xgEq8YWUbfBnRWTG3-5H0vpkgzlVU9l6lnGZeaO0BYKiCYFVFcLsPekaX8vRvwDdi5B0-cMUYHQf92fUIYg",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTczNjE1NzA0LCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9BRE1JTklTVFJBRE9SIn0seyJhdXRob3JpdHkiOiJST0xFX0NPT1JERU5BRE9SIn1dfQ.NfmTk_sRQU84P2mQiL1As4h1locIcZnMdYKcVEztEXr14MgxW1EIc3hIYl0_hDfdQedhDQdDgXknSb-xWHIWPQ",
 								"type": "text"
 							}
 						],
@@ -742,6 +880,46 @@
 									"value": "",
 									"disabled": true
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Apresentaveis Dashboard",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3NTIwODA2MiwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.PPdPrPiGq5pyHq8dzut9zoMgZ6Yb5uiHAzNir_zgid2wZPjCHsPIf8RjDaQRDgFXjY5cMI-p_ReYEfUnfHYVDA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/eixo/indicadores-apresentavies-dashboard/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eixo",
+								"indicadores-apresentavies-dashboard",
+								"2"
 							]
 						}
 					},
@@ -863,7 +1041,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Indicador",
@@ -949,6 +1128,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3MzkzODY4MCwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.UrRAuHryS_Flns6hYWGDIeepnmnh2TBHjz-aE9zmT8zybjo9lTBKB_vww5bcN9cXu5mbjfBYwmGKjszfv1pFlw",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1042,7 +1226,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Meta",
@@ -1057,11 +1242,16 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcyMzY5NDAwfQ.P8NhvKfKjmAhamd0L5UOTqc9xBARfMqk9VZbtFovBHo8JImTjO-y0uQtaM58L0cH6ykL0PC4rWQPslRbwk-vYQ",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"titulo\" : \"Pergunta a ser feita para o usuário\",\r\n\t\"detalhe\" : \"Trabalhos externos\",\r\n\t\"agrupamento\": 2,\r\n\t\"ordem\" : 1,\r\n\t\"temporalidade\": \"AN\",\r\n\t\"tipo\": \"TX\",\r\n\t\"cod_eixo\": 2\r\n}"
+							"raw": "{\r\n    \"meta\":\"Faze entrevista na Ilegra\",\r\n    \"pontoFraco\":\"nenhum\",\r\n    \"pontoForte\":\"nenhum\",\r\n    \"ameacaInterna\":\"nenhum\",\r\n    \"ameacaExterna\":\"nenhum\",\r\n    \"alcancado\":20,\r\n\t\"cod_eixo\": 6\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/meta",
@@ -1093,7 +1283,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcwNTgzOTIwfQ.ylQItKYhL-NUOzDEXaXvOlfricLKuS_3DbqVzvqncWSE7KOtZHkxFCCTcgt-EVJtXDxtUvDImZVjEArcBSOUpA",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcyMzY5NDAwfQ.P8NhvKfKjmAhamd0L5UOTqc9xBARfMqk9VZbtFovBHo8JImTjO-y0uQtaM58L0cH6ykL0PC4rWQPslRbwk-vYQ",
 								"type": "text"
 							}
 						],
@@ -1128,6 +1318,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcyMzY5NDAwfQ.P8NhvKfKjmAhamd0L5UOTqc9xBARfMqk9VZbtFovBHo8JImTjO-y0uQtaM58L0cH6ykL0PC4rWQPslRbwk-vYQ",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1135,7 +1330,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/meta/1",
+							"raw": "http://localhost:8080/meta/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1143,7 +1338,127 @@
 							"port": "8080",
 							"path": [
 								"meta",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por Autoavaliacao",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3MzkzODY4MCwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.UrRAuHryS_Flns6hYWGDIeepnmnh2TBHjz-aE9zmT8zybjo9lTBKB_vww5bcN9cXu5mbjfBYwmGKjszfv1pFlw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/meta/por-autoavaliacao/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta",
+								"por-autoavaliacao",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por Eixo Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3MzkzODY4MCwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.UrRAuHryS_Flns6hYWGDIeepnmnh2TBHjz-aE9zmT8zybjo9lTBKB_vww5bcN9cXu5mbjfBYwmGKjszfv1pFlw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/meta/por-eixo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta",
+								"por-eixo",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Por Status Global",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3MzkzODY4MCwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.UrRAuHryS_Flns6hYWGDIeepnmnh2TBHjz-aE9zmT8zybjo9lTBKB_vww5bcN9cXu5mbjfBYwmGKjszfv1pFlw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/meta/por-status-global/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"meta",
+								"por-status-global",
+								"2"
 							]
 						}
 					},
@@ -1159,14 +1474,19 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcyMzY5NDAwfQ.P8NhvKfKjmAhamd0L5UOTqc9xBARfMqk9VZbtFovBHo8JImTjO-y0uQtaM58L0cH6ykL0PC4rWQPslRbwk-vYQ",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"titulo\" : \"Pergunta a ser feita para o usuário\",\r\n\t\"detalhe\" : \"Trabalhos externos\",\r\n\t\"agrupamento\": 2,\r\n\t\"ordem\" : 17,\r\n\t\"temporalidade\": \"AN\",\r\n\t\"tipo\": \"TX\",\r\n\t\"cod_eixo\": 5\r\n}"
+							"raw": "{\r\n\t\"meta\":\"Ok, Esta atualizando as metas\",\r\n    \"pontoFraco\":\"nenhum\",\r\n    \"pontoForte\":\"nenhum\",\r\n    \"ameacaInterna\":\"nenhum\",\r\n    \"ameacaExterna\":\"nenhum\",\r\n    \"alcancado\":2,\r\n\t\"cod_eixo\": 2\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/meta/4",
+							"raw": "http://localhost:8080/meta/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1174,7 +1494,7 @@
 							"port": "8080",
 							"path": [
 								"meta",
-								"4"
+								"3"
 							]
 						}
 					},
@@ -1184,16 +1504,22 @@
 					"name": "Remover",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTcyMzY5NDAwfQ.P8NhvKfKjmAhamd0L5UOTqc9xBARfMqk9VZbtFovBHo8JImTjO-y0uQtaM58L0cH6ykL0PC4rWQPslRbwk-vYQ",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/meta/4",
+							"raw": "localhost:8080/meta/33",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"meta",
-								"4"
+								"33"
 							]
 						}
 					},
@@ -1350,7 +1676,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaWx2aWFAZ21haWwuY29tIiwiZXhwIjoxNTY5NTQ1MTcxfQ.dcQO3J6GAjha8e2FnsngOaG6mRTrluDIK4omrXAd1Uh44O3XccxAPEeFtd2DfZa9yGuCbKH29JjfEVeY8dWKiA",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGFyaWNlQGdtYWlsLmNvbSIsImV4cCI6MTU3MzkzODY4MCwiYXV0aG9yaXRpZXMiOlt7ImF1dGhvcml0eSI6IlJPTEVfQ09PUkRFTkFET1IifV19.UrRAuHryS_Flns6hYWGDIeepnmnh2TBHjz-aE9zmT8zybjo9lTBKB_vww5bcN9cXu5mbjfBYwmGKjszfv1pFlw",
 								"type": "text"
 							}
 						],
@@ -1446,7 +1772,9 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

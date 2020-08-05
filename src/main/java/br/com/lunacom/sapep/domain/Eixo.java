@@ -1,5 +1,7 @@
 package br.com.lunacom.sapep.domain;
 
+import br.com.lunacom.sapep.domain.dto.AutoavaliacaoCloneDTO;
+import br.com.lunacom.sapep.domain.dto.EixoNovoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,6 +48,11 @@ public class Eixo implements Serializable {
         this.nome = nome;
         this.descricao = descricao;
     }
+
+    public Object clone() {
+        return new EixoNovoDTO(this.nome, this.descricao, this.autoavaliacao.getId(), this.ordem);
+    }
+
 
     @Override
     public int hashCode() {

@@ -1,19 +1,17 @@
 package br.com.lunacom.sapep.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Time;
 import java.util.*;
 
 @Getter
 @Setter
 @Entity
-public class Autoavaliacao implements Serializable {
+public class Autoavaliacao implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -24,7 +22,7 @@ public class Autoavaliacao implements Serializable {
     private String situacao;
     private Date inicio;
     private Date termino;
-    private Date Criacao;
+    private Date criacao;
 
     @ManyToOne
     @JoinColumn(name="curso_id")
@@ -45,12 +43,19 @@ public class Autoavaliacao implements Serializable {
     }
 
     public Autoavaliacao(String nome, String objetivo, String situacao, Date inicio, Date termino, Date criacao, Curso curso) {
+            this.nome = nome;
+            this.objetivo = objetivo;
+            this.situacao = situacao;
+            this.inicio = inicio;
+            this.termino = termino;
+            this.criacao = criacao;
+            this.curso = curso;
+        }
+
+    public Autoavaliacao(String nome, String objetivo, Date criacao, Curso curso) {
         this.nome = nome;
         this.objetivo = objetivo;
-        this.situacao = situacao;
-        this.inicio = inicio;
-        this.termino = termino;
-        Criacao = criacao;
+        this.criacao = criacao;
         this.curso = curso;
     }
 
@@ -62,6 +67,10 @@ public class Autoavaliacao implements Serializable {
 //        }
 //        return lista;
 //    }
+
+    public Object clone() {
+        return new Autoavaliacao(this.nome+ " (Clone)", this.objetivo, this.criacao, this.curso);
+    }
 
     @Override
     public int hashCode() {

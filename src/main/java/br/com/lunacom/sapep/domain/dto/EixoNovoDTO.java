@@ -1,5 +1,6 @@
 package br.com.lunacom.sapep.domain.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class EixoNovoDTO implements Serializable, Dto {
     private static final long serialVersionUID = 1L;
 

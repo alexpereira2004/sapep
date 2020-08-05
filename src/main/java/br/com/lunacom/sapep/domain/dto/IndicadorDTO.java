@@ -3,6 +3,7 @@ package br.com.lunacom.sapep.domain.dto;
 import br.com.lunacom.sapep.domain.Eixo;
 import br.com.lunacom.sapep.domain.Resposta;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class IndicadorDTO implements Serializable, Dto {
 
     private static final long serialVersionUID = 1L;

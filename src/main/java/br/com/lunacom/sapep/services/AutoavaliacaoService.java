@@ -7,14 +7,11 @@ import br.com.lunacom.sapep.repositories.AutoavaliacaoRepository;
 import br.com.lunacom.sapep.security.UserSS;
 import br.com.lunacom.sapep.services.exceptions.ObjectNotFoundException;
 import br.com.lunacom.sapep.util.DataUtil;
-import org.apache.catalina.mapper.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -26,6 +23,12 @@ public class AutoavaliacaoService {
 
     @Autowired
     private CursoService cursoService;
+
+    @Autowired
+    private EixoService eixoService;
+
+    @Autowired
+    private IndicadorService indicadorService;
 
     private ModelMapper mapper = new ModelMapper();
 
@@ -39,6 +42,25 @@ public class AutoavaliacaoService {
         Curso c = cursoService.find(objDTO.getCod_curso());
         obj.setCurso(c);
         return repo.save(obj);
+    }
+
+    public Autoavaliacao clone(AutoavaliacaoCloneDTO objCloneDTO) {
+        Autoavaliacao obj = this.find(objCloneDTO.getId());
+        Autoavaliacao autoavaliacaoClone = (Autoavaliacao) obj.clone();
+        repo.save(autoavaliacaoClone);
+
+        obj.getEixos().forEach( e -> {
+                    EixoNovoDTO clone = new EixoNovoDTO(
+                            e.getNome(), e.getDescricao(), autoavaliacaoClone.getId(), e.getOrdem());
+                    Eixo novoEixo = eixoService.insert(clone);
+                    e.getIndicadores().forEach(i -> {
+                        IndicadorDTO cloneIndicador = new IndicadorDTO(
+                                null,i.getTitulo(), i.getDetalhe(), i.getAgrupamento(), i.getOrdem(),
+                                i.getTemporalidade(),i.getTipo(), new Date(), novoEixo.getId());
+                        indicadorService.insert(cloneIndicador);
+                    });
+                });
+        return autoavaliacaoClone;
     }
 
     public List<AutoavaliacaoResumoDTO> findAll() {
