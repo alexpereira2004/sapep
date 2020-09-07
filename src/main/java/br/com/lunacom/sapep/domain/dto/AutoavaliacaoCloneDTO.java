@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
@@ -17,6 +16,11 @@ public class AutoavaliacaoCloneDTO implements Serializable, Dto {
     @Min(1)
     private Integer id;
 
-    @NotEmpty(message="Informe o nome do processo de autoavaliação")
     private String nome;
+
+    @NotNull
+    private Date inicio;
+
+    @NotNull
+    private Date termino;
 }

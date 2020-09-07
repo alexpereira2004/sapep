@@ -22,3 +22,9 @@ Os resultados esperados após a entrega do artefato aqui proposto é de que seja
 #### Técnicas usadas:
 - [Lombok](https://dzone.com/articles/project-lombok-boilerplate-code-reducer)
 - [Modelmapper](https://blog.caelum.com.br/mapeando-objeto-para-objeto-com-modelmapper/)
+
+#### Comandos úteis
+
+- Para iniciar o frontend:
+
+      ng serve --port 5000

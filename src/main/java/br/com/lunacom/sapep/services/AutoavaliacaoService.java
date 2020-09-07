@@ -44,14 +44,16 @@ public class AutoavaliacaoService {
         return repo.save(obj);
     }
 
-    public Autoavaliacao clone(AutoavaliacaoCloneDTO objCloneDTO) {
-        Autoavaliacao obj = this.find(objCloneDTO.getId());
-        Autoavaliacao autoavaliacaoClone = (Autoavaliacao) obj.clone();
-        repo.save(autoavaliacaoClone);
+    public Autoavaliacao clone(AutoavaliacaoCloneDTO dto) {
+        Autoavaliacao mae = this.find(dto.getId());
+        Autoavaliacao novaAutoavaliacao = (Autoavaliacao) mae.clone();
+        novaAutoavaliacao.setInicio(dto.getInicio());
+        novaAutoavaliacao.setTermino(dto.getTermino());
+        repo.save(novaAutoavaliacao);
 
-        obj.getEixos().forEach( e -> {
+        mae.getEixos().forEach( e -> {
                     EixoNovoDTO clone = new EixoNovoDTO(
-                            e.getNome(), e.getDescricao(), autoavaliacaoClone.getId(), e.getOrdem());
+                            e.getNome(), e.getDescricao(), novaAutoavaliacao.getId(), e.getOrdem());
                     Eixo novoEixo = eixoService.insert(clone);
                     e.getIndicadores().forEach(i -> {
                         IndicadorDTO cloneIndicador = new IndicadorDTO(
@@ -60,7 +62,7 @@ public class AutoavaliacaoService {
                         indicadorService.insert(cloneIndicador);
                     });
                 });
-        return autoavaliacaoClone;
+        return novaAutoavaliacao;
     }
 
     public List<AutoavaliacaoResumoDTO> findAll() {

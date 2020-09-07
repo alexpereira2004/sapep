@@ -39,7 +39,6 @@ public class Indicador implements Serializable {
     @JoinColumn(name="eixo_id")
     private Eixo eixo;
 
-
     @OneToMany(mappedBy = "indicador")
     List<Resposta> respostas;
 

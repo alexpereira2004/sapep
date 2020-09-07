@@ -25,7 +25,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = { ConceitoResource.class, CursoResource.class})
-//@ActiveProfiles("test")
+@ActiveProfiles("test")
 public class TestConceitoResource {
 
     @MockBean

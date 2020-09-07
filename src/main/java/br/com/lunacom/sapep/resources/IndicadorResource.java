@@ -2,8 +2,10 @@ package br.com.lunacom.sapep.resources;
 
 import br.com.lunacom.sapep.domain.Indicador;
 import br.com.lunacom.sapep.domain.dto.IndicadorDTO;
+import br.com.lunacom.sapep.resources.response.IndicadorFindResponse;
 import br.com.lunacom.sapep.services.IndicadorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +14,16 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping(value="/indicador")
 public class IndicadorResource {
 
-    @Autowired
-    private IndicadorService service;
+    private final ModelMapper modelMapper;
+
+    private final IndicadorService service;
 
     @RequestMapping(method= RequestMethod.POST)
     @PreAuthorize("hasAnyRole('PROPPI', 'COORDENADOR')")
@@ -30,9 +35,14 @@ public class IndicadorResource {
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public ResponseEntity<List<Indicador>> findAll() {
+    public ResponseEntity<List<IndicadorFindResponse>> findAll() {
         List<Indicador> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        final List<IndicadorFindResponse> collect = list
+                .stream()
+                .map(i -> modelMapper.map(i, IndicadorFindResponse.class))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(collect);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
